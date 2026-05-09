@@ -1,14 +1,29 @@
 /* Footer Styles */
 .footer {
-  background-color: var(--primary-color);
+  background: linear-gradient(135deg, #000 0%, #1a1a1a 100%);
   color: var(--white);
   padding: 60px 20px 30px;
   margin-top: 100px;
+  position: relative;
+  overflow: hidden;
+}
+
+.footer::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: radial-gradient(circle at 20% 50%, rgba(211, 47, 47, 0.1) 0%, transparent 50%);
+  pointer-events: none;
 }
 
 .footer__container {
   max-width: 1200px;
   margin: 0 auto;
+  position: relative;
+  z-index: 2;
 }
 
 .footer__content {
@@ -28,6 +43,10 @@
   letter-spacing: 1px;
   font-weight: 600;
   text-transform: uppercase;
+  background: linear-gradient(135deg, #fff 0%, #ccc 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
 }
 
 .footer__section-list {
@@ -41,9 +60,25 @@
 .footer__link {
   color: #bbb;
   text-decoration: none;
-  transition: var(--transition);
+  transition: var(--transition-slow);
   font-size: 13px;
   display: inline-block;
+  position: relative;
+}
+
+.footer__link::after {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background-color: var(--secondary-color);
+  transition: var(--transition);
+}
+
+.footer__link:hover::after {
+  width: 100%;
 }
 
 .footer__link:hover {

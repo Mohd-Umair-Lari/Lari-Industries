@@ -10,6 +10,7 @@ const Contact = () => {
   });
 
   const [submitStatus, setSubmitStatus] = useState('');
+  const [focusedField, setFocusedField] = useState('');
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -17,6 +18,14 @@ const Contact = () => {
       ...prev,
       [name]: value
     }));
+  };
+
+  const handleFocus = (e) => {
+    setFocusedField(e.target.name);
+  };
+
+  const handleBlur = () => {
+    setFocusedField('');
   };
 
   const handleSubmit = (e) => {
@@ -37,15 +46,15 @@ const Contact = () => {
           <div className="contact__content">
             <div className="contact__info">
               <div className="contact__info-item">
-                <h4 className="contact__info-title">THROUGH Email</h4>
+                <h4 className="contact__info-title">✉ THROUGH Email</h4>
                 <p><a href="mailto:Larindustries@gmail.com" className="contact__link">Larindustries@gmail.com</a></p>
               </div>
               <div className="contact__info-item">
-                <h4 className="contact__info-title">THROUGH Contact No.</h4>
+                <h4 className="contact__info-title">☎ THROUGH Contact No.</h4>
                 <p><a href="tel:+919956675648" className="contact__link">+91 9956675648</a></p>
               </div>
               <div className="contact__info-item">
-                <h4 className="contact__info-title">ADDRESS</h4>
+                <h4 className="contact__info-title">📍 ADDRESS</h4>
                 <p>C-33 CHANDRA NAGAR, LAL BANGLAW,<br/>KANPUR-208007, INDIA</p>
               </div>
             </div>
@@ -57,6 +66,8 @@ const Contact = () => {
                 placeholder="Your Name" 
                 value={formData.name}
                 onChange={handleChange}
+                onFocus={handleFocus}
+                onBlur={handleBlur}
                 className="contact__input"
                 required 
               />
@@ -66,6 +77,8 @@ const Contact = () => {
                 placeholder="Your Email" 
                 value={formData.email}
                 onChange={handleChange}
+                onFocus={handleFocus}
+                onBlur={handleBlur}
                 className="contact__input"
                 required 
               />
@@ -75,6 +88,8 @@ const Contact = () => {
                 placeholder="Subject" 
                 value={formData.subject}
                 onChange={handleChange}
+                onFocus={handleFocus}
+                onBlur={handleBlur}
                 className="contact__input"
                 required 
               />
@@ -84,6 +99,8 @@ const Contact = () => {
                 rows="5" 
                 value={formData.message}
                 onChange={handleChange}
+                onFocus={handleFocus}
+                onBlur={handleBlur}
                 className="contact__textarea"
                 required
               ></textarea>
@@ -91,7 +108,7 @@ const Contact = () => {
                 type="submit" 
                 className={`contact__button ${submitStatus === 'sent' ? 'sent' : ''}`}
               >
-                {submitStatus === 'sent' ? 'MESSAGE SENT ✓' : 'SEND MESSAGE'}
+                {submitStatus === 'sent' ? '✓ MESSAGE SENT' : 'SEND MESSAGE'}
               </button>
             </form>
           </div>
