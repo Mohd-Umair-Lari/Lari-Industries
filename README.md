@@ -1,190 +1,72 @@
-# Lari Industries - Professional eCommerce Website
+# Lari Industries - Safety Equipment Store
 
-A modern, professional React-based ecommerce website for Lari Industries, a leading supplier of industrial safety equipment and personal protective equipment (PPE).
+A simple, fast, and modern dropshipping website for safety equipment.
 
-## 🎯 Features
+## Features
 
-- **Multi-page Architecture**: Separate pages for Home, Services, About, News, and Contact
-- **Product Showcase**: 12 industrial safety products with detailed information
-- **Professional Design**: Minimalist aesthetic with professional typography (Times New Roman)
-- **Responsive Design**: Fully responsive with mobile hamburger menu
-- **Modern Stack**: Built with React 18, React Router DOM, and modern CSS
-- **Smooth Animations**: Elegant transitions and animations using modern CSS
-- **Contact Integration**: Functional contact form with feedback
+- ✅ **No Framework** - Pure HTML, CSS, and JavaScript
+- ✅ **Fast Loading** - Instant page loads, no build process
+- ✅ **Responsive Design** - Works on all devices
+- ✅ **Shopping Cart** - Local storage based cart system
+- ✅ **Contact Form** - Customer inquiries
+- ✅ **Deployment Ready** - One-click deploy to Vercel
 
-## 📁 Project Structure
+## Structure
 
 ```
 lariindustries/
-├── public/
-│   └── index.html              # HTML entry point
-├── src/
-│   ├── components/
-│   │   ├── Header.jsx          # Navigation header with logo
-│   │   ├── Footer.jsx          # Footer with links
-│   │   └── ProductCard.jsx     # Reusable product card component
-│   ├── pages/
-│   │   ├── Home.jsx            # Landing page
-│   │   ├── Services.jsx        # Products showcase
-│   │   ├── About.jsx           # Company information
-│   │   ├── News.jsx            # News articles
-│   │   └── Contact.jsx         # Contact form
-│   ├── styles/
-│   │   ├── index.css           # Global styles
-│   │   ├── App.css             # App layout
-│   │   ├── Header.css          # Header styles
-│   │   ├── Footer.css          # Footer styles
-│   │   ├── ProductCard.css     # Product card styles
-│   │   ├── Home.css            # Home page styles
-│   │   ├── Services.css        # Services page styles
-│   │   ├── About.css           # About page styles
-│   │   ├── News.css            # News page styles
-│   │   └── Contact.css         # Contact page styles
-│   ├── App.jsx                 # Main app component with routing
-│   └── index.jsx               # React DOM render
-├── images/                     # Product and asset images
-├── package.json                # Dependencies and scripts
-├── .gitignore                  # Git ignore file
-└── README.md                   # This file
+├── index.html      # Main website
+├── style.css       # All styling
+├── app.js          # All functionality
+├── images/         # Product images
+├── vercel.json     # Vercel config
+└── README.md       # This file
 ```
 
-## 🚀 Getting Started
+## Quick Start
 
-### Prerequisites
-- Node.js (v14 or higher)
-- npm or yarn
+1. **Local Testing:**
+   - Open `index.html` in a browser
+   - Or run: `npx serve` (requires Node.js)
 
-### Installation
+2. **Deployment:**
+   - Push to GitHub
+   - Connect to Vercel
+   - Deploy automatically
 
-1. Clone the repository
-```bash
-cd lariindustries
-```
+## Technology
 
-2. Install dependencies
-```bash
-npm install
-```
+- **Language:** HTML5, CSS3, Vanilla JavaScript (ES6+)
+- **Storage:** Browser LocalStorage for cart
+- **Hosting:** Vercel (or any static host)
+- **Build:** None needed! (Zero build time)
 
-3. Start the development server
-```bash
-npm start
-```
+## Products
 
-The app will open at [http://localhost:3000](http://localhost:3000)
+Uses images from the `images/` folder for:
+- Safety gloves (yellow, welding, professional)
+- Safety shoes (SLS-103 model)
+- Protective aprons
+- Various industrial safety equipment
 
-### Build for Production
-```bash
-npm run build
-```
+## Customization
 
-## 🎨 Design System
+Edit `app.js` to modify:
+- Product list and prices
+- Cart functionality
+- Contact form behavior
 
-### Colors
-- **Primary**: `#000` (Black)
-- **Secondary**: `#d32f2f` (Red)
-- **Background**: `#f5f5f5` (Light Gray)
-- **Text**: `#333` (Dark Gray)
+Edit `style.css` to modify:
+- Colors
+- Fonts
+- Layout
 
-### Typography
-- **Font Family**: Times New Roman, serif (Professional, elegant)
-- **Sizing**: Responsive, scales from mobile to desktop
+## Contact
 
-### Responsive Breakpoints
-- **Mobile**: < 480px
-- **Tablet**: 480px - 768px
-- **Desktop**: > 768px
-
-## 📦 Dependencies
-
-- **React**: 18.2.0 - UI library
-- **React DOM**: 18.2.0 - React DOM rendering
-- **React Router DOM**: 6.8.0 - Client-side routing
-- **Axios**: 1.3.0 - HTTP client
-- **Framer Motion**: 10.0.0 - Animation library
-- **React Scripts**: 5.0.1 - Build tools
-
-## 🛍️ Products
-
-The website showcases 12 industrial safety products including:
-- Safety helmets
-- Protective clothing
-- Safety equipment
-- And more...
-
-## 📞 Contact Information
-
-- **Email**: Larindustries@gmail.com
-- **Phone**: +91 9956675648
-- **Address**: C-33 CHANDRA NAGAR, LAL BANGLAW, KANPUR-208007, INDIA
-
-## 📄 Company Info
-
-**Lari Industries**
-- Established: 2005
-- Specialization: Industrial Safety Equipment & PPE
-- Motto: "THINK SAFETY BEFORE YOU START"
-
-## ✨ Features & Highlights
-
-### Home Page
-- Professional hero section with company branding
-- Gallery of featured products
-- Company tagline and description
-
-### Services Page
-- Grid showcase of all 12 products
-- Product cards with images, descriptions, and pricing
-- Add to cart functionality
-
-### About Page
-- Company history and mission
-- Key value propositions
-- Professional features highlight
-
-### News Page
-- Latest company announcements
-- Alternating image and content layout
-- Professional news article presentation
-
-### Contact Page
-- Functional contact form
-- Multiple contact methods (email, phone)
-- Company location information
-
-## 🔧 Technologies
-
-- **Frontend Framework**: React 18
-- **Routing**: React Router DOM v6
-- **Styling**: Custom CSS with BEM methodology
-- **Build Tool**: Create React App (React Scripts)
-- **HTTP Client**: Axios
-- **Animations**: CSS & Framer Motion
-
-## 📱 Responsive Features
-
-- Mobile hamburger menu
-- Flexible grid layouts
-- Touch-friendly interface
-- Optimized for all device sizes
-
-## 🔐 Best Practices
-
-- Component-based architecture
-- Proper separation of concerns
-- BEM CSS methodology
-- Semantic HTML
-- Accessible design
-- Performance optimized
-
-## 📝 License
-
-All rights reserved © Lari Industries 2024
-
-## 🤝 Support
-
-For support or inquiries, please contact:
 - Email: Larindustries@gmail.com
 - Phone: +91 9956675648
+- Address: C-33 CHANDRA NAGAR, KANPUR-208007, INDIA
 
----
+## License
+
+© 2026 Lari Industries. All rights reserved.
