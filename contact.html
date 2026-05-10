@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact - Lari Industries</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Header Navigation -->
+    <header class="header">
+        <div class="container">
+            <div class="logo">L</div>
+            <nav class="nav">
+                <a href="index.html" class="nav-link">HOME</a>
+                <a href="services.html" class="nav-link">SERVICES</a>
+                <a href="about.html" class="nav-link">ABOUT</a>
+                <a href="news.html" class="nav-link">NEWS</a>
+                <a href="contact.html" class="nav-link">CONTACT</a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Contact Section -->
+    <section class="contact contact-page">
+        <div class="container">
+            <div class="contact-header">
+                <h1>Reach Out to Us</h1>
+                <p class="contact-subtitle">We'd love to hear from you. Get in touch with us today for inquiries, bulk orders, or partnerships.</p>
+            </div>
+
+            <div class="contact-content">
+                <!-- Contact Information -->
+                <div class="contact-info-section">
+                    <h2>Contact Information</h2>
+                    
+                    <div class="info-box">
+                        <h3>📧 Email</h3>
+                        <p><a href="mailto:Larindustries@gmail.com">Larindustries@gmail.com</a></p>
+                        <p class="info-subtext">Response time: Within 24 hours</p>
+                    </div>
+
+                    <div class="info-box">
+                        <h3>📞 Phone</h3>
+                        <p><a href="tel:+919956675648">+91 9956675648</a></p>
+                        <p class="info-subtext">Monday - Friday: 9:00 AM - 6:00 PM IST</p>
+                    </div>
+
+                    <div class="info-box">
+                        <h3>📍 Office Address</h3>
+                        <p>C-33 CHANDRA NAGAR<br>LAL BANGLAW<br>KANPUR - 208007<br>UTTAR PRADESH, INDIA</p>
+                        <p class="info-subtext">Established in 2005</p>
+                    </div>
+
+                    <div class="info-box">
+                        <h3>🕐 Business Hours</h3>
+                        <p>Monday - Friday: 9:00 AM - 6:00 PM<br>Saturday: 10:00 AM - 3:00 PM<br>Sunday: Closed</p>
+                    </div>
+                </div>
+
+                <!-- Contact Form -->
+                <div class="contact-form-section">
+                    <h2>Send us a Message</h2>
+                    <form class="contact-form" onsubmit="handleContactForm(event)">
+                        <div class="form-group">
+                            <label for="name">Full Name *</label>
+                            <input type="text" id="name" name="name" required placeholder="Your full name">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="email">Email Address *</label>
+                            <input type="email" id="email" name="email" required placeholder="your.email@example.com">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="phone">Phone Number</label>
+                            <input type="tel" id="phone" name="phone" placeholder="+91 XXXXX XXXXX">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="subject">Subject *</label>
+                            <input type="text" id="subject" name="subject" required placeholder="Inquiry / Order / Partnership">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="message">Message *</label>
+                            <textarea id="message" name="message" rows="6" required placeholder="Tell us about your inquiry or requirements..."></textarea>
+                        </div>
+
+                        <button type="submit" class="submit-btn">Send Message</button>
+                    </form>
+                </div>
+            </div>
+
+            <!-- Map Section -->
+            <div class="location-section">
+                <h2>Find Us</h2>
+                <p>Visit our office in Kanpur for direct consultation and product demonstrations</p>
+                <iframe width="100%" height="400" style="border: 1px solid #ddd; border-radius: 8px; margin-top: 2rem;" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3466.8435369476383!2d75.82521!3d26.16029!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x396d9b6d3d3d3d3d%3A0x0!2sLari%20Industries!5e0!3m2!1sen!2sin!4v1234567890" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2026 Lari Industries. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="app.js"></script>
+</body>
+</html>
