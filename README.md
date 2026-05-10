@@ -18,7 +18,7 @@ lariindustries/
 ├── index.html      # Main website
 ├── style.css       # All styling
 ├── app.js          # All functionality
-├── images/         # Product images
+├── static/images/  # Product images
 ├── vercel.json     # Vercel config
 └── README.md       # This file
 ```
@@ -43,7 +43,7 @@ lariindustries/
 
 ## Products
 
-Uses images from the `images/` folder for:
+Uses images from the `static/images/` folder for:
 - Safety gloves (yellow, welding, professional)
 - Safety shoes (SLS-103 model)
 - Protective aprons

@@ -3,4 +3,7 @@ node_modules/
 *.log
 .env
 .vercel
-images/
+dist/
+build/
+coverage/
+.idea/
