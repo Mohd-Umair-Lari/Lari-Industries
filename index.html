@@ -3,91 +3,92 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Lari Industries - Safety Equipment Store</title>
+    <title>Lari Industries - Safety Equipment</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <!-- Navigation -->
-    <nav class="navbar">
+    <!-- Header Navigation -->
+    <header class="header">
         <div class="container">
-            <div class="nav-brand">
-                <h1>🛡️ Lari Industries</h1>
-                <p class="tagline">Premium Safety Equipment</p>
-            </div>
-            <div class="nav-right">
+            <div class="logo">L</div>
+            <nav class="nav">
+                <a href="#header" class="nav-link">HEADER</a>
                 <a href="#home" class="nav-link">HOME</a>
-                <a href="#products" class="nav-link">PRODUCTS</a>
+                <a href="#services" class="nav-link">SERVICES</a>
+                <a href="#about" class="nav-link">ABOUT</a>
+                <a href="#news" class="nav-link">NEWS</a>
                 <a href="#contact" class="nav-link">CONTACT</a>
-                <button class="cart-btn" onclick="toggleCart()">
-                    🛒 Cart <span id="cart-count" class="badge">0</span>
-                </button>
-            </div>
+            </nav>
         </div>
-    </nav>
+    </header>
 
-    <!-- Hero Section -->
-    <section id="home" class="hero">
+    <!-- Home Section -->
+    <section id="home" class="home">
         <div class="container">
-            <div class="hero-content">
-                <h2>THINK SAFETY BEFORE YOU START</h2>
-                <p>Professional Safety Equipment for Industrial Workers</p>
-                <button class="btn btn-primary" onclick="scrollToProducts()">Shop Now</button>
+            <h1 class="main-title">LARI INDUSTRIES</h1>
+            <p class="established">Estd:2005</p>
+            <h2 class="tagline">THINK SAFETY BEFORE YOU START</h2>
+            <p class="description">
+                <span class="highlight">LARI INDUSTRIES</span> has been successfully producing leather safety articles for personnel protection since 2005. Due to our Company's focus on innovation and several-year experience, we can offer our industrial need for hand protection a wide range of very competitive and highly technical products like leather industrial safety gloves and shoes/boots, aprons, leather jackets for industrial workers, leg guard etc.
+            </p>
+            <div class="home-images">
+                <div class="home-image">
+                    <img src="images/8-cat.jpg" alt="Safety Shoes">
+                </div>
+                <div class="home-image">
+                    <h4>SLS - 103</h4>
+                    <img src="images/5-cat_orig.jpg" alt="SLS-103">
+                </div>
+                <div class="home-image">
+                    <img src="images/1-cat.jpg" alt="Safety Gloves">
+                </div>
             </div>
         </div>
     </section>
 
-    <!-- Products Section -->
-    <section id="products" class="products">
+    <!-- Services Section -->
+    <section id="services" class="services">
         <div class="container">
-            <h2>Our Products</h2>
-            <div class="products-grid" id="products-grid">
+            <h2>Products And Services</h2>
+            <p class="services-intro">We make varieties of leather articles like Personal protective equipments, <strong>Welder gloves and Gauntlets, Safety shoes, Aprons</strong> and other safety items</p>
+            <div class="services-grid" id="services-grid">
                 <!-- Products will be loaded here -->
             </div>
         </div>
     </section>
 
-    <!-- Shopping Cart Sidebar -->
-    <div class="cart-sidebar" id="cart-sidebar">
-        <div class="cart-header">
-            <h3>Shopping Cart</h3>
-            <button class="close-btn" onclick="toggleCart()">✕</button>
+    <!-- About Section -->
+    <section id="about" class="about">
+        <div class="container">
+            <h2>THINK SAFETY BEFORE YOU START</h2>
+            <p class="about-text">
+                <span class="highlight">LARI INDUSTRIES</span> has been successfully producing leather safety articles for personnel protection since 2005. Due to our Company's focus on innovation and several-year experience, we can offer our industrial need for hand protection a wide range of very competitive and highly technical products like leather industrial safety gloves and shoes/boots, aprons, leather jackets for industrial workers, leg guard etc.
+            </p>
         </div>
-        <div class="cart-items" id="cart-items">
-            <p class="empty-cart">Your cart is empty</p>
+        <div class="about-banner">
+            <h3>Contact Us Today to Reserve a Time</h3>
         </div>
-        <div class="cart-footer">
-            <div class="cart-total">
-                <strong>Total: ₹<span id="total-price">0</span></strong>
+    </section>
+
+    <!-- News Section -->
+    <section id="news" class="news">
+        <div class="container">
+            <div class="news-item">
+                <div class="news-label">NEW</div>
+                <h3>WE ALSO PLAN TO MAKE SOME HORSE SADDLE FOR EXPORTIAS WELL AS LOCAL</h3>
+                <img src="images/getdownload-1.jpg" alt="News">
             </div>
-            <button class="btn btn-primary" onclick="checkout()">Proceed to Checkout</button>
         </div>
-    </div>
+    </section>
 
     <!-- Contact Section -->
     <section id="contact" class="contact">
         <div class="container">
-            <h2>Get in Touch</h2>
-            <div class="contact-content">
-                <div class="contact-info">
-                    <div class="info-box">
-                        <h4>📧 Email</h4>
-                        <p><a href="mailto:Larindustries@gmail.com">Larindustries@gmail.com</a></p>
-                    </div>
-                    <div class="info-box">
-                        <h4>📞 Phone</h4>
-                        <p><a href="tel:+919956675648">+91 9956675648</a></p>
-                    </div>
-                    <div class="info-box">
-                        <h4>📍 Location</h4>
-                        <p>C-33 CHANDRA NAGAR, LAL BANGLAW<br>KANPUR-208007, INDIA</p>
-                    </div>
-                </div>
-                <form class="contact-form" onsubmit="handleContactForm(event)">
-                    <input type="text" placeholder="Your Name" required>
-                    <input type="email" placeholder="Your Email" required>
-                    <textarea placeholder="Your Message" rows="5" required></textarea>
-                    <button type="submit" class="btn btn-primary">Send Message</button>
-                </form>
+            <h2>Reach Out to Us</h2>
+            <div class="contact-info">
+                <p><strong>THROUGH Email ·</strong> <a href="mailto:Larindustries@gmail.com">Larindustries@gmail.com</a></p>
+                <p><strong>THROUGH Contact No. ·</strong> <a href="tel:+919956675648">+91 9956675648</a></p>
+                <p><strong>ADDRESS</strong><br>C-33 CHANDRA NAGAR, LAL BANGLAW,<br>KANPUR-208007.</p>
             </div>
         </div>
     </section>
@@ -95,7 +96,7 @@
     <!-- Footer -->
     <footer class="footer">
         <div class="container">
-            <p>&copy; 2026 Lari Industries. All rights reserved. | Established 2005</p>
+            <p>&copy; 2026 Lari Industries. All rights reserved.</p>
         </div>
     </footer>
 
