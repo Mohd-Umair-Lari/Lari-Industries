@@ -188,5 +188,3 @@ For support or inquiries, please contact:
 - Phone: +91 9956675648
 
 ---
-
-**Made with ❤️ for Lari Industries**
