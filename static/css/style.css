@@ -223,7 +223,7 @@ a {
     line-height: 1.8;
 }
 
-.services-grid {
+.products-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
     gap: 1rem;
@@ -798,7 +798,7 @@ a {
         text-align: center;
     }
 
-    .services-grid {
+    .products-grid {
         grid-template-columns: repeat(3, 1fr);
         gap: 0.8rem;
     }
