@@ -42,7 +42,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
 // Render Products
 function renderProducts() {
-    const grid = document.getElementById('services-grid');
+    const grid = document.getElementById('products-grid');
     grid.innerHTML = products.map(product => `
         <div class="service-item">
             <img src="${product.image}" alt="${product.name}">
