@@ -225,8 +225,8 @@ a {
 
 .products-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-    gap: 1rem;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
 }
 
 .service-item {
@@ -800,7 +800,7 @@ a {
 
     .products-grid {
         grid-template-columns: repeat(3, 1fr);
-        gap: 0.8rem;
+        gap: 1rem;
     }
 
     .benefits {
