@@ -2,35 +2,35 @@
 const products = [
     {
         name: 'Yellow Rubber Work Gloves',
-        image: 'images/1-cat.jpg'
+        image: 'static/images/1-cat.jpg'
     },
     {
         name: 'Professional Safety Glove Set',
-        image: 'images/2-cat.jpg'
+        image: 'static/images/2-cat.jpg'
     },
     {
         name: 'Welding Protection Gloves',
-        image: 'images/3-cat.jpg'
+        image: 'static/images/3-cat.jpg'
     },
     {
         name: 'Industrial Yellow Safety Gloves',
-        image: 'images/4-cat.jpg'
+        image: 'static/images/4-cat.jpg'
     },
     {
         name: 'Safety Shoes SLS-103',
-        image: 'images/5-cat_orig.jpg'
+        image: 'static/images/5-cat_orig.jpg'
     },
     {
         name: 'Black Safety Boots',
-        image: 'images/6-cat_orig.jpg'
+        image: 'static/images/6-cat_orig.jpg'
     },
     {
         name: 'White Cotton Protection Apron',
-        image: 'images/7-cat.jpg'
+        image: 'static/images/7-cat.jpg'
     },
     {
         name: 'Safety Shoes Premium',
-        image: 'images/8-cat.jpg'
+        image: 'static/images/8-cat.jpg'
     }
 ];
 
