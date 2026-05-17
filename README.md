@@ -2,15 +2,6 @@
 
 A simple, fast, and modern dropshipping website for safety equipment.
 
-## Features
-
-- ✅ **No Framework** - Pure HTML, CSS, and JavaScript
-- ✅ **Fast Loading** - Instant page loads, no build process
-- ✅ **Responsive Design** - Works on all devices
-- ✅ **Shopping Cart** - Local storage based cart system
-- ✅ **Contact Form** - Customer inquiries
-- ✅ **Deployment Ready** - One-click deploy to Vercel
-
 ## Structure
 
 ```
