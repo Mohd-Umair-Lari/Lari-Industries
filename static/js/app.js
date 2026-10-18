@@ -4,7 +4,7 @@ const products = [
     {
         category: 'Aprons',
         name: 'Leather Welding Apron',
-        image: 'static/images/Aprons/Leather Welding Apron .jpeg',
+        image: 'static/images/Aprons/Leather Welding Apron.jpeg',
         price: '₹1,499'
     },
     {
@@ -22,13 +22,13 @@ const products = [
     {
         category: 'Aprons',
         name: 'Cotton Safety Apron',
-        image: 'static/images/Aprons/cotton apron 1 .jpg',
+        image: 'static/images/Aprons/cotton apron 1.jpg',
         price: '₹549'
     },
     {
         category: 'Aprons',
         name: 'Cotton Work Apron – Type B',
-        image: 'static/images/Aprons/cotton apron 2 .jpg',
+        image: 'static/images/Aprons/cotton apron 2.jpg',
         price: '₹599'
     },
     {
@@ -54,19 +54,19 @@ const products = [
     {
         category: 'Asbestos Gloves',
         name: 'Asbestos Safety Gloves – Type A',
-        image: 'static/images/Asbestos Gloves/ASbestos Gloves 1 (1) (1).jpg',
+        image: 'static/images/Asbestos Gloves/ASbestos Gloves 1.jpg',
         price: '₹749'
     },
     {
         category: 'Asbestos Gloves',
         name: 'Asbestos Safety Gloves – Type B',
-        image: 'static/images/Asbestos Gloves/ASbestos Gloves 2 (1).jpg',
+        image: 'static/images/Asbestos Gloves/ASbestos Gloves 2.jpg',
         price: '₹799'
     },
     {
         category: 'Asbestos Gloves',
         name: 'Asbestos Safety Gloves – Type C',
-        image: 'static/images/Asbestos Gloves/ASbestos Gloves 3 (1).jpg',
+        image: 'static/images/Asbestos Gloves/ASbestos Gloves 3.jpg',
         price: '₹849'
     },
 
@@ -112,7 +112,7 @@ const products = [
     {
         category: 'Industrial Gloves',
         name: 'Leather Welding Gloves',
-        image: 'static/images/Gloves Images/Leather Welding  Gloves.jpg',
+        image: 'static/images/Gloves Images/Leather Welding Gloves.jpg',
         price: '₹649'
     },
     {
@@ -136,7 +136,7 @@ const products = [
     {
         category: 'Industrial Gloves',
         name: 'Drill Work Gloves',
-        image: 'static/images/Gloves Images/Drill Gloves 1 jpg (1) cc.jpg',
+        image: 'static/images/Gloves Images/Drill Gloves 1 cc.jpg',
         price: '₹549'
     },
     {
@@ -302,13 +302,13 @@ const products = [
     {
         category: 'Leather Washers',
         name: 'Leather Washer – Standard',
-        image: 'static/images/Leather Washer/Leather washer 1 a .jpg',
+        image: 'static/images/Leather Washer/Leather washer 1 a.jpg',
         price: '₹199'
     },
     {
         category: 'Leather Washers',
         name: 'Leather Washer – Heavy Duty',
-        image: 'static/images/Leather Washer/Leather washer 2 a .jpg',
+        image: 'static/images/Leather Washer/Leather washer 2 a.jpg',
         price: '₹249'
     },
     {
@@ -465,6 +465,51 @@ function filterProducts(category) {
     renderProducts();
 }
 
+// Safe URL encoder
+function getSafeImageUrl(path) {
+    if (!path) return '';
+    return encodeURI(path);
+}
+
+// Resilient Image Fallback Handler
+function handleImageError(img, title, category) {
+    if (img.dataset.failed) return;
+
+    // Retry once with alternative root-relative path
+    if (!img.dataset.retried) {
+        img.dataset.retried = 'true';
+        const currentSrc = img.getAttribute('src');
+        if (currentSrc.startsWith('/')) {
+            img.src = currentSrc.slice(1);
+            return;
+        } else {
+            img.src = '/' + currentSrc;
+            return;
+        }
+    }
+
+    img.dataset.failed = 'true';
+
+    // Elegant fallback SVG badge
+    const initial = (title || 'L').charAt(0).toUpperCase();
+    const safeTitle = (title || 'Safety Equipment').replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
+    const safeCat = (category || 'Lari Industries').replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
+    const svg = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 300" width="100%" height="100%">
+        <defs>
+            <linearGradient id="grad" x1="0%" y1="0%" x2="100%" y2="100%">
+                <stop offset="0%" stop-color="#1e293b"/>
+                <stop offset="100%" stop-color="#0f172a"/>
+            </linearGradient>
+        </defs>
+        <rect width="100%" height="100%" fill="url(#grad)"/>
+        <circle cx="200" cy="115" r="46" fill="#334155" stroke="#e67e22" stroke-width="2.5"/>
+        <text x="200" y="129" font-family="-apple-system, BlinkMacSystemFont, Segoe UI, Roboto, sans-serif" font-size="34" font-weight="700" fill="#e67e22" text-anchor="middle">${initial}</text>
+        <text x="200" y="195" font-family="-apple-system, BlinkMacSystemFont, Segoe UI, Roboto, sans-serif" font-size="14" font-weight="600" fill="#f8fafc" text-anchor="middle">${safeTitle}</text>
+        <text x="200" y="220" font-family="-apple-system, BlinkMacSystemFont, Segoe UI, Roboto, sans-serif" font-size="11" letter-spacing="1" fill="#94a3b8" text-anchor="middle">${safeCat}</text>
+    </svg>`;
+    img.src = 'data:image/svg+xml;charset=utf-8,' + encodeURIComponent(svg);
+}
+
 // Render Products
 function renderProducts() {
     const grid = document.getElementById('products-grid');
@@ -474,17 +519,27 @@ function renderProducts() {
         ? products
         : products.filter(p => p.category === activeCategory);
 
-    grid.innerHTML = filtered.map((product, index) => `
+    grid.innerHTML = filtered.map((product, index) => {
+        const safeTitle = (product.name || '').replace(/'/g, "\\'");
+        const safeCat = (product.category || '').replace(/'/g, "\\'");
+        const safeSrc = getSafeImageUrl(product.image);
+
+        return `
         <div class="service-item" style="animation-delay: ${index * 0.05}s">
             <div class="product-image-wrapper">
-                <img src="${product.image}" alt="${product.name}" loading="lazy">
+                <img src="${safeSrc}" 
+                     alt="${product.name}" 
+                     loading="lazy" 
+                     decoding="async"
+                     onerror="handleImageError(this, '${safeTitle}', '${safeCat}')">
                 <span class="product-category-badge">${product.category}</span>
             </div>
             <h3>${product.name}</h3>
             <div class="product-price">${product.price}</div>
             <a href="contact.html" class="product-enquiry-btn">Enquire Now</a>
         </div>
-    `).join('');
+        `;
+    }).join('');
 
     // Update product count
     const countEl = document.getElementById('product-count');
