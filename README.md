@@ -12,7 +12,7 @@ This application is built as a full-stack **Next.js 14 (App Router) + React + No
 - **Razorpay Payment Gateway**: Seamless checkout with server-side HMAC-SHA256 signature verification, webhook handler, and sandbox demo fallback.
 - **Glassmorphic & Morphic UI**: Modern frosted-glass aesthetic (`backdrop-blur`), subtle specular lighting highlights, responsive micro-animations, and clean typography preserving the brand's iconic crimson red (`#e74c3c`) and editorial heritage.
 - **Saddlery Removed**: Products and navigation focused purely on safety and industrial lines (Welding Aprons, Export Gloves, Industrial Safety, Leg Guards, Harness Leather, Hosiery Gloves, Kevlar Gloves, Leather Sheets, Sealing Washers, Bespoke Straps, and Heavy Tarpaulins).
-- **Vercel Deployment Optimized**: Preconfigured with `vercel.json` and standalone serverless API handlers for instant Vercel CI/CD deployments.
+- **Zero Config Vercel Deployment**: No `vercel.json` required. Native Next.js auto-detection.
 
 ---
 
@@ -76,11 +76,16 @@ NEXT_PUBLIC_APP_URL=https://your-domain.vercel.app
 
 ## 🚀 Deployment (Vercel)
 
-1. Push your repository to GitHub / GitLab / Bitbucket.
-2. Import the repository into **Vercel**.
-3. In **Project Settings → Environment Variables**, add your Razorpay credentials:
+1. Push your repository to GitHub.
+2. In the **Vercel Dashboard**, open **Project Settings → General**:
+   - Under **Build & Development Settings**:
+     - **Framework Preset**: Set to **Next.js**
+     - **Build Command**: Toggle Override **OFF** (defaults to `next build`)
+     - **Output Directory**: Toggle Override **OFF** (defaults to `.next`)
+     - **Install Command**: Toggle Override **OFF** (defaults to `npm install`)
+3. Under **Environment Variables**, add:
    - `NEXT_PUBLIC_RAZORPAY_KEY_ID`
    - `RAZORPAY_KEY_SECRET`
    - `RAZORPAY_WEBHOOK_SECRET`
    - `NEXT_PUBLIC_APP_URL`
-4. Trigger the deployment. Vercel will automatically build and deploy the Next.js production bundle.
+4. Click **Redeploy** on your latest deployment.
