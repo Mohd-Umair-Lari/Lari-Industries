@@ -17,19 +17,11 @@ export function getRazorpayKeyId(): string {
 }
 
 export function getRazorpayKeySecret(): string {
-  return (
-    process.env.RAZORPAY_KEY_SECRET ||
-    process.env.NEXT_PUBLIC_RAZORPAY_KEY_SECRET ||
-    ''
-  ).trim();
+  return (process.env.RAZORPAY_KEY_SECRET || '').trim();
 }
 
 export function getRazorpayWebhookSecret(): string {
-  return (
-    process.env.RAZORPAY_WEBHOOK_SECRET ||
-    process.env.NEXT_PUBLIC_RAZORPAY_WEBHOOK_SECRET ||
-    ''
-  ).trim();
+  return (process.env.RAZORPAY_WEBHOOK_SECRET || '').trim();
 }
 
 export function isRazorpayConfigured(): boolean {
@@ -55,7 +47,7 @@ export function verifyRazorpaySignature(
     .update(body.toString())
     .digest('hex');
 
-  return expectedSignature === signature;
+  return timingSafeSignatureMatch(expectedSignature, signature);
 }
 
 export function verifyWebhookSignature(
@@ -70,5 +62,13 @@ export function verifyWebhookSignature(
     .update(rawBody)
     .digest('hex');
 
-  return expectedSignature === signature;
+  return timingSafeSignatureMatch(expectedSignature, signature);
+}
+
+function timingSafeSignatureMatch(expected: string, received: string): boolean {
+  if (!/^[a-f0-9]{64}$/i.test(received)) return false;
+  return crypto.timingSafeEqual(
+    Buffer.from(expected, 'hex'),
+    Buffer.from(received, 'hex')
+  );
 }

@@ -87,12 +87,13 @@ export default function CheckoutPage() {
             customerEmail: formData.email,
             company: formData.companyName || 'Individual',
           },
-          items: cart.map((i) => ({
+           items: cart.map((i) => ({
             id: i.product.id,
             name: i.product.name,
-            qty: i.quantity,
-          })),
-        }),
+             qty: i.quantity,
+           })),
+           discountCode,
+         }),
       });
 
       const orderData = await orderRes.json();
