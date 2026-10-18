@@ -74,37 +74,37 @@ const products = [
     {
         category: 'Export Gloves',
         name: 'Canadian Drill Gloves',
-        image: 'static/images/Export gloves static/images/Drill Canadian.jpg',
+        image: 'static/images/Export gloves images/Drill Canadian.jpg',
         price: '₹699'
     },
     {
         category: 'Export Gloves',
         name: 'Premium Driving Gloves',
-        image: 'static/images/Export gloves static/images/Driving gloves.jpg',
+        image: 'static/images/Export gloves images/Driving gloves.jpg',
         price: '₹1,199'
     },
     {
         category: 'Export Gloves',
         name: 'Cow Leather Driving Gloves',
-        image: 'static/images/Export gloves static/images/Driving cow lether.jpg',
+        image: 'static/images/Export gloves images/Driving cow lether.jpg',
         price: '₹1,049'
     },
     {
         category: 'Export Gloves',
         name: 'Drill Canvas Gloves',
-        image: 'static/images/Export gloves static/images/Drill canvas gloves.jpg',
+        image: 'static/images/Export gloves images/Drill canvas gloves.jpg',
         price: '₹499'
     },
     {
         category: 'Export Gloves',
         name: 'Split Leather Drill Gloves',
-        image: 'static/images/Export gloves static/images/Drill split leather gloves.jpg',
+        image: 'static/images/Export gloves images/Drill split leather gloves.jpg',
         price: '₹899'
     },
     {
         category: 'Export Gloves',
         name: 'Lined Driving Gloves',
-        image: 'static/images/Export gloves static/images/Driving with linning.jpg',
+        image: 'static/images/Export gloves images/Driving with linning.jpg',
         price: '₹1,349'
     },
 
@@ -112,85 +112,85 @@ const products = [
     {
         category: 'Industrial Gloves',
         name: 'Leather Welding Gloves',
-        image: 'static/images/Gloves static/images/Leather Welding  Gloves.jpg',
+        image: 'static/images/Gloves Images/Leather Welding  Gloves.jpg',
         price: '₹649'
     },
     {
         category: 'Industrial Gloves',
         name: 'Cut Resistance Gloves – Type A',
-        image: 'static/images/Gloves static/images/Cut Rsistance 1.jpg',
+        image: 'static/images/Gloves Images/Cut Rsistance 1.jpg',
         price: '₹899'
     },
     {
         category: 'Industrial Gloves',
         name: 'Cut Resistance Gloves – Type B',
-        image: 'static/images/Gloves static/images/Cut Rsistance 2.jpg',
+        image: 'static/images/Gloves Images/Cut Rsistance 2.jpg',
         price: '₹949'
     },
     {
         category: 'Industrial Gloves',
         name: 'PVC Polka Dot Gloves',
-        image: 'static/images/Gloves static/images/polka dot gloves 1.jpg',
+        image: 'static/images/Gloves Images/polka dot gloves 1.jpg',
         price: '₹349'
     },
     {
         category: 'Industrial Gloves',
         name: 'Drill Work Gloves',
-        image: 'static/images/Gloves static/images/Drill Gloves 1 jpg (1) cc.jpg',
+        image: 'static/images/Gloves Images/Drill Gloves 1 jpg (1) cc.jpg',
         price: '₹549'
     },
     {
         category: 'Industrial Gloves',
         name: 'Buckle Leather Gloves',
-        image: 'static/images/Gloves static/images/Buckle leather gloves1-Photoroomjpg.jpg',
+        image: 'static/images/Gloves Images/Buckle leather gloves1-Photoroomjpg.jpg',
         price: '₹1,099'
     },
     {
         category: 'Industrial Gloves',
         name: 'Cotton Knitted Hand Gloves',
-        image: 'static/images/Gloves static/images/cotton-knitted-hand-gloves-500x500.jpg',
+        image: 'static/images/Gloves Images/cotton-knitted-hand-gloves-500x500.jpg',
         price: '₹199'
     },
     {
         category: 'Industrial Gloves',
         name: 'Industrial Safety Gloves',
-        image: 'static/images/Gloves static/images/safety-gloves-500x500.jpg',
+        image: 'static/images/Gloves Images/safety-gloves-500x500.jpg',
         price: '₹449'
     },
     {
         category: 'Industrial Gloves',
         name: 'PVC Dotted Safety Gloves',
-        image: 'static/images/Gloves static/images/Pvc dotted gloves.jpg',
+        image: 'static/images/Gloves Images/Pvc dotted gloves.jpg',
         price: '₹399'
     },
     {
         category: 'Industrial Gloves',
         name: 'Leather Cotton Combo Gloves',
-        image: 'static/images/Gloves static/images/LEATHER COTTON GLOVES 1.jpg',
+        image: 'static/images/Gloves Images/LEATHER COTTON GLOVES 1.jpg',
         price: '₹549'
     },
     {
         category: 'Industrial Gloves',
         name: 'Welder Gauntlet Gloves',
-        image: 'static/images/Gloves static/images/welder gloves 1.jpg',
+        image: 'static/images/Gloves Images/welder gloves 1.jpg',
         price: '₹749'
     },
     {
         category: 'Industrial Gloves',
         name: 'Ropeman Grain Leather Gloves',
-        image: 'static/images/Gloves static/images/Ropeman Grain Leather Gloves 2.jpg',
+        image: 'static/images/Gloves Images/Ropeman Grain Leather Gloves 2.jpg',
         price: '₹1,249'
     },
     {
         category: 'Industrial Gloves',
         name: 'Leather Leg Guard',
-        image: 'static/images/Gloves static/images/LEATHER LEG GAURD.jpg',
+        image: 'static/images/Gloves Images/LEATHER LEG GAURD.jpg',
         price: '₹1,599'
     },
     {
         category: 'Industrial Gloves',
         name: 'Leather Safety Spats',
-        image: 'static/images/Gloves static/images/leather spats 2.jpg',
+        image: 'static/images/Gloves Images/leather spats 2.jpg',
         price: '₹999'
     },
 
