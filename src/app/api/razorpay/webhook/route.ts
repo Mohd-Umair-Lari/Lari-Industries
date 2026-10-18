@@ -6,6 +6,10 @@ export async function POST(req: NextRequest) {
     const rawBody = await req.text();
     const signature = req.headers.get('x-razorpay-signature');
 
+    if (!rawBody) {
+      return NextResponse.json({ error: 'Webhook body is required' }, { status: 400 });
+    }
+
     if (!signature) {
       return NextResponse.json(
         { error: 'Missing x-razorpay-signature header' },
@@ -22,7 +26,12 @@ export async function POST(req: NextRequest) {
       );
     }
 
-    const event = JSON.parse(rawBody);
+    let event: { event?: string; payload?: { payment?: { entity?: { id?: string } } } };
+    try {
+      event = JSON.parse(rawBody);
+    } catch {
+      return NextResponse.json({ error: 'Invalid webhook JSON' }, { status: 400 });
+    }
     console.log(`[Razorpay Webhook Received]: ${event.event}`, event?.payload?.payment?.entity?.id);
 
     switch (event.event) {
