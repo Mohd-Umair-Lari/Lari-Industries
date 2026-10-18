@@ -6,10 +6,3 @@ node_modules/
 dist/
 build/
 coverage/
-
-# Ignore heavy non-web files in product images (keep only jpg/jpeg/webp/jfif)
-static/images/**/*.pdf
-static/images/**/*.mp4
-static/images/**/*.docx
-static/images/**/*.xlsx
-static/images/**/*.png
