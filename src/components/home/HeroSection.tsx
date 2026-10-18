@@ -24,23 +24,23 @@ export const HeroSection = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center max-w-4xl mx-auto space-y-6">
           {/* Top Estd Badge */}
-          <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white/90 backdrop-blur-md border border-stone-200/80 shadow-sm text-xs font-bold text-stone-700 tracking-wider">
+          <div className="inline-flex flex-wrap items-center justify-center gap-2 px-3 sm:px-4 py-1.5 rounded-full bg-white/90 backdrop-blur-md border border-stone-200/80 shadow-sm text-[11px] sm:text-xs font-bold text-stone-700 tracking-wider">
             <span className="w-2 h-2 rounded-full bg-brand-500 animate-pulse" />
             <span>ESTD. 2005 • KANPUR, INDIA</span>
-            <span className="text-stone-300">|</span>
+            <span className="hidden sm:inline text-stone-300">|</span>
             <span className="text-brand-600 flex items-center gap-1">
               <Globe2 className="w-3.5 h-3.5" /> Worldwide Export in USD ($)
             </span>
           </div>
 
           {/* Main Title */}
-          <h1 className="text-5xl sm:text-7xl lg:text-8xl font-serif font-black tracking-tight text-stone-950 uppercase">
+          <h1 className="text-4xl sm:text-7xl lg:text-8xl font-serif font-black tracking-tight text-stone-950 uppercase">
             LARI INDUSTRIES
           </h1>
 
           {/* Iconic Tagline */}
           <div className="relative inline-block">
-            <h2 className="text-2xl sm:text-4xl md:text-5xl font-serif font-black tracking-wide text-brand-600 uppercase">
+            <h2 className="text-xl sm:text-3xl md:text-5xl font-serif font-black tracking-wide text-brand-600 uppercase">
               &ldquo;THINK SAFETY BEFORE YOU START&rdquo;
             </h2>
             <div className="w-24 h-1 bg-brand-500 mx-auto mt-2 rounded-full shadow-sm" />

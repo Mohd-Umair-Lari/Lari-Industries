@@ -8,9 +8,33 @@ export interface RazorpayOrderResponse {
   status: string;
 }
 
+export function getRazorpayKeyId(): string {
+  return (
+    process.env.RAZORPAY_KEY_ID ||
+    process.env.NEXT_PUBLIC_RAZORPAY_KEY_ID ||
+    ''
+  ).trim();
+}
+
+export function getRazorpayKeySecret(): string {
+  return (
+    process.env.RAZORPAY_KEY_SECRET ||
+    process.env.NEXT_PUBLIC_RAZORPAY_KEY_SECRET ||
+    ''
+  ).trim();
+}
+
+export function getRazorpayWebhookSecret(): string {
+  return (
+    process.env.RAZORPAY_WEBHOOK_SECRET ||
+    process.env.NEXT_PUBLIC_RAZORPAY_WEBHOOK_SECRET ||
+    ''
+  ).trim();
+}
+
 export function isRazorpayConfigured(): boolean {
-  const keyId = process.env.NEXT_PUBLIC_RAZORPAY_KEY_ID;
-  const keySecret = process.env.RAZORPAY_KEY_SECRET;
+  const keyId = getRazorpayKeyId();
+  const keySecret = getRazorpayKeySecret();
 
   if (!keyId || !keySecret) return false;
   if (keyId.includes('placeholder') || keySecret.includes('placeholder')) return false;
@@ -22,7 +46,7 @@ export function verifyRazorpaySignature(
   paymentId: string,
   signature: string
 ): boolean {
-  const secret = process.env.RAZORPAY_KEY_SECRET;
+  const secret = getRazorpayKeySecret();
   if (!secret) return false;
 
   const body = `${orderId}|${paymentId}`;
@@ -38,7 +62,7 @@ export function verifyWebhookSignature(
   rawBody: string,
   signature: string
 ): boolean {
-  const webhookSecret = process.env.RAZORPAY_WEBHOOK_SECRET;
+  const webhookSecret = getRazorpayWebhookSecret();
   if (!webhookSecret) return false;
 
   const expectedSignature = crypto

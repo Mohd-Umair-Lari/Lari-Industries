@@ -1,4 +1,4 @@
-import type { Metadata } from 'next';
+import type { Metadata, Viewport } from 'next';
 import Script from 'next/script';
 import './globals.css';
 import { CartProvider } from '@/context/CartContext';
@@ -6,6 +6,15 @@ import { WishlistProvider } from '@/context/WishlistContext';
 import { Navbar } from '@/components/layout/Navbar';
 import { Footer } from '@/components/layout/Footer';
 import { CartDrawer } from '@/components/cart/CartDrawer';
+import { MobileBottomNav } from '@/components/layout/MobileBottomNav';
+
+export const viewport: Viewport = {
+  width: 'device-width',
+  initialScale: 1,
+  maximumScale: 5,
+  viewportFit: 'cover',
+  themeColor: '#1c1917',
+};
 
 export const metadata: Metadata = {
   title: 'Lari Industries | Premium Industrial Safety Equipment & Leather Products',
@@ -42,6 +51,7 @@ export default function RootLayout({
             <Navbar />
             <main className="flex-1">{children}</main>
             <CartDrawer />
+            <MobileBottomNav />
             <Footer />
           </WishlistProvider>
         </CartProvider>

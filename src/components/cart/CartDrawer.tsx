@@ -63,7 +63,7 @@ export const CartDrawer = () => {
       />
 
       {/* Drawer Panel */}
-      <div className="absolute inset-y-0 right-0 max-w-full flex pl-10">
+      <div className="absolute inset-y-0 right-0 max-w-full flex pl-0 sm:pl-10">
         <div className="w-screen max-w-md bg-white/95 backdrop-blur-2xl shadow-2xl flex flex-col border-l border-stone-200">
           {/* Header */}
           <div className="p-5 border-b border-stone-200 flex items-center justify-between bg-stone-50/70">
@@ -199,7 +199,7 @@ export const CartDrawer = () => {
 
           {/* Footer & Checkout */}
           {cart.length > 0 && (
-            <div className="p-5 border-t border-stone-200 bg-stone-50/70 space-y-4">
+            <div className="p-5 pb-safe border-t border-stone-200 bg-stone-50/70 space-y-4">
               {/* Promo Code Form */}
               <form onSubmit={handleApplyPromo} className="space-y-1.5">
                 <div className="flex gap-2">

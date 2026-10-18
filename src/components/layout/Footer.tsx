@@ -17,7 +17,7 @@ import { CATEGORIES } from '@/data/products';
 
 export const Footer = () => {
   return (
-    <footer className="bg-stone-950 text-stone-300 pt-16 pb-12 border-t border-stone-800">
+    <footer className="bg-stone-950 text-stone-300 pt-16 pb-28 lg:pb-12 border-t border-stone-800">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-10 pb-12 border-b border-stone-800">
           {/* Brand Column */}

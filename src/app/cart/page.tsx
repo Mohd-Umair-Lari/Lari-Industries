@@ -122,7 +122,7 @@ export default function CartPage() {
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 items-start">
           {/* Cart Table / Items List */}
           <div className="lg:col-span-2 space-y-4">
-            <div className="bg-white rounded-3xl p-6 shadow-sm border border-stone-200/80 divide-y divide-stone-100">
+            <div className="bg-white rounded-3xl p-4 sm:p-6 shadow-sm border border-stone-200/80 divide-y divide-stone-100">
               {cart.map((item) => (
                 <div
                   key={item.product.id}

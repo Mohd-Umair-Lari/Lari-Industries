@@ -94,12 +94,12 @@ export const FeaturedCategories = () => {
           </Link>
         </div>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+        <div className="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-6">
           {CATEGORY_ITEMS.map((item) => (
             <Link
               key={item.category}
               href={`/products?category=${encodeURIComponent(item.category)}`}
-              className="group relative rounded-3xl overflow-hidden bg-stone-100 border border-stone-200/80 hover:border-brand-500/40 hover:shadow-xl transition-all duration-300 flex flex-col justify-between"
+              className="group relative rounded-2xl sm:rounded-3xl overflow-hidden bg-stone-100 border border-stone-200/80 hover:border-brand-500/40 hover:shadow-xl transition-all duration-300 flex flex-col justify-between"
             >
               <div className="relative aspect-[4/3] w-full overflow-hidden bg-stone-200">
                 <Image
@@ -109,25 +109,25 @@ export const FeaturedCategories = () => {
                   className="object-cover group-hover:scale-108 transition-transform duration-500"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-stone-950/70 via-transparent to-transparent" />
-                <span className="absolute bottom-3 left-4 text-xs font-bold text-white/90 bg-stone-900/60 backdrop-blur-md px-2.5 py-1 rounded-full border border-white/20">
+                <span className="absolute bottom-2 left-2 sm:bottom-3 sm:left-4 text-[10px] sm:text-xs font-bold text-white/90 bg-stone-900/60 backdrop-blur-md px-2 py-0.5 sm:px-2.5 sm:py-1 rounded-full border border-white/20">
                   {item.priceInfo}
                 </span>
               </div>
 
-              <div className="p-5 flex-1 flex flex-col justify-between bg-white">
+              <div className="p-3 sm:p-5 flex-1 flex flex-col justify-between bg-white">
                 <div>
-                  <h3 className="font-serif font-bold text-lg text-stone-900 group-hover:text-brand-600 transition-colors">
+                  <h3 className="font-serif font-bold text-sm sm:text-lg text-stone-900 group-hover:text-brand-600 transition-colors line-clamp-1">
                     {item.title}
                   </h3>
-                  <p className="text-xs text-stone-500 mt-1 line-clamp-2">
+                  <p className="hidden sm:block text-xs text-stone-500 mt-1 line-clamp-2">
                     {item.description}
                   </p>
                 </div>
 
-                <div className="mt-4 pt-3 border-t border-stone-100 flex items-center justify-between text-xs font-bold text-stone-700 group-hover:text-brand-600">
+                <div className="mt-2 sm:mt-4 pt-2 sm:pt-3 border-t border-stone-100 flex items-center justify-between text-[10px] sm:text-xs font-bold text-stone-700 group-hover:text-brand-600">
                   <span>{item.count}</span>
                   <span className="inline-flex items-center gap-1">
-                    Shop Now <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-1 transition-transform" />
+                    Shop <ArrowRight className="w-3 h-3 sm:w-3.5 sm:h-3.5 group-hover:translate-x-1 transition-transform" />
                   </span>
                 </div>
               </div>

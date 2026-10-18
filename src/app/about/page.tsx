@@ -261,12 +261,12 @@ export default function AboutPage() {
             </div>
 
             {/* Thumbnail Strip */}
-            <div className="grid grid-cols-4 sm:grid-cols-6 lg:grid-cols-11 gap-2 pt-2">
+            <div className="flex overflow-x-auto no-scrollbar sm:grid sm:grid-cols-6 lg:grid-cols-11 gap-2 pt-2 pb-1">
               {FACTORY_PROFILE_IMAGES.map((img, idx) => (
                 <button
                   key={idx}
                   onClick={() => setActiveImageIndex(idx)}
-                  className={`relative aspect-square rounded-xl overflow-hidden border-2 transition-all ${
+                  className={`relative flex-shrink-0 w-16 h-16 sm:w-auto sm:h-auto aspect-square rounded-xl overflow-hidden border-2 transition-all ${
                     activeImageIndex === idx
                       ? 'border-brand-500 scale-105 shadow-md ring-2 ring-brand-300'
                       : 'border-transparent opacity-60 hover:opacity-100'

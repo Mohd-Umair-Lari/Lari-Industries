@@ -60,7 +60,7 @@ export const QuickViewModal: React.FC<QuickViewModalProps> = ({
         className="fixed inset-0 bg-stone-950/70 backdrop-blur-sm transition-opacity"
       />
 
-      <div className="relative w-full max-w-3xl bg-white/95 backdrop-blur-2xl rounded-3xl shadow-2xl border border-white/60 overflow-hidden z-10">
+      <div className="relative w-full max-w-3xl max-h-[92vh] overflow-y-auto bg-white/95 backdrop-blur-2xl rounded-3xl shadow-2xl border border-white/60 z-10">
         <button
           onClick={onClose}
           className="absolute top-4 right-4 z-20 p-2.5 rounded-full bg-white/80 hover:bg-white text-stone-600 hover:text-stone-900 shadow-sm transition-colors"
