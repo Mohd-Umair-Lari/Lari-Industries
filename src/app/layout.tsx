@@ -3,6 +3,7 @@ import Script from 'next/script';
 import './globals.css';
 import { CartProvider } from '@/context/CartContext';
 import { WishlistProvider } from '@/context/WishlistContext';
+import { AuthProvider } from '@/components/AuthProvider';
 import { Navbar } from '@/components/layout/Navbar';
 import { Footer } from '@/components/layout/Footer';
 import { CartDrawer } from '@/components/cart/CartDrawer';
@@ -46,15 +47,17 @@ export default function RootLayout({
         <link rel="icon" href="/static/images/logo.jpg" />
       </head>
       <body className="min-h-screen flex flex-col bg-stone-50 text-stone-900 antialiased selection:bg-brand-500 selection:text-white">
-        <CartProvider>
-          <WishlistProvider>
-            <Navbar />
-            <main className="flex-1">{children}</main>
-            <CartDrawer />
-            <MobileBottomNav />
-            <Footer />
-          </WishlistProvider>
-        </CartProvider>
+        <AuthProvider>
+          <CartProvider>
+            <WishlistProvider>
+              <Navbar />
+              <main className="flex-1">{children}</main>
+              <CartDrawer />
+              <MobileBottomNav />
+              <Footer />
+            </WishlistProvider>
+          </CartProvider>
+        </AuthProvider>
 
         <Script
           id="razorpay-checkout-js"
