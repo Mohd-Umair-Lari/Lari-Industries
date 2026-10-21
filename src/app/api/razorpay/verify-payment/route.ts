@@ -2,6 +2,7 @@ import { NextRequest, NextResponse } from 'next/server';
 import { verifyRazorpaySignature, isRazorpayConfigured } from '@/lib/razorpay';
 import connectDB from '@/lib/mongodb';
 import Order from '@/models/Order';
+import { sendOrderConfirmationEmails } from '@/lib/email';
 
 function generateReceiptNumber(): string {
   const year = new Date().getFullYear();
@@ -70,6 +71,7 @@ export async function POST(req: NextRequest) {
     }
 
     let receiptNumber = generateReceiptNumber();
+    let orderDoc: any = null;
 
     try {
       await connectDB();
@@ -88,6 +90,7 @@ export async function POST(req: NextRequest) {
 
       if (existingOrder) {
         receiptNumber = existingOrder.receiptNumber;
+        orderDoc = existingOrder;
 
         if (
           orderData?.shippingAddress &&
@@ -98,6 +101,8 @@ export async function POST(req: NextRequest) {
             { razorpayOrderId: razorpay_order_id },
             { $set: { shippingAddress: normalizeShippingAddress(orderData.shippingAddress) } }
           );
+          // Refresh the order doc with updated shipping address
+          orderDoc = await Order.findOne({ razorpayOrderId: razorpay_order_id });
         }
 
         console.log(`[MongoDB] Order ${receiptNumber} marked as PAID`);
@@ -128,8 +133,45 @@ export async function POST(req: NextRequest) {
             paymentMethod: 'RAZORPAY',
             webhookVerified: false,
           });
+          orderDoc = fallbackOrder;
           console.log(`[MongoDB] Fallback order created: ${receiptNumber} (order ${razorpay_order_id} was not pre-seeded)`);
         }
+      }
+
+      // Send order confirmation emails after successful payment verification
+      if (orderDoc && !orderDoc.emailsSent) {
+        const emailData = {
+          receiptNumber: orderDoc.receiptNumber,
+          items: orderDoc.items.map((item: any) => ({
+            productId: item.productId,
+            name: item.name,
+            price: item.price,
+            quantity: item.quantity,
+            image: item.image,
+            selectedSize: item.selectedSize,
+          })),
+          subtotal: orderDoc.subtotal,
+          discountCode: orderDoc.discountCode,
+          discountAmount: orderDoc.discountAmount,
+          tax: orderDoc.tax,
+          shipping: orderDoc.shipping,
+          total: orderDoc.total,
+          currency: orderDoc.currency,
+          shippingAddress: orderDoc.shippingAddress,
+          status: orderDoc.status,
+          razorpayOrderId: orderDoc.razorpayOrderId,
+          razorpayPaymentId: orderDoc.razorpayPaymentId,
+          createdAt: orderDoc.createdAt,
+        };
+
+        const results = await sendOrderConfirmationEmails(emailData);
+        console.log('[Email] Order confirmation results:', results);
+
+        // Mark emails as sent to prevent duplicates
+        await Order.updateOne(
+          { razorpayOrderId: razorpay_order_id },
+          { $set: { emailsSent: true } }
+        );
       }
     } catch (dbErr) {
       console.error('[MongoDB] Failed to update order after payment verification:', dbErr);

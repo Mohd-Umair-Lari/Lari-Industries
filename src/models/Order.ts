@@ -65,6 +65,7 @@ export interface IOrder extends Document {
   status: 'PENDING' | 'PAID' | 'PROCESSING' | 'SHIPPED' | 'DELIVERED' | 'CANCELLED' | 'REFUNDED';
   paymentMethod: 'RAZORPAY';
   webhookVerified: boolean;
+  emailsSent: boolean;
   notes?: string;
   createdAt: Date;
   updatedAt: Date;
@@ -125,6 +126,10 @@ const OrderSchema = new Schema<IOrder>(
       default: 'RAZORPAY',
     },
     webhookVerified: {
+      type: Boolean,
+      default: false,
+    },
+    emailsSent: {
       type: Boolean,
       default: false,
     },
