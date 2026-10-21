@@ -87,13 +87,15 @@ export default function CheckoutPage() {
             customerEmail: formData.email,
             company: formData.companyName || 'Individual',
           },
-           items: cart.map((i) => ({
+          items: cart.map((i) => ({
             id: i.product.id,
             name: i.product.name,
-             qty: i.quantity,
-           })),
-           discountCode,
-         }),
+            qty: i.quantity,
+            selectedSize: i.selectedSize,
+          })),
+          discountCode,
+          shippingAddress: formData,
+        }),
       });
 
       const orderData = await orderRes.json();
@@ -127,6 +129,11 @@ export default function CheckoutPage() {
                 razorpay_signature: response.razorpay_signature,
                 orderData: {
                   items: cart,
+                  subtotal,
+                  discountAmount,
+                  discountCode,
+                  tax,
+                  shipping,
                   total,
                   shippingAddress: formData,
                 },
