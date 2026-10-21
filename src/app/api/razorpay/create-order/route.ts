@@ -10,6 +10,13 @@ const TAX_RATE = 0.05;
 const FREE_SHIPPING_THRESHOLD = 50;
 const STANDARD_SHIPPING = 5;
 
+function generateReceiptNumber(): string {
+  const year = new Date().getFullYear();
+  const ts = Date.now().toString(36).toUpperCase();
+  const rand = Math.random().toString(36).slice(2, 6).toUpperCase();
+  return `LARI-INV-${year}-${ts}${rand}`;
+}
+
 export async function POST(req: NextRequest) {
   try {
     const body = await req.json();
@@ -46,6 +53,14 @@ export async function POST(req: NextRequest) {
       return NextResponse.json(
         { error: 'One or more cart items are invalid' },
         { status: 400 }
+      );
+    }
+
+    const hasCustomQuote = normalizedItems.some(({ product }) => product!.isCustomQuote);
+    if (hasCustomQuote) {
+      return NextResponse.json(
+        { error: 'Custom Quote items cannot be purchased directly. Please submit a quote request via the Contact page.' },
+        { status: 422 }
       );
     }
 
@@ -104,12 +119,10 @@ export async function POST(req: NextRequest) {
       },
     });
 
+    const receiptNumber = generateReceiptNumber();
+
     try {
       await connectDB();
-
-      const receiptNumber = `LARI-INV-${new Date().getFullYear()}-${Math.floor(
-        100000 + Math.random() * 900000
-      )}`;
 
       await Order.create({
         receiptNumber,
@@ -125,17 +138,39 @@ export async function POST(req: NextRequest) {
           selectedSize,
         })),
         subtotal: Number(subtotal.toFixed(2)),
-        discountCode: promo ? discountCode?.trim().toUpperCase() : undefined,
+        discountCode: promo ? discountCode?.trim().toUpperCase() : null,
         discountAmount: Number(discount.toFixed(2)),
         tax: Number(tax.toFixed(2)),
         shipping: Number(shipping.toFixed(2)),
         total: expectedAmount,
         currency: 'USD',
-        shippingAddress: shippingAddress || {},
+        shippingAddress: shippingAddress
+          ? {
+              fullName: shippingAddress.fullName || '',
+              email: shippingAddress.email || '',
+              phone: shippingAddress.phone || '',
+              companyName: shippingAddress.companyName,
+              gstNumber: shippingAddress.gstNumber,
+              addressLine1: shippingAddress.addressLine1 || '',
+              addressLine2: shippingAddress.addressLine2,
+              city: shippingAddress.city || '',
+              state: shippingAddress.state || '',
+              pincode: shippingAddress.pincode || '',
+              country: shippingAddress.country || 'United States',
+            }
+          : {
+              fullName: 'Unknown',
+              email: '',
+              addressLine1: 'Unknown',
+              city: 'Unknown',
+              country: 'Unknown',
+            },
         status: 'PENDING',
         paymentMethod: 'RAZORPAY',
         webhookVerified: false,
       });
+
+      console.log(`[MongoDB] PENDING order created: ${receiptNumber} → Razorpay ${rzpOrder.id}`);
     } catch (dbErr) {
       console.error('[MongoDB] Failed to persist PENDING order:', dbErr);
     }
@@ -147,6 +182,7 @@ export async function POST(req: NextRequest) {
       receipt: rzpOrder.receipt,
       status: rzpOrder.status,
       keyId,
+      receiptNumber,
     });
   } catch (error: any) {
     console.error('Error in Razorpay create-order:', error);

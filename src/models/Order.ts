@@ -4,14 +4,14 @@ const ShippingAddressSchema = new Schema(
   {
     fullName: { type: String, required: true, trim: true },
     email: { type: String, required: true, lowercase: true, trim: true },
-    phone: { type: String, required: true, trim: true },
+    phone: { type: String, trim: true, default: '' },
     companyName: { type: String, trim: true },
     gstNumber: { type: String, trim: true },
     addressLine1: { type: String, required: true, trim: true },
     addressLine2: { type: String, trim: true },
     city: { type: String, required: true, trim: true },
-    state: { type: String, trim: true },
-    pincode: { type: String, trim: true },
+    state: { type: String, trim: true, default: '' },
+    pincode: { type: String, trim: true, default: '' },
     country: { type: String, required: true, trim: true, default: 'United States' },
   },
   { _id: false }
@@ -23,7 +23,7 @@ const OrderItemSchema = new Schema(
     name: { type: String, required: true },
     price: { type: Number, required: true, min: 0 },
     quantity: { type: Number, required: true, min: 1 },
-    image: { type: String },
+    image: { type: String, default: '' },
     selectedSize: { type: String },
   },
   { _id: false }
@@ -32,8 +32,8 @@ const OrderItemSchema = new Schema(
 export interface IOrder extends Document {
   receiptNumber: string;
   razorpayOrderId: string;
-  razorpayPaymentId: string;
-  razorpaySignature: string;
+  razorpayPaymentId?: string;
+  razorpaySignature?: string;
   items: {
     productId: string;
     name: string;
@@ -52,7 +52,7 @@ export interface IOrder extends Document {
   shippingAddress: {
     fullName: string;
     email: string;
-    phone: string;
+    phone?: string;
     companyName?: string;
     gstNumber?: string;
     addressLine1: string;
@@ -86,11 +86,13 @@ const OrderSchema = new Schema<IOrder>(
     },
     razorpayPaymentId: {
       type: String,
+      default: '',
       sparse: true,
       index: true,
     },
     razorpaySignature: {
       type: String,
+      default: '',
     },
     items: {
       type: [OrderItemSchema],
@@ -101,7 +103,7 @@ const OrderSchema = new Schema<IOrder>(
       },
     },
     subtotal: { type: Number, required: true, min: 0 },
-    discountCode: { type: String },
+    discountCode: { type: String, default: null },
     discountAmount: { type: Number, default: 0, min: 0 },
     tax: { type: Number, required: true, min: 0 },
     shipping: { type: Number, required: true, min: 0 },
@@ -135,6 +137,8 @@ const OrderSchema = new Schema<IOrder>(
 );
 
 OrderSchema.index({ 'shippingAddress.email': 1, createdAt: -1 });
+OrderSchema.index({ status: 1, createdAt: -1 });
+OrderSchema.index({ createdAt: -1 });
 
 const Order: Model<IOrder> =
   (mongoose.models.Order as Model<IOrder>) || mongoose.model<IOrder>('Order', OrderSchema);

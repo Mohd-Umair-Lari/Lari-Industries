@@ -3,6 +3,32 @@ import { verifyRazorpaySignature, isRazorpayConfigured } from '@/lib/razorpay';
 import connectDB from '@/lib/mongodb';
 import Order from '@/models/Order';
 
+function generateReceiptNumber(): string {
+  const year = new Date().getFullYear();
+  const ts = Date.now().toString(36).toUpperCase();
+  const rand = Math.random().toString(36).slice(2, 6).toUpperCase();
+  return `LARI-INV-${year}-${ts}${rand}`;
+}
+
+function normalizeShippingAddress(addr: any) {
+  if (!addr) {
+    return { fullName: 'Unknown', email: '', addressLine1: 'Unknown', city: 'Unknown', country: 'Unknown' };
+  }
+  return {
+    fullName: addr.fullName || 'Unknown',
+    email: addr.email || '',
+    phone: addr.phone || '',
+    companyName: addr.companyName,
+    gstNumber: addr.gstNumber,
+    addressLine1: addr.addressLine1 || 'Unknown',
+    addressLine2: addr.addressLine2,
+    city: addr.city || 'Unknown',
+    state: addr.state || '',
+    pincode: addr.pincode || '',
+    country: addr.country || 'United States',
+  };
+}
+
 export async function POST(req: NextRequest) {
   try {
     const body = await req.json();
@@ -43,9 +69,7 @@ export async function POST(req: NextRequest) {
       );
     }
 
-    let receiptNumber = `LARI-INV-${new Date().getFullYear()}-${Math.floor(
-      100000 + Math.random() * 900000
-    )}`;
+    let receiptNumber = generateReceiptNumber();
 
     try {
       await connectDB();
@@ -65,39 +89,46 @@ export async function POST(req: NextRequest) {
       if (existingOrder) {
         receiptNumber = existingOrder.receiptNumber;
 
-        if (orderData?.shippingAddress && !existingOrder.shippingAddress?.fullName) {
+        if (
+          orderData?.shippingAddress &&
+          (!existingOrder.shippingAddress?.fullName ||
+            existingOrder.shippingAddress.fullName === 'Unknown')
+        ) {
           await Order.updateOne(
             { razorpayOrderId: razorpay_order_id },
-            { $set: { shippingAddress: orderData.shippingAddress } }
+            { $set: { shippingAddress: normalizeShippingAddress(orderData.shippingAddress) } }
           );
         }
+
+        console.log(`[MongoDB] Order ${receiptNumber} marked as PAID`);
       } else {
         if (orderData) {
-          await Order.create({
+          const fallbackOrder = await Order.create({
             receiptNumber,
             razorpayOrderId: razorpay_order_id,
             razorpayPaymentId: razorpay_payment_id,
             razorpaySignature: razorpay_signature,
             items: (orderData.items || []).map((item: any) => ({
-              productId: item.product?.id || item.productId || '',
-              name: item.product?.name || item.name || '',
-              price: item.product?.price || item.price || 0,
-              quantity: item.quantity || 1,
+              productId: item.product?.id || item.productId || 'unknown',
+              name: item.product?.name || item.name || 'Unknown Product',
+              price: Number(item.product?.price || item.price || 0),
+              quantity: Number(item.quantity) || 1,
               image: item.product?.image || item.image || '',
               selectedSize: item.selectedSize,
             })),
-            subtotal: orderData.subtotal || orderData.total || 0,
-            discountCode: orderData.discountCode,
-            discountAmount: orderData.discountAmount || 0,
-            tax: orderData.tax || 0,
-            shipping: orderData.shipping || 0,
-            total: orderData.total || 0,
+            subtotal: Number(orderData.subtotal || orderData.total || 0),
+            discountCode: orderData.discountCode || null,
+            discountAmount: Number(orderData.discountAmount || 0),
+            tax: Number(orderData.tax || 0),
+            shipping: Number(orderData.shipping || 0),
+            total: Number(orderData.total || 0),
             currency: 'USD',
-            shippingAddress: orderData.shippingAddress || {},
+            shippingAddress: normalizeShippingAddress(orderData.shippingAddress),
             status: 'PAID',
             paymentMethod: 'RAZORPAY',
             webhookVerified: false,
           });
+          console.log(`[MongoDB] Fallback order created: ${receiptNumber} (order ${razorpay_order_id} was not pre-seeded)`);
         }
       }
     } catch (dbErr) {

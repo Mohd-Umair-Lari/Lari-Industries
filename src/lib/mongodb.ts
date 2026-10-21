@@ -2,14 +2,6 @@ import mongoose from 'mongoose';
 
 const MONGODB_URI = process.env.MONGODB_URI as string;
 
-if (!MONGODB_URI) {
-  if (process.env.NODE_ENV === 'production') {
-    throw new Error(
-      'MONGODB_URI environment variable is not set. Please add it to your .env or Vercel settings.'
-    );
-  }
-}
-
 declare global {
   var _mongooseCache: {
     conn: typeof mongoose | null;
@@ -24,6 +16,12 @@ if (!cached) {
 }
 
 export async function connectDB(): Promise<typeof mongoose> {
+  if (!MONGODB_URI) {
+    throw new Error(
+      'MONGODB_URI is not defined. Set it in your .env file or Vercel environment variables.'
+    );
+  }
+
   if (cached.conn) {
     return cached.conn;
   }

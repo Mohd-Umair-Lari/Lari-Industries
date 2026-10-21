@@ -21,11 +21,12 @@ export interface ShippingAddress {
 }
 
 export interface OrderItem {
-  id: string;
+  productId: string;
   name: string;
   price: number;
   quantity: number;
-  image: string;
+  image?: string;
+  selectedSize?: string;
 }
 
 export interface Order {
@@ -35,12 +36,31 @@ export interface Order {
   razorpayPaymentId?: string;
   items: OrderItem[];
   subtotal: number;
-  discount: number;
+  discountCode?: string;
+  discountAmount: number;
+  tax: number;
+  shipping: number;
+  total: number;
+  currency: string;
+  shippingAddress: ShippingAddress;
+  status: 'PENDING' | 'PAID' | 'PROCESSING' | 'SHIPPED' | 'DELIVERED' | 'CANCELLED' | 'REFUNDED';
+  paymentMethod: 'RAZORPAY';
+  webhookVerified?: boolean;
+  createdAt: string;
+}
+
+export interface LocalOrderSnapshot {
+  id: string;
+  paymentId: string;
+  receiptNumber: string;
+  items: CartItem[];
+  subtotal: number;
+  discountAmount: number;
+  discountCode?: string | null;
   tax: number;
   shipping: number;
   total: number;
   shippingAddress: ShippingAddress;
-  status: 'PENDING' | 'PAID' | 'PROCESSING' | 'SHIPPED' | 'DELIVERED';
   createdAt: string;
   paymentMethod: 'RAZORPAY';
 }
