@@ -2,13 +2,8 @@ import { NextRequest, NextResponse } from 'next/server';
 import connectDB from '@/lib/mongodb';
 import Order from '@/models/Order';
 
-// Explicitly dynamic — reads query params from request.url
 export const dynamic = 'force-dynamic';
 
-/**
- * GET /api/orders?email=customer@email.com
- * Returns all orders for the given email address.
- */
 export async function GET(req: NextRequest) {
   try {
     const { searchParams } = new URL(req.url);
@@ -35,7 +30,6 @@ export async function GET(req: NextRequest) {
       return NextResponse.json({ order });
     }
 
-    // Lookup by email (most recent first, limit 20)
     const orders = await Order.find({ 'shippingAddress.email': email!.toLowerCase() })
       .sort({ createdAt: -1 })
       .limit(20)

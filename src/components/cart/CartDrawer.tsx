@@ -56,16 +56,13 @@ export const CartDrawer = () => {
 
   return (
     <div className="fixed inset-0 z-50 overflow-hidden">
-      {/* Backdrop */}
       <div
         onClick={closeCart}
         className="absolute inset-0 bg-stone-950/60 backdrop-blur-sm transition-opacity duration-300"
       />
 
-      {/* Drawer Panel */}
       <div className="absolute inset-y-0 right-0 max-w-full flex pl-0 sm:pl-10">
         <div className="w-screen max-w-md bg-white/95 backdrop-blur-2xl shadow-2xl flex flex-col border-l border-stone-200">
-          {/* Header */}
           <div className="p-5 border-b border-stone-200 flex items-center justify-between bg-stone-50/70">
             <div className="flex items-center gap-2">
               <ShoppingBag className="w-5 h-5 text-brand-600" />
@@ -84,7 +81,6 @@ export const CartDrawer = () => {
             </button>
           </div>
 
-          {/* Free Shipping Meter */}
           <div className="px-5 py-3 bg-brand-50/50 border-b border-brand-100/50">
             <div className="flex items-center justify-between text-xs font-semibold text-stone-700 mb-1.5">
               <span className="flex items-center gap-1.5">
@@ -107,7 +103,6 @@ export const CartDrawer = () => {
             </div>
           </div>
 
-          {/* Cart Item List */}
           <div className="flex-1 overflow-y-auto p-5 space-y-4">
             {cart.length === 0 ? (
               <div className="text-center py-16 space-y-4">
@@ -197,10 +192,8 @@ export const CartDrawer = () => {
             )}
           </div>
 
-          {/* Footer & Checkout */}
           {cart.length > 0 && (
             <div className="p-5 pb-safe border-t border-stone-200 bg-stone-50/70 space-y-4">
-              {/* Promo Code Form */}
               <form onSubmit={handleApplyPromo} className="space-y-1.5">
                 <div className="flex gap-2">
                   <div className="relative flex-1">
@@ -239,7 +232,6 @@ export const CartDrawer = () => {
                 )}
               </form>
 
-              {/* Price Breakdown */}
               <div className="space-y-1.5 text-xs text-stone-600 pt-2 border-t border-stone-200/80">
                 <div className="flex justify-between">
                   <span>Subtotal</span>
@@ -265,7 +257,6 @@ export const CartDrawer = () => {
                 </div>
               </div>
 
-              {/* Action Buttons */}
               <div className="space-y-2 pt-1">
                 <Link
                   href="/checkout"

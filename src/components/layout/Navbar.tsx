@@ -57,7 +57,6 @@ export const Navbar = () => {
 
   return (
     <>
-      {/* Top Utility Bar */}
       <div className="bg-stone-900 text-stone-300 text-xs py-2 px-4 border-b border-stone-800">
         <div className="max-w-7xl mx-auto flex justify-between items-center">
           <div className="flex items-center gap-3">
@@ -86,7 +85,6 @@ export const Navbar = () => {
         </div>
       </div>
 
-      {/* Main Glass Header */}
       <header
         className={`sticky top-0 z-40 transition-all duration-300 ${
           isScrolled
@@ -96,7 +94,6 @@ export const Navbar = () => {
       >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex items-center justify-between">
-            {/* Brand Logo */}
             <Link href="/" className="flex items-center gap-3 group">
               <div className="relative w-14 h-14 rounded-xl overflow-hidden border border-stone-200 shadow-sm group-hover:scale-105 transition-transform duration-300">
                 <Image
@@ -117,7 +114,6 @@ export const Navbar = () => {
               </div>
             </Link>
 
-            {/* Desktop Navigation Links */}
             <nav className="hidden lg:flex items-center gap-8">
               {navLinks.map((link) => {
                 const isActive = pathname === link.href;
@@ -140,9 +136,7 @@ export const Navbar = () => {
               })}
             </nav>
 
-            {/* Action Buttons: Search, Wishlist, Cart */}
             <div className="flex items-center gap-2 sm:gap-4">
-              {/* Search Toggle */}
               <button
                 onClick={() => setSearchOpen(!searchOpen)}
                 aria-label="Search products"
@@ -151,7 +145,6 @@ export const Navbar = () => {
                 <Search className="w-5 h-5" />
               </button>
 
-              {/* Wishlist Link */}
               <Link
                 href="/wishlist"
                 aria-label="Wishlist"
@@ -165,7 +158,6 @@ export const Navbar = () => {
                 )}
               </Link>
 
-              {/* Cart Drawer Trigger */}
               <button
                 onClick={openCart}
                 aria-label="Open shopping cart"
@@ -180,7 +172,6 @@ export const Navbar = () => {
                 </span>
               </button>
 
-              {/* Mobile Menu Button */}
               <button
                 onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
                 aria-label="Toggle mobile menu"
@@ -192,7 +183,6 @@ export const Navbar = () => {
           </div>
         </div>
 
-        {/* Live Search Overlay Modal */}
         {searchOpen && (
           <div className="absolute top-full left-0 right-0 bg-white/95 backdrop-blur-2xl border-b border-stone-200 shadow-xl p-4 transition-all">
             <div className="max-w-3xl mx-auto">
@@ -216,7 +206,6 @@ export const Navbar = () => {
                 )}
               </div>
 
-              {/* Search Dropdown Results */}
               {searchResults.length > 0 && (
                 <div className="mt-3 divide-y divide-stone-100 bg-white rounded-xl shadow-lg border border-stone-200 overflow-hidden">
                   {searchResults.map((p) => (
@@ -260,7 +249,6 @@ export const Navbar = () => {
           </div>
         )}
 
-        {/* Mobile Navigation Drawer */}
         {mobileMenuOpen && (
           <div className="lg:hidden bg-white/95 backdrop-blur-2xl border-b border-stone-200 px-6 py-6 space-y-4 shadow-xl">
             {navLinks.map((link) => (

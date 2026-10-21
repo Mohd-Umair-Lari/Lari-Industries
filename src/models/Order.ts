@@ -1,8 +1,5 @@
 import mongoose, { Document, Model, Schema } from 'mongoose';
 
-// ─────────────────────────────────────────────
-// Sub-schema: Shipping Address
-// ─────────────────────────────────────────────
 const ShippingAddressSchema = new Schema(
   {
     fullName: { type: String, required: true, trim: true },
@@ -20,9 +17,6 @@ const ShippingAddressSchema = new Schema(
   { _id: false }
 );
 
-// ─────────────────────────────────────────────
-// Sub-schema: Order Item
-// ─────────────────────────────────────────────
 const OrderItemSchema = new Schema(
   {
     productId: { type: String, required: true },
@@ -35,9 +29,6 @@ const OrderItemSchema = new Schema(
   { _id: false }
 );
 
-// ─────────────────────────────────────────────
-// Main Order Document Interface
-// ─────────────────────────────────────────────
 export interface IOrder extends Document {
   receiptNumber: string;
   razorpayOrderId: string;
@@ -79,9 +70,6 @@ export interface IOrder extends Document {
   updatedAt: Date;
 }
 
-// ─────────────────────────────────────────────
-// Main Order Schema
-// ─────────────────────────────────────────────
 const OrderSchema = new Schema<IOrder>(
   {
     receiptNumber: {
@@ -146,12 +134,8 @@ const OrderSchema = new Schema<IOrder>(
   }
 );
 
-// Compound index for fast customer lookups
 OrderSchema.index({ 'shippingAddress.email': 1, createdAt: -1 });
 
-// ─────────────────────────────────────────────
-// Model (avoid re-registration in dev hot-reload)
-// ─────────────────────────────────────────────
 const Order: Model<IOrder> =
   (mongoose.models.Order as Model<IOrder>) || mongoose.model<IOrder>('Order', OrderSchema);
 

@@ -6,7 +6,7 @@
   --font-serif: Georgia, 'Times New Roman', serif;
 }
 
-/* Mobile & Android Optimization */
+
 * {
   -webkit-tap-highlight-color: transparent;
   box-sizing: border-box;
@@ -26,7 +26,7 @@ body {
   touch-action: manipulation;
 }
 
-/* Prevent auto-zooming on focus in Android Chrome and iOS Safari */
+
 @media screen and (max-width: 640px) {
   input[type="text"],
   input[type="email"],
@@ -43,7 +43,7 @@ h1, h2, h3, .font-serif {
   font-family: var(--font-serif);
 }
 
-/* Safe areas for Android punch-hole cameras & gesture bars */
+
 .pb-safe {
   padding-bottom: max(env(safe-area-inset-bottom, 16px), 16px);
 }
@@ -52,7 +52,7 @@ h1, h2, h3, .font-serif {
   padding-top: max(env(safe-area-inset-top, 0px), 0px);
 }
 
-/* Glassmorphism Styles */
+
 .glass-panel {
   background: rgba(255, 255, 255, 0.85);
   backdrop-filter: blur(16px);
@@ -93,14 +93,14 @@ h1, h2, h3, .font-serif {
   }
 }
 
-/* Touch active scale feedback for mobile buttons */
+
 @media (hover: none) {
   button:active, a:active {
     opacity: 0.88;
   }
 }
 
-/* Custom Scrollbar for Desktop */
+
 @media (min-width: 768px) {
   ::-webkit-scrollbar {
     width: 7px;
@@ -121,7 +121,7 @@ h1, h2, h3, .font-serif {
   }
 }
 
-/* Smooth Touch Momentum Scrolling */
+
 .no-scrollbar::-webkit-scrollbar {
   display: none;
 }
@@ -131,13 +131,13 @@ h1, h2, h3, .font-serif {
   -webkit-overflow-scrolling: touch;
 }
 
-/* Prevent image ghost drag on mobile */
+
 img {
   -webkit-user-select: none;
   user-select: none;
 }
 
-/* Shimmer Animation */
+
 .shimmer-effect {
   background: linear-gradient(
     90deg,

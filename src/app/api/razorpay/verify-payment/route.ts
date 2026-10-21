@@ -13,7 +13,6 @@ export async function POST(req: NextRequest) {
       orderData,
     } = body;
 
-    // ── Guard checks ───────────────────────────────────────
     if (!isRazorpayConfigured()) {
       return NextResponse.json(
         { error: 'Payment gateway configuration is missing or inactive.' },
@@ -28,7 +27,6 @@ export async function POST(req: NextRequest) {
       );
     }
 
-    // ── Cryptographic signature verification ───────────────
     const isValid = verifyRazorpaySignature(
       razorpay_order_id,
       razorpay_payment_id,
@@ -45,7 +43,6 @@ export async function POST(req: NextRequest) {
       );
     }
 
-    // ── Update order in MongoDB to PAID ───────────────────
     let receiptNumber = `LARI-INV-${new Date().getFullYear()}-${Math.floor(
       100000 + Math.random() * 900000
     )}`;
@@ -68,7 +65,6 @@ export async function POST(req: NextRequest) {
       if (existingOrder) {
         receiptNumber = existingOrder.receiptNumber;
 
-        // Merge any extra orderData fields if they were missing in create step
         if (orderData?.shippingAddress && !existingOrder.shippingAddress?.fullName) {
           await Order.updateOne(
             { razorpayOrderId: razorpay_order_id },
@@ -76,7 +72,6 @@ export async function POST(req: NextRequest) {
           );
         }
       } else {
-        // Fallback: create order record if it wasn't created earlier
         if (orderData) {
           await Order.create({
             receiptNumber,
@@ -106,7 +101,6 @@ export async function POST(req: NextRequest) {
         }
       }
     } catch (dbErr) {
-      // Non-fatal: payment succeeded, just log the DB error
       console.error('[MongoDB] Failed to update order after payment verification:', dbErr);
     }
 

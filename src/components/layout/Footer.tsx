@@ -20,7 +20,6 @@ export const Footer = () => {
     <footer className="bg-stone-950 text-stone-300 pt-16 pb-28 lg:pb-12 border-t border-stone-800">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-10 pb-12 border-b border-stone-800">
-          {/* Brand Column */}
           <div className="lg:col-span-2 space-y-4">
             <div className="flex items-center gap-3">
               <div className="relative w-12 h-12 rounded-xl overflow-hidden bg-white p-1">
@@ -67,7 +66,6 @@ export const Footer = () => {
             </div>
           </div>
 
-          {/* Product Categories */}
           <div>
             <h4 className="text-xs font-bold uppercase tracking-widest text-white mb-4">
               Products
@@ -94,7 +92,6 @@ export const Footer = () => {
             </ul>
           </div>
 
-          {/* Company Links */}
           <div>
             <h4 className="text-xs font-bold uppercase tracking-widest text-white mb-4">
               Company
@@ -133,7 +130,6 @@ export const Footer = () => {
             </ul>
           </div>
 
-          {/* Contact Details */}
           <div>
             <h4 className="text-xs font-bold uppercase tracking-widest text-white mb-4">
               Factory & Office
@@ -165,7 +161,6 @@ export const Footer = () => {
           </div>
         </div>
 
-        {/* Bottom Bar: Copyright, Payment Icons & Currency Info */}
         <div className="pt-8 flex flex-col md:flex-row justify-between items-center gap-4 text-xs text-stone-500">
           <p>© 2005 - 2026 Lari Industries Kanpur. All rights reserved.</p>
           <div className="flex items-center gap-4 text-stone-400">

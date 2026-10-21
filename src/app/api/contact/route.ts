@@ -14,13 +14,11 @@ export async function POST(req: NextRequest) {
       );
     }
 
-    // Email format check
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     if (!emailRegex.test(email)) {
       return NextResponse.json({ error: 'Invalid email address' }, { status: 400 });
     }
 
-    // ── Save to MongoDB ───────────────────────────────────
     try {
       await connectDB();
       await ContactInquiry.create({
@@ -35,7 +33,6 @@ export async function POST(req: NextRequest) {
       });
     } catch (dbErr) {
       console.error('[MongoDB] Failed to save contact inquiry:', dbErr);
-      // Non-fatal; still return success to user
     }
 
     console.log('[Contact/RFQ] Saved inquiry from:', email, '| B2B:', isB2bQuote);

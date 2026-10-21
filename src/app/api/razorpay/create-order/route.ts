@@ -23,7 +23,6 @@ export async function POST(req: NextRequest) {
       shippingAddress,
     } = body;
 
-    // ── Validate currency & items ──────────────────────────
     if (currency.toUpperCase() !== 'USD' || !Array.isArray(items) || items.length === 0) {
       return NextResponse.json(
         { error: 'A USD order with at least one item is required' },
@@ -31,7 +30,6 @@ export async function POST(req: NextRequest) {
       );
     }
 
-    // ── Validate each item against product catalogue ───────
     const catalog = new Map(products.map((p) => [p.id, p]));
     const normalizedItems = items.map((item: { id?: unknown; qty?: unknown; selectedSize?: unknown }) => ({
       product: catalog.get(String(item.id)),
@@ -51,7 +49,6 @@ export async function POST(req: NextRequest) {
       );
     }
 
-    // ── Server-side price computation ──────────────────────
     const subtotal = normalizedItems.reduce(
       (sum, { product, quantity }) => sum + product!.price * quantity,
       0
@@ -77,7 +74,6 @@ export async function POST(req: NextRequest) {
       );
     }
 
-    // ── Check Razorpay config ──────────────────────────────
     if (!isRazorpayConfigured()) {
       return NextResponse.json(
         {
@@ -91,12 +87,11 @@ export async function POST(req: NextRequest) {
     const keyId = getRazorpayKeyId();
     const keySecret = getRazorpayKeySecret();
 
-    // ── Create Razorpay order ──────────────────────────────
     const razorpay = new Razorpay({ key_id: keyId, key_secret: keySecret });
     const receiptId = receipt || `lari_${Date.now().toString().slice(-8)}`;
 
     const rzpOrder = await razorpay.orders.create({
-      amount: Math.round(expectedAmount * 100), // smallest sub-unit (cents for USD)
+      amount: Math.round(expectedAmount * 100),
       currency: currency.toUpperCase(),
       receipt: receiptId,
       notes: {
@@ -109,7 +104,6 @@ export async function POST(req: NextRequest) {
       },
     });
 
-    // ── Persist PENDING order to MongoDB ───────────────────
     try {
       await connectDB();
 
@@ -143,7 +137,6 @@ export async function POST(req: NextRequest) {
         webhookVerified: false,
       });
     } catch (dbErr) {
-      // Non-fatal: log but don't block payment
       console.error('[MongoDB] Failed to persist PENDING order:', dbErr);
     }
 

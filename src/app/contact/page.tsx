@@ -111,7 +111,6 @@ function ContactContent() {
         </div>
 
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
-          {/* Contact Information Sidebar */}
           <div className="lg:col-span-5 space-y-6">
             <div className="bg-white rounded-3xl p-6 sm:p-8 border border-stone-200/80 shadow-sm space-y-6">
               <h2 className="font-serif font-bold text-xl text-stone-900 border-b border-stone-100 pb-3">
@@ -185,7 +184,6 @@ function ContactContent() {
               </div>
             </div>
 
-            {/* Assurance Card */}
             <div className="p-6 rounded-3xl bg-stone-900 text-stone-200 space-y-3">
               <div className="flex items-center gap-2 text-brand-400 text-xs font-bold uppercase tracking-wider">
                 <ShieldCheck className="w-4 h-4" />
@@ -200,7 +198,6 @@ function ContactContent() {
             </div>
           </div>
 
-          {/* Interactive Inquiry Form */}
           <div className="lg:col-span-7">
             <div className="bg-white rounded-3xl p-6 sm:p-10 border border-stone-200/80 shadow-sm space-y-6">
               <div>

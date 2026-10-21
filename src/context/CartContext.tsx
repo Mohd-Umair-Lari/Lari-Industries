@@ -32,7 +32,7 @@ const CartContext = createContext<CartContextType | undefined>(undefined);
 
 const FREE_SHIPPING_THRESHOLD_USD = 50.00;
 const STANDARD_SHIPPING_USD = 5.00;
-const TAX_RATE = 0.05; // 5% export/sales tax
+const TAX_RATE = 0.05;
 
 export function CartProvider({ children }: { children: React.ReactNode }) {
   const [cart, setCart] = useState<CartItem[]>([]);
@@ -42,7 +42,6 @@ export function CartProvider({ children }: { children: React.ReactNode }) {
   const [shippingAddress, setShippingAddressState] = useState<ShippingAddress | null>(null);
   const [isHydrated, setIsHydrated] = useState(false);
 
-  // Load from localStorage on client mount
   useEffect(() => {
     try {
       const savedCart = localStorage.getItem('lari_cart_usd');
@@ -65,7 +64,6 @@ export function CartProvider({ children }: { children: React.ReactNode }) {
     }
   }, []);
 
-  // Save cart to localStorage on change
   useEffect(() => {
     if (!isHydrated) return;
     try {

@@ -1,7 +1,6 @@
 import { Product, ProductCategory } from '@/types/product';
 
 export const products: Product[] = [
-  // ─── Aprons ───────────────────────────────────────────
   {
     id: 'lari-apr-01',
     slug: 'leather-welding-apron',
@@ -232,7 +231,6 @@ export const products: Product[] = [
     reviewCount: 31
   },
 
-  // ─── Asbestos Gloves ──────────────────────────────────
   {
     id: 'lari-asb-01',
     slug: 'asbestos-safety-gloves-type-a',
@@ -317,7 +315,6 @@ export const products: Product[] = [
     isFeatured: true
   },
 
-  // ─── Export Gloves ────────────────────────────────────
   {
     id: 'lari-exp-01',
     slug: 'canadian-drill-gloves',
@@ -487,7 +484,6 @@ export const products: Product[] = [
     isFeatured: true
   },
 
-  // ─── Industrial Safety (Gloves & Workwear) ─────────────
   {
     id: 'lari-ind-01',
     slug: 'leather-welding-gloves',
@@ -817,7 +813,6 @@ export const products: Product[] = [
     reviewCount: 39
   },
 
-  // ─── Leg Guards & Spats ───────────────────────────────
   {
     id: 'lari-leg-01',
     slug: 'leather-leg-guard',
@@ -874,7 +869,6 @@ export const products: Product[] = [
     reviewCount: 30
   },
 
-  // ─── Harness Leather ──────────────────────────────────
   {
     id: 'lari-har-01',
     slug: '6mm-thick-harness-leather-sheet',
@@ -959,7 +953,6 @@ export const products: Product[] = [
     reviewCount: 14
   },
 
-  // ─── Hosiery Gloves ───────────────────────────────────
   {
     id: 'lari-hos-01',
     slug: 'white-hosiery-hand-gloves',
@@ -1094,7 +1087,6 @@ export const products: Product[] = [
     reviewCount: 28
   },
 
-  // ─── Kevlar Gloves ────────────────────────────────────
   {
     id: 'lari-kev-01',
     slug: 'kevlar-para-aramid-gloves-type-a',
@@ -1209,7 +1201,6 @@ export const products: Product[] = [
     isBestseller: true
   },
 
-  // ─── Leather Sheets ($18 per kg X4) ────────────────────
   {
     id: 'lari-lea-01',
     slug: 'brown-leather-sheet',
@@ -1318,7 +1309,6 @@ export const products: Product[] = [
     reviewCount: 19
   },
 
-  // ─── Leather Washers ──────────────────────────────────
   {
     id: 'lari-wsh-01',
     slug: 'leather-washer-standard',
@@ -1454,7 +1444,6 @@ export const products: Product[] = [
     reviewCount: 29
   },
 
-  // ─── Leather Straps (As per custom choice) ─────────────
   {
     id: 'lari-str-01',
     slug: 'leather-strap-natural',
@@ -1562,7 +1551,6 @@ export const products: Product[] = [
     reviewCount: 12
   },
 
-  // ─── Tarpaulin (Tarpoline: 55.0, 45.0, 40.0) ──────────
   {
     id: 'lari-tar-01',
     slug: 'waterproof-tarpaulin-blue',

@@ -74,7 +74,6 @@ export default function CheckoutPage() {
         return;
       }
 
-      // Step 1: Call /api/razorpay/create-order
       const orderRes = await fetch('/api/razorpay/create-order', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
@@ -104,12 +103,10 @@ export default function CheckoutPage() {
         throw new Error(orderData.error || 'Failed to initialize payment gateway.');
       }
 
-      // Step 2: Ensure Razorpay SDK is loaded
       if (typeof window === 'undefined' || !window.Razorpay) {
         throw new Error('Payment gateway SDK failed to load. Please check your connection and try again.');
       }
 
-      // Step 3: Trigger official Razorpay Client Checkout Modal
       const options = {
         key: orderData.keyId,
         amount: orderData.amount,
@@ -173,7 +170,7 @@ export default function CheckoutPage() {
           contact: formData.phone,
         },
         theme: {
-          color: '#e74c3c', // Lari Iconic Red
+          color: '#e74c3c',
         },
         modal: {
           ondismiss: function () {
@@ -227,7 +224,6 @@ export default function CheckoutPage() {
           </p>
         </div>
 
-        {/* Razorpay Environment Notice Banner */}
         <div className="mb-8 p-4 rounded-2xl bg-gradient-to-r from-amber-50 to-orange-50 border border-amber-200 text-amber-900 flex items-start gap-3">
           <Sparkles className="w-5 h-5 text-amber-600 mt-0.5 flex-shrink-0" />
           <div className="text-xs">
@@ -243,9 +239,7 @@ export default function CheckoutPage() {
         )}
 
         <form onSubmit={handlePayment} className="grid grid-cols-1 lg:grid-cols-12 gap-8">
-          {/* Left Form: Delivery & Contact Information */}
           <div className="lg:col-span-7 space-y-6">
-            {/* Step 1: Contact Details */}
             <div className="bg-white rounded-3xl p-6 sm:p-8 shadow-sm border border-stone-200/80 space-y-4">
               <h2 className="font-serif font-bold text-lg text-stone-900 border-b border-stone-100 pb-3 flex items-center gap-2">
                 <span className="w-6 h-6 rounded-full bg-brand-500 text-white text-xs flex items-center justify-center font-bold">1</span>
@@ -314,7 +308,6 @@ export default function CheckoutPage() {
               </div>
             </div>
 
-            {/* Step 2: Shipping Destination */}
             <div className="bg-white rounded-3xl p-6 sm:p-8 shadow-sm border border-stone-200/80 space-y-4">
               <h2 className="font-serif font-bold text-lg text-stone-900 border-b border-stone-100 pb-3 flex items-center gap-2">
                 <span className="w-6 h-6 rounded-full bg-brand-500 text-white text-xs flex items-center justify-center font-bold">2</span>
@@ -403,7 +396,6 @@ export default function CheckoutPage() {
               </div>
             </div>
 
-            {/* Step 3: Payment Method */}
             <div className="bg-white rounded-3xl p-6 sm:p-8 shadow-sm border border-stone-200/80 space-y-4">
               <h2 className="font-serif font-bold text-lg text-stone-900 border-b border-stone-100 pb-3 flex items-center gap-2">
                 <span className="w-6 h-6 rounded-full bg-brand-500 text-white text-xs flex items-center justify-center font-bold">3</span>
@@ -431,14 +423,12 @@ export default function CheckoutPage() {
             </div>
           </div>
 
-          {/* Right Summary: Items & Payment Trigger */}
           <div className="lg:col-span-5 space-y-6">
             <div className="bg-white rounded-3xl p-6 sm:p-8 shadow-sm border border-stone-200/80 space-y-6 sticky top-28">
               <h2 className="font-serif font-black text-xl text-stone-900 border-b border-stone-100 pb-4">
                 Order Review ({cart.length} items)
               </h2>
 
-              {/* Items Mini List */}
               <div className="divide-y divide-stone-100 max-h-60 overflow-y-auto pr-2 space-y-3">
                 {cart.map((item) => (
                   <div key={item.product.id} className="pt-3 first:pt-0 flex items-center gap-3">
@@ -465,7 +455,6 @@ export default function CheckoutPage() {
                 ))}
               </div>
 
-              {/* Totals */}
               <div className="space-y-2 text-xs text-stone-600 border-t border-stone-100 pt-4">
                 <div className="flex justify-between">
                   <span>Subtotal</span>
@@ -491,7 +480,6 @@ export default function CheckoutPage() {
                 </div>
               </div>
 
-              {/* Pay Button */}
               <Button
                 type="submit"
                 isLoading={isProcessing}

@@ -19,7 +19,6 @@ export function formatUSD(amount: number, unit?: string): string {
   return unit ? `${formatted} ${unit}` : formatted;
 }
 
-// Backward-compatible alias
 export const formatPrice = formatUSD;
 
 export const VALID_PROMO_CODES: Record<string, { percent: number; label: string }> = {

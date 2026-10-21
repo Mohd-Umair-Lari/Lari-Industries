@@ -110,7 +110,6 @@ export default function AboutPage() {
     <div className="bg-stone-50 min-h-screen py-12 sm:py-20">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-20">
         
-        {/* Hero Banner */}
         <div className="text-center max-w-4xl mx-auto space-y-4">
           <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-brand-50 border border-brand-200 text-brand-600 text-xs font-bold uppercase tracking-wider">
             <Award className="w-3.5 h-3.5" />
@@ -127,7 +126,6 @@ export default function AboutPage() {
           </p>
         </div>
 
-        {/* 3 Metrics Cards */}
         <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 max-w-4xl mx-auto">
           <div className="bg-white rounded-3xl p-8 border border-stone-200/80 shadow-sm text-center">
             <span className="text-4xl sm:text-5xl font-black text-brand-600 font-serif block mb-1">
@@ -160,7 +158,6 @@ export default function AboutPage() {
           </div>
         </div>
 
-        {/* SECTION 1: IN-HOUSE MANUFACTURING & LATEST TECHNOLOGY */}
         <div className="bg-white rounded-3xl p-8 sm:p-14 border border-stone-200/80 shadow-sm space-y-12">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
             <div className="lg:col-span-7 space-y-5">
@@ -205,7 +202,6 @@ export default function AboutPage() {
             </div>
           </div>
 
-          {/* Interactive Factory Visual Gallery (11 Profile Images) */}
           <div className="pt-8 border-t border-stone-100 space-y-6">
             <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-4">
               <div>
@@ -237,7 +233,6 @@ export default function AboutPage() {
               </div>
             </div>
 
-            {/* Featured Active Image View */}
             <div className="relative aspect-[16/9] sm:aspect-[21/9] w-full rounded-3xl overflow-hidden bg-stone-900 border border-stone-200 shadow-2xl">
               <Image
                 src={FACTORY_PROFILE_IMAGES[activeImageIndex].src}
@@ -260,7 +255,6 @@ export default function AboutPage() {
               </div>
             </div>
 
-            {/* Thumbnail Strip */}
             <div className="flex overflow-x-auto no-scrollbar sm:grid sm:grid-cols-6 lg:grid-cols-11 gap-2 pt-2 pb-1">
               {FACTORY_PROFILE_IMAGES.map((img, idx) => (
                 <button
@@ -284,7 +278,6 @@ export default function AboutPage() {
           </div>
         </div>
 
-        {/* SECTION 2: SELF HAND-TANNED LEATHER — AZO-FREE & PCP-FREE (HUMAN SKIN SAFE) */}
         <div className="bg-gradient-to-br from-white via-rose-50/20 to-amber-50/30 rounded-3xl p-8 sm:p-14 border border-rose-100 shadow-glass space-y-8">
           <div className="max-w-3xl space-y-3">
             <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-rose-100/80 text-rose-800 text-xs font-bold uppercase tracking-wider border border-rose-200">
@@ -300,7 +293,6 @@ export default function AboutPage() {
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-            {/* Feature 1: AZO Free */}
             <div className="p-6 rounded-2xl bg-white border border-rose-100 shadow-sm space-y-3">
               <div className="w-12 h-12 rounded-xl bg-rose-50 text-rose-600 flex items-center justify-center font-bold">
                 <FlaskConical className="w-6 h-6" />
@@ -317,7 +309,6 @@ export default function AboutPage() {
               </div>
             </div>
 
-            {/* Feature 2: PCP Free */}
             <div className="p-6 rounded-2xl bg-white border border-rose-100 shadow-sm space-y-3">
               <div className="w-12 h-12 rounded-xl bg-amber-50 text-amber-700 flex items-center justify-center font-bold">
                 <ShieldCheck className="w-6 h-6" />
@@ -334,7 +325,6 @@ export default function AboutPage() {
               </div>
             </div>
 
-            {/* Feature 3: Balanced pH */}
             <div className="p-6 rounded-2xl bg-white border border-rose-100 shadow-sm space-y-3">
               <div className="w-12 h-12 rounded-xl bg-emerald-50 text-emerald-700 flex items-center justify-center font-bold">
                 <Microscope className="w-6 h-6" />
@@ -353,7 +343,6 @@ export default function AboutPage() {
           </div>
         </div>
 
-        {/* SECTION 3: NABL-ACCREDITED LABORATORY TESTING & PROTOCOLS */}
         <div className="bg-stone-900 text-white rounded-3xl p-8 sm:p-14 border border-stone-800 shadow-2xl space-y-10">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
             <div className="lg:col-span-8 space-y-4">
@@ -391,7 +380,6 @@ export default function AboutPage() {
             </div>
           </div>
 
-          {/* Testing Parameter Breakdown Grid */}
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 pt-4 border-t border-stone-800">
             <div className="p-5 rounded-2xl bg-stone-800/60 border border-stone-700/60 space-y-2">
               <div className="text-brand-400 font-bold text-xs uppercase tracking-wider">EN 388:2016</div>
@@ -427,7 +415,6 @@ export default function AboutPage() {
           </div>
         </div>
 
-        {/* Manufacturing Pillars */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           <div className="p-8 rounded-3xl bg-white border border-stone-200/80 shadow-sm space-y-3">
             <Factory className="w-8 h-8 text-brand-600" />
@@ -454,7 +441,6 @@ export default function AboutPage() {
           </div>
         </div>
 
-        {/* Contact Banner */}
         <div className="bg-stone-900 rounded-3xl p-8 sm:p-14 text-white text-center space-y-6">
           <h2 className="text-2xl sm:text-4xl font-serif font-black tracking-tight">
             Schedule a Direct Consultation with Our Safety Engineers

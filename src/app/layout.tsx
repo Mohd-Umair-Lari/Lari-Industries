@@ -56,7 +56,6 @@ export default function RootLayout({
           </WishlistProvider>
         </CartProvider>
 
-        {/* Razorpay Official Checkout SDK */}
         <Script
           id="razorpay-checkout-js"
           src="https://checkout.razorpay.com/v1/checkout.js"

@@ -19,7 +19,6 @@ export async function POST(req: NextRequest) {
       );
     }
 
-    // ── Verify HMAC signature ──────────────────────────────
     const isValid = verifyWebhookSignature(rawBody, signature);
     if (!isValid) {
       console.warn('[Razorpay Webhook] Invalid signature received');
@@ -61,7 +60,6 @@ export async function POST(req: NextRequest) {
       orderId: paymentEntity?.order_id || orderEntity?.id,
     });
 
-    // ── Handle webhook events ─────────────────────────────
     try {
       await connectDB();
 
@@ -124,7 +122,6 @@ export async function POST(req: NextRequest) {
       }
     } catch (dbErr) {
       console.error('[Webhook] MongoDB update failed:', dbErr);
-      // Return 200 so Razorpay doesn't retry
     }
 
     return NextResponse.json({ status: 'ok', received: true });

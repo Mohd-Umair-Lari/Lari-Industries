@@ -41,16 +41,13 @@ function ProductsContent() {
     }
   }, [searchParams]);
 
-  // Filter & Sort Logic
   const filteredProducts = useMemo(() => {
     let list = [...products];
 
-    // Filter by Category
     if (selectedCategory !== 'All') {
       list = list.filter((p) => p.category === selectedCategory);
     }
 
-    // Filter by Search Query
     if (searchQuery.trim()) {
       const q = searchQuery.toLowerCase().trim();
       list = list.filter(
@@ -63,7 +60,6 @@ function ProductsContent() {
       );
     }
 
-    // Sort
     switch (sortBy) {
       case 'price-asc':
         list.sort((a, b) => a.price - b.price);
@@ -93,7 +89,6 @@ function ProductsContent() {
   return (
     <div className="bg-stone-50 min-h-screen py-10 sm:py-16">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        {/* Header Banner */}
         <div className="mb-10 text-center max-w-3xl mx-auto">
           <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-emerald-50 text-emerald-800 text-xs font-bold uppercase tracking-wider mb-3 border border-emerald-200">
             <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse" />
@@ -107,10 +102,8 @@ function ProductsContent() {
           </p>
         </div>
 
-        {/* Search & Sort Controls Toolbar */}
         <div className="bg-white rounded-3xl p-4 sm:p-6 shadow-sm border border-stone-200/80 mb-8 space-y-4">
           <div className="flex flex-col md:flex-row gap-4 items-stretch md:items-center justify-between">
-            {/* Search Input */}
             <div className="relative flex-1">
               <Search className="absolute left-4 top-3.5 w-4 h-4 text-stone-400" />
               <input
@@ -130,7 +123,6 @@ function ProductsContent() {
               )}
             </div>
 
-            {/* Sorting & Layout Toggles */}
             <div className="flex items-center gap-3">
               <div className="relative flex items-center">
                 <ArrowUpDown className="absolute left-3 w-4 h-4 text-stone-400 pointer-events-none" />
@@ -147,7 +139,6 @@ function ProductsContent() {
                 </select>
               </div>
 
-              {/* View Toggle */}
               <div className="hidden sm:flex items-center p-1 bg-stone-100 rounded-xl border border-stone-200">
                 <button
                   onClick={() => setViewMode('grid')}
@@ -171,7 +162,6 @@ function ProductsContent() {
             </div>
           </div>
 
-          {/* Category Filter Pills (Horizontal Scrollable) */}
           <div className="flex items-center gap-2 overflow-x-auto pb-1 pt-2 no-scrollbar">
             <span className="text-xs font-bold text-stone-400 uppercase tracking-wider flex items-center gap-1 flex-shrink-0 mr-1">
               <Filter className="w-3.5 h-3.5" /> Filter:
@@ -195,7 +185,6 @@ function ProductsContent() {
           </div>
         </div>
 
-        {/* Results Count & Clear Active Filters */}
         <div className="flex items-center justify-between text-xs text-stone-500 mb-6 px-1">
           <p>
             Showing <strong className="text-stone-900">{filteredProducts.length}</strong> products
@@ -216,7 +205,6 @@ function ProductsContent() {
           )}
         </div>
 
-        {/* Products Grid / List */}
         {filteredProducts.length === 0 ? (
           <div className="text-center py-24 bg-white rounded-3xl border border-stone-200/80 p-8">
             <div className="w-16 h-16 rounded-full bg-stone-100 text-stone-400 mx-auto flex items-center justify-center mb-4">

@@ -3,7 +3,6 @@ import mongoose from 'mongoose';
 const MONGODB_URI = process.env.MONGODB_URI as string;
 
 if (!MONGODB_URI) {
-  // In production this will throw; during build it's fine
   if (process.env.NODE_ENV === 'production') {
     throw new Error(
       'MONGODB_URI environment variable is not set. Please add it to your .env or Vercel settings.'
@@ -11,12 +10,7 @@ if (!MONGODB_URI) {
   }
 }
 
-/**
- * Global cache to prevent creating multiple connections in development
- * (Next.js hot-reload would re-run this module otherwise).
- */
 declare global {
-  // eslint-disable-next-line no-var
   var _mongooseCache: {
     conn: typeof mongoose | null;
     promise: Promise<typeof mongoose> | null;
