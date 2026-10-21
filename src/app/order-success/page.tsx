@@ -4,27 +4,25 @@ import React, { useEffect, useState, Suspense } from 'react';
 import { useSearchParams } from 'next/navigation';
 import Link from 'next/link';
 import confetti from 'canvas-confetti';
-import { 
-  CheckCircle2, 
-  Printer, 
-  Package, 
-  ArrowRight, 
-  ShieldCheck, 
-  Truck, 
-  Calendar 
+import {
+  CheckCircle2,
+  Printer,
+  Package,
+  ArrowRight,
+  Truck,
 } from 'lucide-react';
 import { formatUSD } from '@/lib/utils';
 import { Button } from '@/components/ui/Button';
+import { LocalOrderSnapshot } from '@/types/cart';
 
 function OrderSuccessContent() {
   const searchParams = useSearchParams();
   const orderId = searchParams.get('orderId') || 'LARI-ORD-2026';
   const receipt = searchParams.get('receipt') || 'LARI-INV-2026-9921';
 
-  const [order, setOrder] = useState<any>(null);
+  const [order, setOrder] = useState<LocalOrderSnapshot | null>(null);
 
   useEffect(() => {
-    // Fire festive confetti burst
     try {
       confetti({
         particleCount: 90,
@@ -34,11 +32,10 @@ function OrderSuccessContent() {
       });
     } catch (e) {}
 
-    // Load last order details from localStorage
     try {
       const saved = localStorage.getItem('lari_last_order');
       if (saved) {
-        setOrder(JSON.parse(saved));
+        setOrder(JSON.parse(saved) as LocalOrderSnapshot);
       }
     } catch (e) {}
   }, []);
@@ -53,7 +50,6 @@ function OrderSuccessContent() {
     <div className="bg-stone-50 min-h-screen py-12 sm:py-20">
       <div className="max-w-3xl mx-auto px-4 sm:px-6">
         <div className="bg-white rounded-3xl p-6 sm:p-12 shadow-sm border border-stone-200/80 text-center space-y-6">
-          {/* Success Badge */}
           <div className="w-20 h-20 rounded-full bg-emerald-100 text-emerald-600 mx-auto flex items-center justify-center animate-bounce">
             <CheckCircle2 className="w-10 h-10" />
           </div>
@@ -70,7 +66,6 @@ function OrderSuccessContent() {
             </p>
           </div>
 
-          {/* Reference Meta Box */}
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 p-4 rounded-2xl bg-stone-50 border border-stone-200 text-left text-xs">
             <div>
               <span className="text-stone-400 block font-medium">Order Reference:</span>
@@ -82,8 +77,7 @@ function OrderSuccessContent() {
             </div>
           </div>
 
-          {/* Itemized Order Details if available */}
-          {order && order.items && (
+          {order && order.items && order.items.length > 0 && (
             <div className="border border-stone-200 rounded-2xl p-6 text-left space-y-4">
               <h3 className="font-serif font-bold text-base text-stone-900 flex items-center gap-2">
                 <Package className="w-4 h-4 text-brand-500" />
@@ -91,17 +85,41 @@ function OrderSuccessContent() {
               </h3>
 
               <div className="divide-y divide-stone-100 text-xs">
-                {order.items.map((item: any, idx: number) => (
+                {order.items.map((item, idx) => (
                   <div key={idx} className="py-2.5 flex justify-between items-center">
                     <div>
                       <strong className="text-stone-800">{item.product.name}</strong>
                       <span className="text-stone-400 ml-2">Qty: {item.quantity}</span>
+                      {item.selectedSize && (
+                        <span className="text-stone-400 ml-2">Size: {item.selectedSize}</span>
+                      )}
                     </div>
                     <span className="font-bold text-stone-900">
                       {formatUSD(item.product.price * item.quantity)}
                     </span>
                   </div>
                 ))}
+              </div>
+
+              <div className="space-y-1 text-xs text-stone-600 border-t border-stone-100 pt-3">
+                <div className="flex justify-between">
+                  <span>Subtotal</span>
+                  <span>{formatUSD(order.subtotal)}</span>
+                </div>
+                {order.discountAmount > 0 && (
+                  <div className="flex justify-between text-emerald-600">
+                    <span>Discount {order.discountCode ? `(${order.discountCode})` : ''}</span>
+                    <span>-{formatUSD(order.discountAmount)}</span>
+                  </div>
+                )}
+                <div className="flex justify-between">
+                  <span>Shipping</span>
+                  <span>{order.shipping === 0 ? <strong className="text-emerald-600">FREE</strong> : formatUSD(order.shipping)}</span>
+                </div>
+                <div className="flex justify-between">
+                  <span>Tax (5%)</span>
+                  <span>{formatUSD(order.tax)}</span>
+                </div>
               </div>
 
               <div className="border-t border-stone-200 pt-3 flex justify-between items-center text-sm font-bold text-stone-900">
@@ -111,7 +129,24 @@ function OrderSuccessContent() {
             </div>
           )}
 
-          {/* Dispatch Notice */}
+          {order?.shippingAddress && (
+            <div className="border border-stone-200 rounded-2xl p-4 text-left text-xs space-y-1">
+              <p className="font-bold text-stone-700 text-sm mb-2">Shipping To:</p>
+              <p className="text-stone-600">{order.shippingAddress.fullName}</p>
+              {order.shippingAddress.companyName && (
+                <p className="text-stone-500">{order.shippingAddress.companyName}</p>
+              )}
+              <p className="text-stone-600">{order.shippingAddress.addressLine1}</p>
+              <p className="text-stone-600">
+                {[order.shippingAddress.city, order.shippingAddress.state, order.shippingAddress.pincode]
+                  .filter(Boolean)
+                  .join(', ')}
+              </p>
+              <p className="text-stone-600">{order.shippingAddress.country}</p>
+              <p className="text-stone-500">{order.shippingAddress.email}</p>
+            </div>
+          )}
+
           <div className="p-4 rounded-2xl bg-blue-50 border border-blue-200 text-left text-xs text-blue-900 flex items-start gap-3">
             <Truck className="w-5 h-5 text-blue-600 mt-0.5 flex-shrink-0" />
             <div>
@@ -122,7 +157,6 @@ function OrderSuccessContent() {
             </div>
           </div>
 
-          {/* Action CTAs */}
           <div className="flex flex-wrap items-center justify-center gap-4 pt-4 border-t border-stone-100">
             <Button onClick={handlePrint} variant="outline" className="px-6">
               <Printer className="w-4 h-4 mr-2" />

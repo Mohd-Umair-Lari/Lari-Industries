@@ -1,4 +1,6 @@
 import { NextRequest, NextResponse } from 'next/server';
+import connectDB from '@/lib/mongodb';
+import ContactInquiry from '@/models/ContactInquiry';
 
 export async function POST(req: NextRequest) {
   try {
@@ -12,27 +14,36 @@ export async function POST(req: NextRequest) {
       );
     }
 
-    // In production, integrate email service like Resend, Nodemailer, or AWS SES
-    console.log('[Contact / RFQ Submission Received]:', {
-      name,
-      email,
-      phone,
-      subject,
-      message,
-      isB2bQuote,
-      productInterest,
-      timestamp: new Date().toISOString(),
-    });
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!emailRegex.test(email)) {
+      return NextResponse.json({ error: 'Invalid email address' }, { status: 400 });
+    }
+
+    try {
+      await connectDB();
+      await ContactInquiry.create({
+        name: name.trim(),
+        email: email.trim().toLowerCase(),
+        phone: phone?.trim(),
+        subject: subject?.trim(),
+        message: message.trim(),
+        isB2bQuote: Boolean(isB2bQuote),
+        productInterest: productInterest?.trim(),
+        status: 'NEW',
+      });
+    } catch (dbErr) {
+      console.error('[MongoDB] Failed to save contact inquiry:', dbErr);
+    }
+
+    console.log('[Contact/RFQ] Saved inquiry from:', email, '| B2B:', isB2bQuote);
 
     return NextResponse.json({
       success: true,
-      message: 'Your inquiry has been received. Our sales engineering team in Kanpur will contact you within 24 hours.',
+      message:
+        'Your inquiry has been received. Our sales engineering team in Kanpur will contact you within 24 hours.',
     });
   } catch (error: any) {
     console.error('Error handling contact form:', error);
-    return NextResponse.json(
-      { error: 'Failed to process inquiry' },
-      { status: 500 }
-    );
+    return NextResponse.json({ error: 'Failed to process inquiry' }, { status: 500 });
   }
 }

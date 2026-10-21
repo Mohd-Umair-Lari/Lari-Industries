@@ -49,7 +49,6 @@ export const ProductCard: React.FC<ProductCardProps> = ({ product, className }) 
           className || ''
         }`}
       >
-        {/* Badges Overlay */}
         <div className="absolute top-2 left-2 sm:top-3 sm:left-3 z-10 flex flex-col gap-1 pointer-events-none">
           {product.isBestseller && (
             <Badge variant="brand" size="sm">
@@ -68,7 +67,6 @@ export const ProductCard: React.FC<ProductCardProps> = ({ product, className }) 
           )}
         </div>
 
-        {/* Wishlist Button */}
         <button
           onClick={(e) => {
             e.preventDefault();
@@ -84,7 +82,6 @@ export const ProductCard: React.FC<ProductCardProps> = ({ product, className }) 
           <Heart className={`w-3.5 h-3.5 sm:w-4 sm:h-4 ${isFavorited ? 'fill-current' : ''}`} />
         </button>
 
-        {/* Product Image Container */}
         <Link
           href={`/products/${product.slug}`}
           className="relative aspect-square w-full overflow-hidden bg-stone-100 block"
@@ -98,7 +95,6 @@ export const ProductCard: React.FC<ProductCardProps> = ({ product, className }) 
           />
           <div className="absolute inset-0 bg-stone-950/0 group-hover:bg-stone-950/10 transition-colors duration-300" />
 
-          {/* Quick View Button on Hover (Hidden on mobile touch devices) */}
           <button
             onClick={(e) => {
               e.preventDefault();
@@ -111,7 +107,6 @@ export const ProductCard: React.FC<ProductCardProps> = ({ product, className }) 
           </button>
         </Link>
 
-        {/* Product Details */}
         <div className="flex-1 p-3 sm:p-5 flex flex-col justify-between">
           <div>
             <div className="flex items-center justify-between mb-1 text-[10px] sm:text-xs text-stone-500">
@@ -164,7 +159,6 @@ export const ProductCard: React.FC<ProductCardProps> = ({ product, className }) 
               )}
             </div>
 
-            {/* Add to Cart / Request Quote Button */}
             {product.isCustomQuote ? (
               <Link
                 href={`/contact?product=${encodeURIComponent(product.name)}`}
@@ -201,7 +195,6 @@ export const ProductCard: React.FC<ProductCardProps> = ({ product, className }) 
         </div>
       </div>
 
-      {/* Quick View Modal */}
       {quickViewOpen && (
         <QuickViewModal
           product={product}

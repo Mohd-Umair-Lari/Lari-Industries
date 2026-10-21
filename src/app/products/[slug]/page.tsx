@@ -70,7 +70,6 @@ export default function ProductDetailPage({
   return (
     <div className="bg-stone-50 min-h-screen py-10 sm:py-16">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        {/* Breadcrumbs */}
         <nav className="flex items-center gap-2 text-xs text-stone-500 mb-8 overflow-x-auto whitespace-nowrap">
           <Link href="/" className="hover:text-stone-900">
             Home
@@ -92,10 +91,8 @@ export default function ProductDetailPage({
           </span>
         </nav>
 
-        {/* Product Overview Section */}
         <div className="bg-white rounded-3xl p-6 sm:p-10 shadow-sm border border-stone-200/80 mb-16">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-14">
-            {/* Product Gallery View */}
             <div className="space-y-4">
               <div className="relative aspect-square w-full rounded-2xl overflow-hidden bg-stone-100 border border-stone-200 shadow-inner group">
                 <Image
@@ -119,7 +116,6 @@ export default function ProductDetailPage({
                 )}
               </div>
 
-              {/* Quality & Trust Indicator Pill */}
               <div className="grid grid-cols-3 gap-3 text-center text-xs font-semibold text-stone-600">
                 <div className="p-3 rounded-xl bg-stone-50 border border-stone-200 flex flex-col items-center gap-1">
                   <ShieldCheck className="w-4 h-4 text-brand-600" />
@@ -136,7 +132,6 @@ export default function ProductDetailPage({
               </div>
             </div>
 
-            {/* Product Meta & Pricing */}
             <div className="flex flex-col justify-between space-y-6">
               <div>
                 <div className="flex items-center justify-between text-xs mb-3">
@@ -154,7 +149,6 @@ export default function ProductDetailPage({
                   {product.name}
                 </h1>
 
-                {/* Price Display */}
                 <div className="p-4 rounded-2xl bg-stone-50 border border-stone-200/80 mb-6 flex items-baseline justify-between">
                   {product.isCustomQuote ? (
                     <div>
@@ -197,7 +191,6 @@ export default function ProductDetailPage({
                   {product.description}
                 </p>
 
-                {/* Key Features Bullet Points */}
                 <div className="space-y-2 mb-6">
                   <h4 className="text-xs font-bold uppercase tracking-wider text-stone-900">
                     Engineered Highlights:
@@ -213,7 +206,6 @@ export default function ProductDetailPage({
                 </div>
               </div>
 
-              {/* Purchase Box */}
               <div className="pt-6 border-t border-stone-200 space-y-4">
                 {product.isCustomQuote ? (
                   <div className="space-y-3">
@@ -292,7 +284,6 @@ export default function ProductDetailPage({
           </div>
         </div>
 
-        {/* Detailed Tabs: Specifications, Applications, Shipping, Bulk Quote */}
         <div className="bg-white rounded-3xl p-6 sm:p-10 shadow-sm border border-stone-200/80 mb-16">
           <div className="flex gap-4 border-b border-stone-200 pb-4 overflow-x-auto no-scrollbar">
             <button
@@ -421,7 +412,6 @@ export default function ProductDetailPage({
           </div>
         </div>
 
-        {/* Related Products */}
         {relatedProducts.length > 0 && (
           <div>
             <div className="flex items-center justify-between mb-8">

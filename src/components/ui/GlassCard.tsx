@@ -31,7 +31,6 @@ export const GlassCard: React.FC<GlassCardProps> = ({
       )}
       {...props}
     >
-      {/* Specular sheen effect on top edge */}
       <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-white/80 to-transparent pointer-events-none" />
       {children}
     </div>

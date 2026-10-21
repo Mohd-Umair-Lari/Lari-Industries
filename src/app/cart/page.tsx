@@ -96,7 +96,6 @@ export default function CartPage() {
           </button>
         </div>
 
-        {/* Free Shipping Notification Banner */}
         <div className="bg-white rounded-2xl p-4 border border-stone-200/80 shadow-sm mb-8">
           <div className="flex items-center justify-between text-xs sm:text-sm font-semibold text-stone-700 mb-2">
             <span className="flex items-center gap-2">
@@ -120,7 +119,6 @@ export default function CartPage() {
         </div>
 
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 items-start">
-          {/* Cart Table / Items List */}
           <div className="lg:col-span-2 space-y-4">
             <div className="bg-white rounded-3xl p-4 sm:p-6 shadow-sm border border-stone-200/80 divide-y divide-stone-100">
               {cart.map((item) => (
@@ -153,7 +151,6 @@ export default function CartPage() {
                     </div>
                   </div>
 
-                  {/* Quantity and Controls */}
                   <div className="flex items-center justify-between sm:justify-end gap-6 w-full sm:w-auto">
                     <div className="flex items-center border border-stone-200 rounded-xl bg-stone-50">
                       <button
@@ -203,13 +200,11 @@ export default function CartPage() {
             </div>
           </div>
 
-          {/* Order Summary Sidebar */}
           <div className="bg-white rounded-3xl p-6 sm:p-8 shadow-sm border border-stone-200/80 space-y-6">
             <h2 className="font-serif font-black text-xl text-stone-900 border-b border-stone-100 pb-4">
               Order Summary
             </h2>
 
-            {/* Promo Code Form */}
             <form onSubmit={handleApplyPromo} className="space-y-2">
               <label className="text-xs font-bold uppercase tracking-wider text-stone-600 block">
                 Promo Code
@@ -251,7 +246,6 @@ export default function CartPage() {
               )}
             </form>
 
-            {/* Line Item Totals in USD */}
             <div className="space-y-3 text-sm text-stone-600 border-t border-stone-100 pt-4">
               <div className="flex justify-between">
                 <span>Subtotal</span>
@@ -277,7 +271,6 @@ export default function CartPage() {
               </div>
             </div>
 
-            {/* Checkout Button */}
             <Link
               href="/checkout"
               className="w-full flex items-center justify-center gap-2 py-4 px-8 rounded-2xl bg-brand-500 hover:bg-brand-600 text-white font-bold text-base shadow-xl shadow-brand-500/25 transition-all hover:-translate-y-0.5 active:scale-[0.98]"
@@ -286,7 +279,6 @@ export default function CartPage() {
               <ArrowRight className="w-4 h-4" />
             </Link>
 
-            {/* Trust Assurance */}
             <div className="pt-4 border-t border-stone-100 space-y-2 text-xs text-stone-500">
               <div className="flex items-center gap-2">
                 <ShieldCheck className="w-4 h-4 text-emerald-600 flex-shrink-0" />

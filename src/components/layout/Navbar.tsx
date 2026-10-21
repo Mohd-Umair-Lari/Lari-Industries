@@ -4,15 +4,19 @@ import React, { useState, useEffect } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
 import { usePathname } from 'next/navigation';
-import { 
-  ShoppingBag, 
-  Heart, 
-  Search, 
-  Menu, 
-  X, 
-  ShieldCheck, 
+import { useSession, signOut } from 'next-auth/react';
+import {
+  ShoppingBag,
+  Heart,
+  Search,
+  Menu,
+  X,
+  ShieldCheck,
   ArrowRight,
-  PhoneCall
+  PhoneCall,
+  User,
+  LogOut,
+  ChevronDown,
 } from 'lucide-react';
 import { useCart } from '@/context/CartContext';
 import { useWishlist } from '@/context/WishlistContext';
@@ -21,8 +25,10 @@ import { formatUSD } from '@/lib/utils';
 
 export const Navbar = () => {
   const pathname = usePathname();
+  const { data: session, status } = useSession();
   const { totalItems, openCart } = useCart();
   const { totalWishlistItems } = useWishlist();
+  const [userMenuOpen, setUserMenuOpen] = useState(false);
 
   const [isScrolled, setIsScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -57,7 +63,6 @@ export const Navbar = () => {
 
   return (
     <>
-      {/* Top Utility Bar */}
       <div className="bg-stone-900 text-stone-300 text-xs py-2 px-4 border-b border-stone-800">
         <div className="max-w-7xl mx-auto flex justify-between items-center">
           <div className="flex items-center gap-3">
@@ -86,7 +91,6 @@ export const Navbar = () => {
         </div>
       </div>
 
-      {/* Main Glass Header */}
       <header
         className={`sticky top-0 z-40 transition-all duration-300 ${
           isScrolled
@@ -96,7 +100,6 @@ export const Navbar = () => {
       >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex items-center justify-between">
-            {/* Brand Logo */}
             <Link href="/" className="flex items-center gap-3 group">
               <div className="relative w-14 h-14 rounded-xl overflow-hidden border border-stone-200 shadow-sm group-hover:scale-105 transition-transform duration-300">
                 <Image
@@ -117,7 +120,6 @@ export const Navbar = () => {
               </div>
             </Link>
 
-            {/* Desktop Navigation Links */}
             <nav className="hidden lg:flex items-center gap-8">
               {navLinks.map((link) => {
                 const isActive = pathname === link.href;
@@ -140,9 +142,7 @@ export const Navbar = () => {
               })}
             </nav>
 
-            {/* Action Buttons: Search, Wishlist, Cart */}
             <div className="flex items-center gap-2 sm:gap-4">
-              {/* Search Toggle */}
               <button
                 onClick={() => setSearchOpen(!searchOpen)}
                 aria-label="Search products"
@@ -151,7 +151,6 @@ export const Navbar = () => {
                 <Search className="w-5 h-5" />
               </button>
 
-              {/* Wishlist Link */}
               <Link
                 href="/wishlist"
                 aria-label="Wishlist"
@@ -165,7 +164,6 @@ export const Navbar = () => {
                 )}
               </Link>
 
-              {/* Cart Drawer Trigger */}
               <button
                 onClick={openCart}
                 aria-label="Open shopping cart"
@@ -180,7 +178,74 @@ export const Navbar = () => {
                 </span>
               </button>
 
-              {/* Mobile Menu Button */}
+              {status === 'loading' ? (
+                <div className="w-10 h-10 rounded-full bg-stone-200 animate-pulse" />
+              ) : session?.user ? (
+                <div className="relative">
+                  <button
+                    onClick={() => setUserMenuOpen(!userMenuOpen)}
+                    className="flex items-center gap-2 px-3 py-2 rounded-xl hover:bg-stone-100 transition-colors"
+                    aria-label="User menu"
+                  >
+                    <div className="w-8 h-8 rounded-full bg-brand-100 flex items-center justify-center">
+                      {session.user.image ? (
+                        <Image src={session.user.image} alt="" className="w-8 h-8 rounded-full" />
+                      ) : (
+                        <User className="w-5 h-5 text-brand-600" />
+                      )}
+                    </div>
+                    <span className="hidden sm:block text-sm font-medium text-stone-700">
+                      {session.user.name || session.user.email}
+                    </span>
+                    <ChevronDown className="w-4 h-4 text-stone-500" />
+                  </button>
+
+                  {userMenuOpen && (
+                    <div className="absolute right-0 mt-2 w-48 bg-white rounded-xl shadow-lg border border-stone-200 py-2 z-50 animate-in fade-in zoom-in-95">
+                      <Link
+                        href="/account"
+                        className="flex items-center gap-2 px-4 py-2 text-sm text-stone-700 hover:bg-stone-50"
+                        onClick={() => setUserMenuOpen(false)}
+                      >
+                        <User className="w-4 h-4" />
+                        My Account
+                      </Link>
+                      <Link
+                        href="/orders"
+                        className="flex items-center gap-2 px-4 py-2 text-sm text-stone-700 hover:bg-stone-50"
+                        onClick={() => setUserMenuOpen(false)}
+                      >
+                        <ShieldCheck className="w-4 h-4" />
+                        My Orders
+                      </Link>
+                      <hr className="my-2 border-stone-200" />
+                      <button
+                        onClick={() => signOut({ callbackUrl: '/' })}
+                        className="flex items-center gap-2 w-full px-4 py-2 text-sm text-red-600 hover:bg-red-50"
+                      >
+                        <LogOut className="w-4 h-4" />
+                        Sign Out
+                      </button>
+                    </div>
+                  )}
+                </div>
+              ) : (
+                <div className="flex items-center gap-2">
+                  <Link
+                    href="/auth/signin"
+                    className="hidden sm:block px-3 py-2 text-xs font-bold text-stone-700 hover:text-brand-600 transition-colors"
+                  >
+                    Sign In
+                  </Link>
+                  <Link
+                    href="/auth/signup"
+                    className="px-3 py-2 rounded-xl bg-brand-500 hover:bg-brand-600 text-white text-xs font-bold transition-colors"
+                  >
+                    Get Started
+                  </Link>
+                </div>
+              )}
+
               <button
                 onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
                 aria-label="Toggle mobile menu"
@@ -192,7 +257,6 @@ export const Navbar = () => {
           </div>
         </div>
 
-        {/* Live Search Overlay Modal */}
         {searchOpen && (
           <div className="absolute top-full left-0 right-0 bg-white/95 backdrop-blur-2xl border-b border-stone-200 shadow-xl p-4 transition-all">
             <div className="max-w-3xl mx-auto">
@@ -216,7 +280,6 @@ export const Navbar = () => {
                 )}
               </div>
 
-              {/* Search Dropdown Results */}
               {searchResults.length > 0 && (
                 <div className="mt-3 divide-y divide-stone-100 bg-white rounded-xl shadow-lg border border-stone-200 overflow-hidden">
                   {searchResults.map((p) => (
@@ -260,39 +323,82 @@ export const Navbar = () => {
           </div>
         )}
 
-        {/* Mobile Navigation Drawer */}
         {mobileMenuOpen && (
-          <div className="lg:hidden bg-white/95 backdrop-blur-2xl border-b border-stone-200 px-6 py-6 space-y-4 shadow-xl">
-            {navLinks.map((link) => (
-              <Link
-                key={link.href}
-                href={link.href}
-                onClick={() => setMobileMenuOpen(false)}
-                className={`block text-base font-bold py-2 tracking-wider ${
-                  pathname === link.href ? 'text-brand-600' : 'text-stone-800'
-                }`}
-              >
-                {link.label}
-              </Link>
-            ))}
-            <div className="pt-4 border-t border-stone-100 flex flex-col gap-2">
-              <Link
-                href="/wishlist"
-                onClick={() => setMobileMenuOpen(false)}
-                className="flex items-center justify-between text-sm font-semibold text-stone-700 py-2"
-              >
-                <span>My Wishlist</span>
-                <span className="w-5 h-5 rounded-full bg-rose-500 text-white text-xs flex items-center justify-center">
-                  {totalWishlistItems}
-                </span>
-              </Link>
-              <div className="py-2 text-xs text-stone-500">
-                Call Us: <a href="tel:+919956675648" className="text-stone-900 font-bold">+91 99566 75648</a>
-              </div>
-            </div>
-          </div>
-        )}
-      </header>
-    </>
-  );
-};
+                  <div className="lg:hidden bg-white/95 backdrop-blur-2xl border-b border-stone-200 px-6 py-6 space-y-4 shadow-xl">
+                    {navLinks.map((link) => (
+                      <Link
+                        key={link.href}
+                        href={link.href}
+                        onClick={() => setMobileMenuOpen(false)}
+                        className={`block text-base font-bold py-2 tracking-wider ${
+                          pathname === link.href ? 'text-brand-600' : 'text-stone-800'
+                        }`}
+                      >
+                        {link.label}
+                      </Link>
+                    ))}
+                    {session?.user ? (
+                      <div className="pt-4 border-t border-stone-100 space-y-2">
+                        <Link
+                          href="/account"
+                          onClick={() => setMobileMenuOpen(false)}
+                          className="flex items-center gap-2 text-sm font-semibold text-stone-700 py-2"
+                        >
+                          <User className="w-4 h-4" />
+                          My Account
+                        </Link>
+                        <Link
+                          href="/orders"
+                          onClick={() => setMobileMenuOpen(false)}
+                          className="flex items-center gap-2 text-sm font-semibold text-stone-700 py-2"
+                        >
+                          <ShieldCheck className="w-4 h-4" />
+                          My Orders
+                        </Link>
+                        <button
+                          onClick={() => signOut({ callbackUrl: '/' })}
+                          className="flex items-center gap-2 w-full text-left text-sm font-semibold text-red-600 py-2"
+                        >
+                          <LogOut className="w-4 h-4" />
+                          Sign Out
+                        </button>
+                      </div>
+                    ) : (
+                      <div className="pt-4 border-t border-stone-100 flex flex-col gap-2">
+                        <Link
+                          href="/wishlist"
+                          onClick={() => setMobileMenuOpen(false)}
+                          className="flex items-center justify-between text-sm font-semibold text-stone-700 py-2"
+                        >
+                          <span>My Wishlist</span>
+                          <span className="w-5 h-5 rounded-full bg-rose-500 text-white text-xs flex items-center justify-center">
+                            {totalWishlistItems}
+                          </span>
+                        </Link>
+                        <div className="py-2 text-xs text-stone-500">
+                          Call Us: <a href="tel:+919****5648" className="text-stone-900 font-bold">+91 99566 75648</a>
+                        </div>
+                        <div className="flex flex-col gap-2 pt-2">
+                          <Link
+                            href="/auth/signin"
+                            onClick={() => setMobileMenuOpen(false)}
+                            className="px-4 py-2 rounded-xl border border-stone-300 text-stone-700 font-semibold text-center"
+                          >
+                            Sign In
+                          </Link>
+                          <Link
+                            href="/auth/signup"
+                            onClick={() => setMobileMenuOpen(false)}
+                            className="px-4 py-2 rounded-xl bg-brand-500 text-white font-semibold text-center"
+                          >
+                            Get Started
+                          </Link>
+                        </div>
+                      </div>
+                    )}
+                  </div>
+                )}
+              </header>
+            </>
+          );
+        };

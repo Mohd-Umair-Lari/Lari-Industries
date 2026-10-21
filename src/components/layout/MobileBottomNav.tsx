@@ -68,7 +68,6 @@ export const MobileBottomNav = () => {
           );
         })}
 
-        {/* Center Prominent Cart Button for One-Thumb Ergonomics */}
         <button
           onClick={openCart}
           aria-label={`Open shopping cart with ${totalItems} items`}

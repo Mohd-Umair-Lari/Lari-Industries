@@ -1,4 +1,3 @@
-/** @type {import('tailwindcss').Config} */
 module.exports = {
   darkMode: 'class',
   content: [
@@ -15,7 +14,7 @@ module.exports = {
           200: '#ffc8c8',
           300: '#ffa2a2',
           400: '#f87171',
-          500: '#e74c3c', // Original iconic Lari Red
+          500: '#e74c3c',
           600: '#dc2626',
           700: '#b91c1c',
           800: '#991b1b',

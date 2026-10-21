@@ -1,6 +1,4 @@
-// Product Data - Using actual images from the Images folder
 const products = [
-    // ─── Aprons ───────────────────────────────────────────
     {
         category: 'Aprons',
         name: 'Leather Welding Apron',
@@ -50,7 +48,6 @@ const products = [
         price: '₹1,149'
     },
 
-    // ─── Asbestos Gloves ──────────────────────────────────
     {
         category: 'Asbestos Gloves',
         name: 'Asbestos Safety Gloves – Type A',
@@ -70,7 +67,6 @@ const products = [
         price: '₹849'
     },
 
-    // ─── Export Gloves ────────────────────────────────────
     {
         category: 'Export Gloves',
         name: 'Canadian Drill Gloves',
@@ -108,7 +104,6 @@ const products = [
         price: '₹1,349'
     },
 
-    // ─── Industrial Gloves ────────────────────────────────
     {
         category: 'Industrial Gloves',
         name: 'Leather Welding Gloves',
@@ -194,7 +189,6 @@ const products = [
         price: '₹999'
     },
 
-    // ─── Harness Leather ──────────────────────────────────
     {
         category: 'Harness Leather',
         name: '6mm Thick Harness Leather Sheet',
@@ -214,7 +208,6 @@ const products = [
         price: '₹2,149'
     },
 
-    // ─── Hosiery Gloves ───────────────────────────────────
     {
         category: 'Hosiery Gloves',
         name: 'White Hosiery Hand Gloves',
@@ -246,7 +239,6 @@ const products = [
         price: '₹329'
     },
 
-    // ─── Kevlar Gloves ────────────────────────────────────
     {
         category: 'Kevlar Gloves',
         name: 'Kevlar Para-Aramid Gloves – Type A',
@@ -272,7 +264,6 @@ const products = [
         price: '₹2,299'
     },
 
-    // ─── Leather Sheets ───────────────────────────────────
     {
         category: 'Leather Sheets',
         name: 'Brown Leather Sheet',
@@ -298,7 +289,6 @@ const products = [
         price: '₹2,699'
     },
 
-    // ─── Leather Washers ──────────────────────────────────
     {
         category: 'Leather Washers',
         name: 'Leather Washer – Standard',
@@ -330,7 +320,6 @@ const products = [
         price: '₹299'
     },
 
-    // ─── Leather Strips ───────────────────────────────────
     {
         category: 'Leather Strips',
         name: 'Leather Strap – Natural',
@@ -356,7 +345,6 @@ const products = [
         price: '₹299'
     },
 
-    // ─── Saddlery ─────────────────────────────────────────
     {
         category: 'Saddlery',
         name: 'Premium Horse Saddle',
@@ -376,7 +364,6 @@ const products = [
         price: '₹11,999'
     },
 
-    // ─── Saddlery Items ───────────────────────────────────
     {
         category: 'Saddlery',
         name: 'Horse Harness & Trotting Items',
@@ -402,7 +389,6 @@ const products = [
         price: '₹18,999'
     },
 
-    // ─── Tarpaulin ────────────────────────────────────────
     {
         category: 'Tarpaulin',
         name: 'Waterproof Tarpaulin – Blue',
@@ -423,16 +409,13 @@ const products = [
     }
 ];
 
-// Get unique categories
 function getCategories() {
     const cats = [...new Set(products.map(p => p.category))];
     return cats;
 }
 
-// Active category filter
 let activeCategory = 'All';
 
-// Initialize
 document.addEventListener('DOMContentLoaded', () => {
     renderCategoryFilters();
     renderProducts();
@@ -440,7 +423,6 @@ document.addEventListener('DOMContentLoaded', () => {
     animateOnScroll();
 });
 
-// Render category filter buttons
 function renderCategoryFilters() {
     const filtersContainer = document.getElementById('category-filters');
     if (!filtersContainer) return;
@@ -453,11 +435,9 @@ function renderCategoryFilters() {
     filtersContainer.innerHTML = html;
 }
 
-// Filter products by category
 function filterProducts(category) {
     activeCategory = category;
 
-    // Update active button
     document.querySelectorAll('.filter-btn').forEach(btn => {
         btn.classList.toggle('active', btn.dataset.category === category);
     });
@@ -465,17 +445,14 @@ function filterProducts(category) {
     renderProducts();
 }
 
-// Safe URL encoder
 function getSafeImageUrl(path) {
     if (!path) return '';
     return encodeURI(path);
 }
 
-// Resilient Image Fallback Handler
 function handleImageError(img, title, category) {
     if (img.dataset.failed) return;
 
-    // Retry once with alternative root-relative path
     if (!img.dataset.retried) {
         img.dataset.retried = 'true';
         const currentSrc = img.getAttribute('src');
@@ -490,7 +467,6 @@ function handleImageError(img, title, category) {
 
     img.dataset.failed = 'true';
 
-    // Elegant fallback SVG badge
     const initial = (title || 'L').charAt(0).toUpperCase();
     const safeTitle = (title || 'Safety Equipment').replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
     const safeCat = (category || 'Lari Industries').replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
@@ -510,7 +486,6 @@ function handleImageError(img, title, category) {
     img.src = 'data:image/svg+xml;charset=utf-8,' + encodeURIComponent(svg);
 }
 
-// Render Products
 function renderProducts() {
     const grid = document.getElementById('products-grid');
     if (!grid) return;
@@ -541,14 +516,12 @@ function renderProducts() {
         `;
     }).join('');
 
-    // Update product count
     const countEl = document.getElementById('product-count');
     if (countEl) {
         countEl.textContent = `Showing ${filtered.length} of ${products.length} products`;
     }
 }
 
-// Smooth scrolling for nav links
 function setupSmoothScroll() {
     document.querySelectorAll('.nav-link').forEach(link => {
         link.addEventListener('click', (e) => {
@@ -564,7 +537,6 @@ function setupSmoothScroll() {
     });
 }
 
-// Scroll-triggered animations
 function animateOnScroll() {
     const observer = new IntersectionObserver((entries) => {
         entries.forEach(entry => {

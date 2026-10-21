@@ -69,7 +69,6 @@ export const QuickViewModal: React.FC<QuickViewModalProps> = ({
         </button>
 
         <div className="grid grid-cols-1 md:grid-cols-2">
-          {/* Image */}
           <div className="relative aspect-square md:aspect-auto h-72 md:h-full bg-stone-100">
             <Image
               src={product.image}
@@ -79,7 +78,6 @@ export const QuickViewModal: React.FC<QuickViewModalProps> = ({
             />
           </div>
 
-          {/* Product Info */}
           <div className="p-6 md:p-8 flex flex-col justify-between space-y-4">
             <div>
               <div className="flex items-center justify-between text-xs text-stone-500 mb-2">
@@ -97,7 +95,6 @@ export const QuickViewModal: React.FC<QuickViewModalProps> = ({
                 {product.name}
               </h2>
 
-              {/* Price */}
               <div className="flex items-baseline gap-2 mb-4">
                 {product.isCustomQuote ? (
                   <span className="text-xl font-bold text-brand-600">
@@ -126,7 +123,6 @@ export const QuickViewModal: React.FC<QuickViewModalProps> = ({
                 {product.description}
               </p>
 
-              {/* Specifications snippet */}
               <div className="bg-stone-50 rounded-xl p-3 text-xs space-y-1.5 border border-stone-200/60 mb-4">
                 <div className="flex justify-between">
                   <span className="text-stone-500">Material:</span>
@@ -145,7 +141,6 @@ export const QuickViewModal: React.FC<QuickViewModalProps> = ({
               </div>
             </div>
 
-            {/* Actions */}
             <div className="space-y-3 pt-2 border-t border-stone-200">
               {!product.isCustomQuote && (
                 <div className="flex items-center gap-4">

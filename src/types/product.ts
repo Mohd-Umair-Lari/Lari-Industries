@@ -4,10 +4,10 @@ export interface Product {
   name: string;
   category: ProductCategory;
   subCategory?: string;
-  price: number; // in USD ($)
-  originalPrice?: number; // in USD ($)
-  priceUnit?: string; // e.g. '/ kg', '/ pair', '/ piece', 'Custom Quote'
-  isCustomQuote?: boolean; // For "As per custom choice"
+  price: number;
+  originalPrice?: number;
+  priceUnit?: string;
+  isCustomQuote?: boolean;
   image: string;
   additionalImages?: string[];
   description: string;
