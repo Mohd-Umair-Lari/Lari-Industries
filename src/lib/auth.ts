@@ -2,11 +2,11 @@ import { AuthOptions } from 'next-auth';
 import CredentialsProvider from 'next-auth/providers/credentials';
 import { MongoDBAdapter } from '@next-auth/mongodb-adapter';
 import { MongoClient } from 'mongodb';
-import connectDB from '@/lib/mongodb';
+import connectDB, { getMongoUri } from '@/lib/mongodb';
 import User from '@/models/User';
 import bcrypt from 'bcryptjs';
 
-const client = new MongoClient(process.env.MONGODB_URI!);
+const client = new MongoClient(getMongoUri());
 const clientPromise = client.connect();
 
 export const authOptions: AuthOptions = {
