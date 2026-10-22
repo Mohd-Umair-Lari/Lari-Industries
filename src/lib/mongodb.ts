@@ -1,6 +1,6 @@
 import mongoose from 'mongoose';
 
-function getMongoUri(): string {
+export function getMongoUri(): string {
   const rawUri = process.env.MONGODB_URI?.trim();
   const uri = rawUri?.replace(/^("|')(.*)\1$/, '$2').trim();
 
