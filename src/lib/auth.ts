@@ -6,7 +6,8 @@ import connectDB from '@/lib/mongodb';
 import User from '@/models/User';
 import bcrypt from 'bcryptjs';
 
-const client = new MongoClient(process.env.MONGODB_URI!);
+const mongoUri = process.env.MONGODB_URI?.trim().replace(/^("|')(.*)\1$/, '$2').trim();
+const client = new MongoClient(mongoUri!);
 const clientPromise = client.connect();
 
 export const authOptions: AuthOptions = {

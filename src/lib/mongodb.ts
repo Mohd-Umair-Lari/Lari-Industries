@@ -1,6 +1,23 @@
 import mongoose from 'mongoose';
 
-const MONGODB_URI = process.env.MONGODB_URI as string;
+function getMongoUri(): string {
+  const rawUri = process.env.MONGODB_URI?.trim();
+  const uri = rawUri?.replace(/^("|')(.*)\1$/, '$2').trim();
+
+  if (!uri) {
+    throw new Error(
+      'MONGODB_URI is not defined. Set it in your .env file or Vercel environment variables.'
+    );
+  }
+
+  if (!uri.startsWith('mongodb://') && !uri.startsWith('mongodb+srv://')) {
+    throw new Error(
+      'MONGODB_URI must start with mongodb:// or mongodb+srv://. Check the production environment variable.'
+    );
+  }
+
+  return uri;
+}
 
 declare global {
   var _mongooseCache: {
@@ -16,11 +33,7 @@ if (!cached) {
 }
 
 export async function connectDB(): Promise<typeof mongoose> {
-  if (!MONGODB_URI) {
-    throw new Error(
-      'MONGODB_URI is not defined. Set it in your .env file or Vercel environment variables.'
-    );
-  }
+  const mongoUri = getMongoUri();
 
   if (cached.conn) {
     return cached.conn;
@@ -34,7 +47,7 @@ export async function connectDB(): Promise<typeof mongoose> {
       socketTimeoutMS: 45000,
     };
 
-    cached.promise = mongoose.connect(MONGODB_URI, opts).then((m) => {
+    cached.promise = mongoose.connect(mongoUri, opts).then((m) => {
       console.log('[MongoDB] Connected successfully');
       return m;
     });
