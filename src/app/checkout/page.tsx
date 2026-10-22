@@ -4,7 +4,7 @@ import React, { useState, useEffect, useCallback } from 'react';
 import { useRouter } from 'next/navigation';
 import Image from 'next/image';
 import Link from 'next/link';
-import { useSession, signIn } from 'next-auth/react';
+import { useSession } from 'next-auth/react';
 import {
   ShieldCheck,
   Lock,
@@ -77,15 +77,9 @@ export default function CheckoutPage() {
 
   useEffect(() => {
     if (status === 'unauthenticated') {
-      signIn('credentials', { callbackUrl: '/checkout' });
+      router.push('/auth/signin?callbackUrl=%2Fcheckout');
     }
-  }, [status]);
-
-  useEffect(() => {
-    if (session?.user) {
-      fetchAddresses();
-    }
-  }, [session]);
+  }, [router, status]);
 
   const populateForm = useCallback((address: SavedAddress) => {
     setFormData({
@@ -121,12 +115,6 @@ export default function CheckoutPage() {
       setIsLoadingAddresses(false);
     }
   }, [populateForm]);
-
-  useEffect(() => {
-    if (status === 'unauthenticated') {
-      signIn('credentials', { callbackUrl: '/checkout' });
-    }
-  }, [status]);
 
   useEffect(() => {
     if (session?.user) {
@@ -375,7 +363,7 @@ export default function CheckoutPage() {
           </div>
           <h1 className="text-2xl font-serif font-black text-stone-900 mb-2">Sign In Required</h1>
           <p className="text-stone-500 mb-6">Please sign in to proceed with checkout and save your order history.</p>
-          <Button onClick={() => signIn('credentials', { callbackUrl: '/checkout' })} className="w-full py-3">
+          <Button onClick={() => router.push('/auth/signin?callbackUrl=%2Fcheckout')} className="w-full py-3">
             Sign In to Continue
           </Button>
           <p className="mt-4 text-sm text-stone-500">
