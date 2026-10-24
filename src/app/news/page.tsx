@@ -20,7 +20,7 @@ export default function NewsPage() {
       label: 'EXPANSION',
       title: 'Global Export Catalog Now Live in US Dollars ($)',
       date: 'May 2026',
-      image: '/static/images/5-cat_orig.jpg',
+      image: '/static/images/rawhides/parchment-sheet-1.jpeg',
       body: 'To better support international procurement officers, fabrication workshops, and overseas importers, our entire product catalog is now formatted in US Dollars ($). Customers can order directly through our secure Razorpay gateway with international credit cards or request custom B2B container load quotations.',
     },
     {

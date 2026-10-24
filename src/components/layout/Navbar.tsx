@@ -45,6 +45,7 @@ export const Navbar = () => {
 
   const navLinks = [
     { label: 'HOME', href: '/' },
+    { label: 'RAW HIDES (EXPORT)', href: '/#raw-hides-showcase', isSpecial: true },
     { label: 'PRODUCTS', href: '/products' },
     { label: 'ABOUT', href: '/about' },
     { label: 'NEWS', href: '/news' },
@@ -120,9 +121,21 @@ export const Navbar = () => {
               </div>
             </Link>
 
-            <nav className="hidden lg:flex items-center gap-8">
+            <nav className="hidden lg:flex items-center gap-6">
               {navLinks.map((link) => {
                 const isActive = pathname === link.href;
+                if (link.isSpecial) {
+                  return (
+                    <Link
+                      key={link.href}
+                      href={link.href}
+                      className="relative inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-gradient-to-r from-amber-500/15 via-brand-500/15 to-amber-500/15 border border-amber-400/50 text-amber-800 hover:text-amber-950 text-[11px] tracking-wider font-extrabold shadow-sm transition-all hover:scale-105"
+                    >
+                      <span className="w-1.5 h-1.5 rounded-full bg-amber-500 animate-pulse" />
+                      <span>{link.label}</span>
+                    </Link>
+                  );
+                }
                 return (
                   <Link
                     key={link.href}
@@ -331,10 +344,19 @@ export const Navbar = () => {
                         href={link.href}
                         onClick={() => setMobileMenuOpen(false)}
                         className={`block text-base font-bold py-2 tracking-wider ${
-                          pathname === link.href ? 'text-brand-600' : 'text-stone-800'
+                          link.isSpecial
+                            ? 'text-amber-600 flex items-center justify-between'
+                            : pathname === link.href
+                            ? 'text-brand-600'
+                            : 'text-stone-800'
                         }`}
                       >
-                        {link.label}
+                        <span>{link.label}</span>
+                        {link.isSpecial && (
+                          <span className="text-[10px] uppercase font-black px-2 py-0.5 rounded-full bg-amber-100 text-amber-700 border border-amber-300">
+                            Exclusive
+                          </span>
+                        )}
                       </Link>
                     ))}
                     {session?.user ? (

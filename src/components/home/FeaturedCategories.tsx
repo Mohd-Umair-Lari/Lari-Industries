@@ -7,6 +7,14 @@ import { ArrowRight } from 'lucide-react';
 
 const CATEGORY_ITEMS = [
   {
+    title: 'Raw Hides & Parchment',
+    category: 'Raw Hides',
+    priceInfo: 'From $16.50 / hide',
+    count: '4 Products',
+    image: '/static/images/rawhides/parchment-sheet-1.jpeg',
+    description: 'Direct Kanpur tannery: bleached goat & buff calf parchment (0.7-1.0mm, 6+ sq.ft).',
+  },
+  {
     title: 'Welding & Work Aprons',
     category: 'Aprons',
     priceInfo: 'From $2.50 / piece',
