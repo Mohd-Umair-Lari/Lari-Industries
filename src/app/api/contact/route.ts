@@ -1,11 +1,12 @@
 import { NextRequest, NextResponse } from 'next/server';
 import connectDB from '@/lib/mongodb';
 import ContactInquiry from '@/models/ContactInquiry';
+import { sendContactInquiryToSeller } from '@/lib/email';
 
 export async function POST(req: NextRequest) {
   try {
     const body = await req.json();
-    const { name, email, phone, subject, message, isB2bQuote, productInterest } = body;
+    const { name, email, phone, company, subject, message, isB2bQuote, productInterest } = body;
 
     if (!name || !email || !message) {
       return NextResponse.json(
@@ -33,6 +34,23 @@ export async function POST(req: NextRequest) {
       });
     } catch (dbErr) {
       console.error('[MongoDB] Failed to save contact inquiry:', dbErr);
+    }
+
+    const emailSent = await sendContactInquiryToSeller({
+      name: name.trim(),
+      email: email.trim().toLowerCase(),
+      phone: phone?.trim(),
+      company: company?.trim(),
+      subject: subject?.trim(),
+      message: message.trim(),
+      productInterest: productInterest?.trim(),
+    });
+
+    if (!emailSent) {
+      return NextResponse.json(
+        { error: 'Your inquiry could not be delivered. Please try again or email us directly.' },
+        { status: 503 }
+      );
     }
 
     console.log('[Contact/RFQ] Saved inquiry from:', email, '| B2B:', isB2bQuote);

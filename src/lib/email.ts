@@ -12,6 +12,76 @@ const resend = RESEND_API_KEY ? new Resend(RESEND_API_KEY) : null;
 const SELLER_EMAIL = 'lariindustries@gmail.com';
 const FROM_EMAIL = process.env.RESEND_FROM_EMAIL || 'Lari Industries <orders@lariindustries.com>';
 
+interface ContactInquiryEmailData {
+  name: string;
+  email: string;
+  phone?: string;
+  company?: string;
+  subject?: string;
+  message: string;
+  productInterest?: string;
+}
+
+function escapeHtml(value: string): string {
+  return value.replace(/[&<>'"]/g, (character) => {
+    const entities: Record<string, string> = {
+      '&': '&amp;',
+      '<': '&lt;',
+      '>': '&gt;',
+      "'": '&#39;',
+      '"': '&quot;',
+    };
+    return entities[character];
+  });
+}
+
+export async function sendContactInquiryToSeller(inquiry: ContactInquiryEmailData): Promise<boolean> {
+  if (!resend) {
+    console.error('[Resend] Contact inquiry email not sent: RESEND_API_KEY is not configured');
+    return false;
+  }
+
+  const subject = inquiry.subject?.trim() || 'General Website Inquiry';
+  const safe = {
+    name: escapeHtml(inquiry.name),
+    email: escapeHtml(inquiry.email),
+    phone: escapeHtml(inquiry.phone || 'Not provided'),
+    company: escapeHtml(inquiry.company || 'Not provided'),
+    subject: escapeHtml(subject),
+    message: escapeHtml(inquiry.message).replace(/\n/g, '<br />'),
+    productInterest: escapeHtml(inquiry.productInterest || 'Not specified'),
+  };
+
+  try {
+    const result = await resend.emails.send({
+      from: FROM_EMAIL,
+      to: SELLER_EMAIL,
+      replyTo: inquiry.email,
+      subject: `New Contact Inquiry: ${subject}`,
+      html: `
+        <div style="font-family: Arial, sans-serif; max-width: 640px; color: #1f2937;">
+          <h2 style="margin-bottom: 24px;">New inquiry from Lari Industries website</h2>
+          <p><strong>Name:</strong> ${safe.name}</p>
+          <p><strong>Email:</strong> ${safe.email}</p>
+          <p><strong>Phone:</strong> ${safe.phone}</p>
+          <p><strong>Company:</strong> ${safe.company}</p>
+          <p><strong>Product interest:</strong> ${safe.productInterest}</p>
+          <p><strong>Subject:</strong> ${safe.subject}</p>
+          <hr style="border: 0; border-top: 1px solid #e5e7eb; margin: 24px 0;" />
+          <p><strong>Message:</strong></p>
+          <p style="white-space: normal; line-height: 1.6;">${safe.message}</p>
+        </div>
+      `,
+    });
+
+    console.log('[Resend] Contact inquiry sent:', result.data?.id);
+    return true;
+  } catch (error) {
+    console.error('[Resend] Failed to send contact inquiry:', error);
+    return false;
+  }
+}
+
 interface EmailOrderItem {
   productId: string;
   name: string;
