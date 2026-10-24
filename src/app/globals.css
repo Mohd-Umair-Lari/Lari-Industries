@@ -26,6 +26,40 @@ body {
   touch-action: manipulation;
 }
 
+/* Readable, Android-friendly baseline for compact utility text. */
+.text-xs {
+  font-size: 0.8125rem !important;
+  line-height: 1.25rem !important;
+}
+
+.text-\[10px\],
+.text-\[11px\] {
+  font-size: 0.75rem !important;
+  line-height: 1rem !important;
+}
+
+button,
+[role='button'] {
+  touch-action: manipulation;
+}
+
+@media screen and (max-width: 640px) {
+  button,
+  [role='button'] {
+    min-height: 44px;
+  }
+
+  a:not([aria-hidden='true']) {
+    -webkit-tap-highlight-color: rgba(231, 76, 60, 0.16);
+  }
+
+  input,
+  select,
+  textarea {
+    min-height: 48px;
+  }
+}
+
 
 @media screen and (max-width: 640px) {
   input[type="text"],
@@ -129,6 +163,17 @@ h1, h2, h3, .font-serif {
   -ms-overflow-style: none;
   scrollbar-width: none;
   -webkit-overflow-scrolling: touch;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    scroll-behavior: auto !important;
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
 }
 
 
