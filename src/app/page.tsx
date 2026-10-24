@@ -4,6 +4,7 @@ import React from 'react';
 import Link from 'next/link';
 import { HeroSection } from '@/components/home/HeroSection';
 import { TrustMarquee } from '@/components/home/TrustMarquee';
+import { ExclusiveRawHidesSection } from '@/components/home/ExclusiveRawHidesSection';
 import { FeaturedCategories } from '@/components/home/FeaturedCategories';
 import { HeritageSection } from '@/components/home/HeritageSection';
 import { WhyChooseUs } from '@/components/home/WhyChooseUs';
@@ -13,13 +14,18 @@ import { products } from '@/data/products';
 import { ArrowRight, Flame } from 'lucide-react';
 
 export default function HomePage() {
-  const bestsellers = products.filter((p) => p.isBestseller || p.isFeatured).slice(0, 8);
+  const bestsellers = [
+    ...products.filter((p) => p.category === 'Raw Hides'),
+    ...products.filter((p) => p.category !== 'Raw Hides' && (p.isBestseller || p.isFeatured)),
+  ].slice(0, 8);
 
   return (
     <div className="flex flex-col min-h-screen">
       <HeroSection />
 
       <TrustMarquee />
+
+      <ExclusiveRawHidesSection />
 
       <FeaturedCategories />
 

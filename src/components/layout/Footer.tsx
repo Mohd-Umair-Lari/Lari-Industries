@@ -41,7 +41,7 @@ export const Footer = () => {
             </div>
 
             <p className="text-sm text-stone-400 leading-relaxed max-w-sm">
-              Premier manufacturer and exporter of heavy-duty leather safety equipment, industrial welder gloves, protective aprons, heat-resistant Kevlar/asbestos gear, and high-performance tarpaulins.
+              Premier Kanpur manufacturer & exporter of bleached goat & buff calf parchment, export raw hides, heavy-duty leather PPE, welding aprons, and certified industrial safety gear.
             </p>
 
             <div className="pt-2 flex items-center gap-2 text-brand-400 text-xs font-semibold">

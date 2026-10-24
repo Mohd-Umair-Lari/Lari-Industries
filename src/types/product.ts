@@ -45,4 +45,5 @@ export type ProductCategory =
   | 'Leather Sheets'
   | 'Leather Washers'
   | 'Leather Straps'
+  | 'Raw Hides'
   | 'Tarpaulin';
