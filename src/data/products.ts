@@ -119,33 +119,6 @@ export const products: Product[] = [
     reviewCount: 28
   },
   {
-    id: 'lari-apr-05',
-    slug: 'cotton-work-apron-type-b',
-    name: 'Cotton Work Apron – Type B',
-    category: 'Aprons',
-    price: 2.50,
-    originalPrice: 3.50,
-    priceUnit: '/ piece',
-    image: '/static/images/Aprons/cotton apron 2.jpg',
-    description: 'Reinforced dual-pocket canvas cotton apron with bar-tacked corners and contrasting edge binding for high-durability workshop utility.',
-    features: [
-      'Heavy-weave cotton canvas',
-      'Double stitched hem and stress points',
-      'Deep divided utility pockets'
-    ],
-    specs: {
-      material: 'Cotton Canvas 340 GSM',
-      thickness: '340 GSM Canvas',
-      grade: 'Workshop Grade',
-      certification: 'ISO 9001:2015 Facility Certified',
-      origin: 'Kanpur, India',
-      application: 'Woodworking, Toolshops, Maintenance'
-    },
-    inStock: true,
-    rating: 4.6,
-    reviewCount: 15
-  },
-  {
     id: 'lari-apr-06',
     slug: 'industrial-dangri-suit',
     name: 'Industrial Dangri Suit',
@@ -203,38 +176,9 @@ export const products: Product[] = [
     reviewCount: 22
   },
   {
-    id: 'lari-apr-08',
-    slug: 'lab-coat-premium',
-    name: 'Lab Coat – Premium',
-    category: 'Aprons',
-    price: 3.50,
-    originalPrice: 5.00,
-    priceUnit: '/ piece',
-    image: '/static/images/Aprons/LabCoat 02.jpg',
-    description: 'Executive grade anti-static laboratory coat featuring anti-microbial finish and tailored ergonomic cut for clinical and industrial testing labs.',
-    features: [
-      'Anti-microbial & fluid-resistant finish',
-      'Anti-wrinkle twill weave',
-      'Pen pocket & dual hip pockets',
-      'Durable resin button placket'
-    ],
-    specs: {
-      material: 'High Density Poly-Cotton Twill',
-      thickness: '240 GSM',
-      grade: 'Executive Lab Grade',
-      certification: 'CE & ISO 13485 Standards',
-      origin: 'Kanpur, India',
-      application: 'Cleanrooms, Research Centers, Chemical Analysis'
-    },
-    inStock: true,
-    rating: 4.8,
-    reviewCount: 31
-  },
-
-  {
     id: 'lari-asb-01',
     slug: 'asbestos-safety-gloves-type-a',
-    name: 'Asbestos Safety Gloves – Type A',
+    name: 'Asbestos Thermal Safety Gloves',
     category: 'Asbestos Gloves',
     price: 3.50,
     originalPrice: 4.50,
@@ -262,7 +206,7 @@ export const products: Product[] = [
   {
     id: 'lari-asb-02',
     slug: 'asbestos-safety-gloves-type-b',
-    name: 'Asbestos Safety Gloves – Type B',
+    name: 'Reinforced Heavy Duty Asbestos Gloves',
     category: 'Asbestos Gloves',
     price: 4.00,
     originalPrice: 5.20,
@@ -286,35 +230,6 @@ export const products: Product[] = [
     rating: 4.8,
     reviewCount: 12
   },
-  {
-    id: 'lari-asb-03',
-    slug: 'asbestos-safety-gloves-type-c',
-    name: 'Asbestos Safety Gloves – Type C',
-    category: 'Asbestos Gloves',
-    price: 4.00,
-    originalPrice: 5.50,
-    priceUnit: '/ pair',
-    image: '/static/images/Asbestos Gloves/ASbestos Gloves 3.jpg',
-    description: 'Full-gauntlet thermal glove with aluminized heat-reflective backing and asbestos palm for radiant heat dissipation in molten metal zones.',
-    features: [
-      'Dual defense: radiant reflection + contact barrier',
-      'Withstands intermittent temperatures up to 450°C',
-      'Extended 16-inch protective gauntlet'
-    ],
-    specs: {
-      material: 'Aluminized Back + Heavy Asbestos Palm',
-      thickness: '3.8mm Composite',
-      grade: 'Foundry Gauntlet Grade',
-      certification: 'EN 407 (4-3-4-2-X-X)',
-      origin: 'Kanpur, India',
-      application: 'Blast Furnaces, Radiant Heat Zones'
-    },
-    inStock: true,
-    rating: 4.9,
-    reviewCount: 20,
-    isFeatured: true
-  },
-
   {
     id: 'lari-exp-01',
     slug: 'canadian-drill-gloves',
@@ -375,60 +290,6 @@ export const products: Product[] = [
     isBestseller: true
   },
   {
-    id: 'lari-exp-03',
-    slug: 'cow-leather-driving-gloves',
-    name: 'Cow Leather Driving Gloves',
-    category: 'Export Gloves',
-    price: 1.75,
-    originalPrice: 2.40,
-    priceUnit: '/ pair',
-    image: '/static/images/Export gloves images/Driving cow lether.jpg',
-    description: 'Top-grain cowhide driver gloves offering superior tensile strength, abrasion resistance, and moisture repelling properties.',
-    features: [
-      'Premium cowhide grain leather',
-      'Hemmed cuff with color binding',
-      'Reinforced palm patch for extended life'
-    ],
-    specs: {
-      material: 'Selected Cowhide Grain',
-      thickness: '1.1mm - 1.2mm',
-      grade: 'Export Industrial Driver',
-      certification: 'ISO 9001 / CE Marked',
-      origin: 'Kanpur, India',
-      application: 'Logistics, Heavy Machinery, Forklifts'
-    },
-    inStock: true,
-    rating: 4.7,
-    reviewCount: 29
-  },
-  {
-    id: 'lari-exp-04',
-    slug: 'drill-canvas-gloves',
-    name: 'Drill Canvas Gloves',
-    category: 'Export Gloves',
-    price: 1.40,
-    originalPrice: 1.80,
-    priceUnit: '/ pair',
-    image: '/static/images/Export gloves images/Drill canvas gloves.jpg',
-    description: 'Durable 100% cotton canvas work gloves with knit wrist cuff for general maintenance, warehousing, and light fabrication work.',
-    features: [
-      'Heavy duty 12 oz cotton canvas',
-      'Snug knit wrist keeps out dust and debris',
-      'Clute cut pattern for comfort'
-    ],
-    specs: {
-      material: '12 oz Cotton Canvas',
-      thickness: '12 oz / sq yd',
-      grade: 'Commercial Work Grade',
-      certification: 'Standard Safety Compliance',
-      origin: 'Kanpur, India',
-      application: 'Warehousing, Packing, Agriculture, Maintenance'
-    },
-    inStock: true,
-    rating: 4.6,
-    reviewCount: 24
-  },
-  {
     id: 'lari-exp-05',
     slug: 'split-leather-drill-gloves',
     name: 'Split Leather Drill Gloves',
@@ -484,7 +345,6 @@ export const products: Product[] = [
     reviewCount: 45,
     isFeatured: true
   },
-
   {
     id: 'lari-ind-01',
     slug: 'leather-welding-gloves',
@@ -517,7 +377,7 @@ export const products: Product[] = [
   {
     id: 'lari-ind-02',
     slug: 'cut-resistance-gloves-type-a',
-    name: 'Cut Resistance Gloves – Type A',
+    name: 'Cut-Resistant Industrial Safety Gloves',
     category: 'Industrial Safety',
     price: 0.50,
     originalPrice: 0.80,
@@ -541,33 +401,6 @@ export const products: Product[] = [
     inStock: true,
     rating: 4.8,
     reviewCount: 41
-  },
-  {
-    id: 'lari-ind-03',
-    slug: 'cut-resistance-gloves-type-b',
-    name: 'Cut Resistance Gloves – Type B',
-    category: 'Industrial Safety',
-    price: 0.50,
-    originalPrice: 0.85,
-    priceUnit: '/ pair',
-    image: '/static/images/Gloves Images/Cut Rsistance 2.jpg',
-    description: 'Nitrile foam coated cut-resistant gloves engineered for greasy, oily metal stamped parts and high-impact assembly environments.',
-    features: [
-      'Sandy nitrile micro-foam palm coating',
-      'Repels industrial cutting oils and lubricants',
-      'High tear and puncture resistance'
-    ],
-    specs: {
-      material: 'HPPE Yarn with Sandy Nitrile',
-      thickness: '13 Gauge Knit + 1.2mm Coating',
-      grade: 'Oil & Cut Heavy Duty',
-      certification: 'EN 388 (4-4-4-3-D)',
-      origin: 'Kanpur, India',
-      application: 'Automotive Press Shop, Machining, Recycling'
-    },
-    inStock: true,
-    rating: 4.8,
-    reviewCount: 27
   },
   {
     id: 'lari-ind-04',
@@ -813,7 +646,6 @@ export const products: Product[] = [
     rating: 4.9,
     reviewCount: 39
   },
-
   {
     id: 'lari-leg-01',
     slug: 'leather-leg-guard',
@@ -869,7 +701,6 @@ export const products: Product[] = [
     rating: 4.7,
     reviewCount: 30
   },
-
   {
     id: 'lari-har-01',
     slug: '6mm-thick-harness-leather-sheet',
@@ -901,60 +732,6 @@ export const products: Product[] = [
     isBestseller: true
   },
   {
-    id: 'lari-har-02',
-    slug: '6mm-thick-leather-grade-b',
-    name: '6mm Thick Leather – Grade B',
-    category: 'Harness Leather',
-    price: 25.00,
-    originalPrice: 28.00,
-    priceUnit: '/ kg',
-    image: '/static/images/Harness leather thick/6 mm Thick 2.jpg',
-    description: 'Heavy duty 6mm industrial strapping leather, perfect for heavy conveyor lacing, machinery seals, and harness craft.',
-    features: [
-      'Even substance across the entire cut',
-      'High fiber density for minimal stretch',
-      'Smooth burnished grain face'
-    ],
-    specs: {
-      material: 'Heavy Vegetable Tanned Leather',
-      thickness: '6.0mm',
-      grade: 'Grade B Heavy Strapping',
-      certification: 'IS 579:1973 Leather Specification',
-      origin: 'Kanpur, India',
-      application: 'Machinery Belts, Heavy Straps, Gaskets'
-    },
-    inStock: true,
-    rating: 4.8,
-    reviewCount: 18
-  },
-  {
-    id: 'lari-har-03',
-    slug: '6mm-thick-leather-grade-c',
-    name: '6mm Thick Leather – Grade C',
-    category: 'Harness Leather',
-    price: 25.00,
-    originalPrice: 28.00,
-    priceUnit: '/ kg',
-    image: '/static/images/Harness leather thick/6 mm Thick leather 3.jpeg',
-    description: 'Economical 6mm harness leather cut suitable for utility gaskets, protective buffers, machinery spacers, and heavy duty industrial wear pads.',
-    features: [
-      'Dense shock-absorbing leather structure',
-      'Easily die-cut or skived for engineering uses'
-    ],
-    specs: {
-      material: 'Tanned Heavy Hide',
-      thickness: '6.0mm',
-      grade: 'Grade C Utility Engineering',
-      certification: 'Industrial Quality Standard',
-      origin: 'Kanpur, India',
-      application: 'Vibration Dampening, Industrial Buffers, Craft'
-    },
-    inStock: true,
-    rating: 4.6,
-    reviewCount: 14
-  },
-
-  {
     id: 'lari-hos-01',
     slug: 'white-hosiery-hand-gloves',
     name: 'White Hosiery Hand Gloves',
@@ -984,7 +761,7 @@ export const products: Product[] = [
   {
     id: 'lari-hos-02',
     slug: 'hosiery-work-gloves-type-b',
-    name: 'Hosiery Work Gloves – Type B',
+    name: 'Industrial Hosiery Inspection Gloves',
     category: 'Hosiery Gloves',
     price: 0.25,
     originalPrice: 0.38,
@@ -1006,32 +783,6 @@ export const products: Product[] = [
     inStock: true,
     rating: 4.5,
     reviewCount: 22
-  },
-  {
-    id: 'lari-hos-03',
-    slug: 'hosiery-safety-gloves-type-c',
-    name: 'Hosiery Safety Gloves – Type C',
-    category: 'Hosiery Gloves',
-    price: 0.25,
-    originalPrice: 0.40,
-    priceUnit: '/ pair',
-    image: '/static/images/Hosery Gloves/Hosery Gloves 3.jpg',
-    description: 'Thickened double-jersey hosiery gloves providing enhanced abrasion barrier while maintaining soft touch ergonomics.',
-    features: [
-      'Heavy double interlock knit',
-      'Snug comfortable fit for small component picking'
-    ],
-    specs: {
-      material: 'Interlock Cotton Hosiery',
-      thickness: '230 GSM',
-      grade: 'Industrial Interlock',
-      certification: 'CE CAT I',
-      origin: 'Kanpur, India',
-      application: 'Hardware Packing, Metal Part Handling'
-    },
-    inStock: true,
-    rating: 4.7,
-    reviewCount: 17
   },
   {
     id: 'lari-hos-04',
@@ -1087,11 +838,10 @@ export const products: Product[] = [
     rating: 4.8,
     reviewCount: 28
   },
-
   {
     id: 'lari-kev-01',
     slug: 'kevlar-para-aramid-gloves-type-a',
-    name: 'Kevlar Para-Aramid Gloves – Type A',
+    name: 'Kevlar® Para-Aramid Heavy Duty Work Gloves',
     category: 'Kevlar Gloves',
     price: 18.50,
     originalPrice: 24.00,
@@ -1121,7 +871,7 @@ export const products: Product[] = [
   {
     id: 'lari-kev-02',
     slug: 'kevlar-para-aramid-gloves-type-b',
-    name: 'Kevlar Para-Aramid Gloves – Type B',
+    name: 'Kevlar® Para-Aramid High-Dexterity Gloves',
     category: 'Kevlar Gloves',
     price: 15.50,
     originalPrice: 19.50,
@@ -1201,7 +951,6 @@ export const products: Product[] = [
     reviewCount: 48,
     isBestseller: true
   },
-
   {
     id: 'lari-lea-01',
     slug: 'brown-leather-sheet',
@@ -1257,59 +1006,6 @@ export const products: Product[] = [
     rating: 5.0,
     reviewCount: 29
   },
-  {
-    id: 'lari-lea-03',
-    slug: 'black-leather-hide',
-    name: 'Black Leather Hide',
-    category: 'Leather Sheets',
-    price: 18.00,
-    originalPrice: 22.00,
-    priceUnit: '/ kg',
-    image: '/static/images/LEATHER/Black Leather 1.jpg',
-    description: 'Full side natural black buffalo hide cut for industrial mechanical strapping, gaskets, and heavy workshop tooling.',
-    features: [
-      'Robust buffalo hide with high grain tensile density',
-      'Excellent resistance to hydraulic oils and friction'
-    ],
-    specs: {
-      material: 'Chrome-Tanned Buffalo Hide',
-      thickness: '2.5mm - 3.0mm',
-      grade: 'Industrial Tooling Grade',
-      certification: 'IS 579 Industrial Standards',
-      origin: 'Kanpur, India',
-      application: 'Industrial Machinery, Straps, Tool Holsters'
-    },
-    inStock: true,
-    rating: 4.7,
-    reviewCount: 21
-  },
-  {
-    id: 'lari-lea-04',
-    slug: 'brown-tanned-leather',
-    name: 'Brown Tanned Leather',
-    category: 'Leather Sheets',
-    price: 18.00,
-    originalPrice: 22.00,
-    priceUnit: '/ kg',
-    image: '/static/images/LEATHER/Brown leather 1.jpg',
-    description: 'Traditional chrome-tan brown leather hide with balanced temper and smooth grain for general leathercraft and industrial fabrication.',
-    features: [
-      'Consistent tan coloration across the surface',
-      'Flexible temper for stitching and punching'
-    ],
-    specs: {
-      material: 'Chrome Tanned Cow Leather',
-      thickness: '2.0mm - 2.5mm',
-      grade: 'Commercial Grade A',
-      certification: 'Indian Leather Development Standards',
-      origin: 'Kanpur, India',
-      application: 'Apron Fabrication, Work Boots, Chaps'
-    },
-    inStock: true,
-    rating: 4.8,
-    reviewCount: 19
-  },
-
   {
     id: 'lari-wsh-01',
     slug: 'leather-washer-standard',
@@ -1419,38 +1115,12 @@ export const products: Product[] = [
     reviewCount: 16
   },
   {
-    id: 'lari-wsh-05',
-    slug: 'foot-valve-washer-type-b',
-    name: 'Foot Valve Washer – Type B',
-    category: 'Leather Washers',
-    price: 2.50,
-    originalPrice: 3.30,
-    priceUnit: '/ piece',
-    image: '/static/images/Leather Washer/FOOT VALVE WASHER 2 J.jpg',
-    description: 'Standard borewell foot valve gasket designed for irrigation pumps and municipal water intake valves.',
-    features: [
-      'Supple yet tough grain creates instantaneous vacuum seal',
-      'Long operational lifetime in continuous submersion'
-    ],
-    specs: {
-      material: 'Vegetable Cured Cow Leather',
-      thickness: '3.0mm',
-      grade: 'Irrigation Valve Standard',
-      certification: 'BIS Compliant',
-      origin: 'Kanpur, India',
-      application: 'Irrigation Borewells, Centrifugal Pumps'
-    },
-    inStock: true,
-    rating: 4.7,
-    reviewCount: 29
-  },
-
-  {
     id: 'lari-str-01',
     slug: 'leather-strap-natural',
     name: 'Leather Strap – Natural',
     category: 'Leather Straps',
-    price: 0,
+    price: 3.50,
+    originalPrice: 5.00,
     priceUnit: 'As per custom choice',
     isCustomQuote: true,
     image: '/static/images/Leather strip/Leather Strap 1.jpg',
@@ -1477,7 +1147,8 @@ export const products: Product[] = [
     slug: 'leather-strap-brown',
     name: 'Leather Strap – Brown',
     category: 'Leather Straps',
-    price: 0,
+    price: 4.50,
+    originalPrice: 6.00,
     priceUnit: 'As per custom choice',
     isCustomQuote: true,
     image: '/static/images/Leather strip/Leather Strap 2.jpg',
@@ -1499,59 +1170,6 @@ export const products: Product[] = [
     rating: 4.8,
     reviewCount: 25
   },
-  {
-    id: 'lari-str-03',
-    slug: 'leather-strap-wide',
-    name: 'Leather Strap – Wide',
-    category: 'Leather Straps',
-    price: 0,
-    priceUnit: 'As per custom choice',
-    isCustomQuote: true,
-    image: '/static/images/Leather strip/Leather Strap 3.jpg',
-    description: 'Heavy wide format industrial power transmission and rigging straps manufactured to customized machinery blueprints.',
-    features: [
-      'Custom width up to 6 inches',
-      'Heavy oil-curried buffalo hide'
-    ],
-    specs: {
-      material: 'Oil-Curried Buffalo Leather',
-      thickness: 'Heavy Gauge Custom Spec',
-      grade: 'Industrial Power Transmission',
-      certification: 'ISO 9001 Certified Factory',
-      origin: 'Kanpur, India',
-      application: 'Flat Belt Drives, Rigging Straps, Wear Buffers'
-    },
-    inStock: true,
-    rating: 4.9,
-    reviewCount: 19
-  },
-  {
-    id: 'lari-str-04',
-    slug: 'rectangular-leather-strip',
-    name: 'Rectangular Leather Strip',
-    category: 'Leather Straps',
-    price: 0,
-    priceUnit: 'As per custom choice',
-    isCustomQuote: true,
-    image: '/static/images/Leather strip/leather rectangular 2 jpg.jpg',
-    description: 'Dense rectangular leather blanks cut to custom dimensions for machinery wear pads and vibration dampening.',
-    features: [
-      'Precision CNC/die cut to custom tolerance',
-      'Firm tempered hide with minimal compression deformation'
-    ],
-    specs: {
-      material: 'Vegetable Tanned Leather Blank',
-      thickness: 'Custom Spec',
-      grade: 'Engineering Wear Strip',
-      certification: 'Standard Industrial Quality',
-      origin: 'Kanpur, India',
-      application: 'Machinery Guides, Wear Strips, Buffers'
-    },
-    inStock: true,
-    rating: 4.6,
-    reviewCount: 12
-  },
-
   {
     id: 'lari-tar-01',
     slug: 'waterproof-tarpaulin-blue',
@@ -1636,7 +1254,6 @@ export const products: Product[] = [
     rating: 4.7,
     reviewCount: 29
   },
-
   {
     id: 'lari-raw-01',
     slug: 'bleached-goat-skin-parchment',
@@ -1740,38 +1357,39 @@ export const products: Product[] = [
     reviewCount: 62,
     isBestseller: true,
     isFeatured: true
-  },
+  }
+,
   {
     id: 'lari-raw-04',
-    slug: 'archival-bookbinding-vellum-parchment',
+    slug: 'archival-bookbinding-calligraphy-parchment',
     name: 'Archival Bookbinding & Calligraphy Parchment Vellum',
     category: 'Raw Hides',
-    subCategory: 'Heritage Stationery & Binding',
+    subCategory: 'Archival & Artisan Division',
     price: 24.00,
-    originalPrice: 31.00,
-    priceUnit: '/ full hide',
+    originalPrice: 32.00,
+    priceUnit: '/ hide',
     image: '/static/images/rawhides/parchment-sheet-2.jpeg',
     additionalImages: [
       '/static/images/rawhides/parchment-sheet-1.jpeg'
     ],
-    description: 'Superfine bleached goat parchment vellum crafted for luxury book restoration, archival folios, diplomatic certificates, and illuminated calligraphy. Silky-smooth ink response without bleeding or fiber feathering.',
+    description: 'Museum-grade bleached parchment vellum crafted for historical bookbinders, calligraphers, illumination artists, and fine document restorers across Germany and Europe.',
     features: [
-      'Tannery-pounced velvety surface compatible with historic iron gall & modern inks',
-      'Bleached ivory tone retaining historic authentic vellum character',
-      'Average skin yield: 6+ sq. ft. calibrated at 0.70 mm - 0.85 mm',
-      'Direct wholesale export to German and continental European binderies for 10+ years'
+      'Ultra-smooth tactile surface accepting ink, gouache, and gold leaf gilding',
+      'Naturally bleached with historic craftsmanship in Kanpur, India',
+      '0.70 mm - 1.00 mm parchment grade with natural vellum character',
+      'Supplied to German and European archival workshops for 10+ years'
     ],
     specs: {
-      material: 'Bleached Archival Goat Vellum Parchment',
-      thickness: '0.70 mm - 0.85 mm Ultra Uniform',
-      grade: 'Museum Archival Vellum A+',
-      certification: 'Acid-Neutral Certified',
+      material: 'Bleached Goat Vellum Parchment',
+      thickness: '0.70 mm - 1.00 mm Archival Grade',
+      grade: 'Museum & Fine Art Restorer Grade',
+      certification: 'Export Grade Performa',
       origin: 'Kanpur Tannery Facility, India',
-      application: 'Fine Bookbinding, Calligraphy, Diplomas, Illumination, Bespoke Stationery'
+      application: 'Historical Bookbinding, Diplomas, Calligraphy, Restoration, Premium Stationers'
     },
     inStock: true,
     rating: 4.9,
-    reviewCount: 51,
+    reviewCount: 44,
     isBestseller: true,
     isFeatured: true
   }
@@ -1793,3 +1411,4 @@ export const CATEGORIES: ProductCategory[] = [
   'Leather Straps',
   'Tarpaulin'
 ];
+

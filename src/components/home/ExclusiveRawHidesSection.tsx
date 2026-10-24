@@ -451,7 +451,7 @@ export const ExclusiveRawHidesSection = () => {
                     className="object-cover hover:scale-105 transition-transform duration-500" 
                   />
                   <span className="absolute top-2.5 left-2.5 px-2.5 py-0.5 rounded-full bg-amber-500 text-stone-950 text-[10px] font-black uppercase tracking-wider">
-                    Bestseller
+                    Export Grade
                   </span>
                 </div>
                 <h4 className="font-serif font-bold text-base text-white hover:text-amber-300 transition-colors">
