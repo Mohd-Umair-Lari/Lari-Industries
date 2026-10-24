@@ -347,31 +347,32 @@ export const products: Product[] = [
   {
     id: 'lari-exp-02',
     slug: 'premium-driving-gloves',
-    name: 'Premium Driving Gloves',
+    name: 'Lari D662 CE Certified Leather Driver Gloves',
     category: 'Export Gloves',
     price: 1.75,
     originalPrice: 2.30,
     priceUnit: '/ pair',
-    image: '/static/images/Export gloves images/Driving gloves.jpg',
-    description: 'Ergonomic full-grain leather drivers glove featuring Keystone thumb and elasticated shirred back for maximum dexterity and tactile grip.',
+    image: '/static/images/Gloves Images/branded gloves 4.jpeg',
+    description: 'Official factory-branded Lari D662 full-grain white leather utility and driver gloves with certified CE EN388:2016 marking. Ergonomic keystone thumb and shirred elastic back for superior dexterity.',
     features: [
-      'Supple full grain goat/cow leather',
-      'Keystone thumb for natural hand movement',
-      'Elasticized back for snug comfortable fit',
-      'Zero internal chafing seams'
+      'Genuine factory-branded Lari D662 with official CE EN388:2016 stamp',
+      'Supple full grain goat/cow leather in natural white finish',
+      'Keystone thumb for natural hand movement and reduced fatigue',
+      'Elasticized shirred wrist with red piped hem cuff binding'
     ],
     specs: {
       material: '100% Full Grain Leather',
       thickness: '1.0mm - 1.1mm',
-      grade: 'Export Deluxe Driver',
-      certification: 'EN 388 (2-1-2-1-X)',
+      grade: 'Export Deluxe Driver A+',
+      certification: 'CE EN388:2016 (2-1-3-2-X)',
       origin: 'Kanpur, India',
-      application: 'Heavy Equipment Operators, Trucking, Utilities'
+      application: 'Heavy Equipment Operators, Trucking, Rigging, Utilities'
     },
     inStock: true,
     rating: 4.9,
     reviewCount: 38,
-    isFeatured: true
+    isFeatured: true,
+    isBestseller: true
   },
   {
     id: 'lari-exp-03',

@@ -83,40 +83,16 @@ export const HeroSection = () => {
 
         <div className="mt-16 grid grid-cols-1 md:grid-cols-3 gap-8 max-w-5xl mx-auto">
           <Link
-            href="/products?category=Aprons"
+            href="/products?category=Raw%20Hides"
             className="group relative rounded-3xl p-6 bg-white/80 backdrop-blur-xl border border-stone-200/80 shadow-glass hover:shadow-glass-hover hover:-translate-y-2 transition-all duration-300 text-center"
           >
+            <span className="absolute top-4 right-4 px-2.5 py-0.5 rounded-full bg-amber-500/20 text-amber-700 border border-amber-300 text-[10px] font-bold uppercase tracking-wider">
+              Exclusive
+            </span>
             <div className="relative w-44 h-44 mx-auto mb-4 rounded-2xl overflow-hidden bg-stone-100 shadow-sm group-hover:scale-105 transition-transform duration-300">
               <Image
-                src="/static/images/Aprons/Leather Welding Apron.jpeg"
-                alt="Leather Welding Apron"
-                fill
-                className="object-cover"
-              />
-            </div>
-            <h4 className="font-serif font-bold text-xl text-stone-900 group-hover:text-brand-600 transition-colors">
-              Welding & Safety Aprons
-            </h4>
-            <p className="text-xs text-stone-500 mt-1">
-              Heavy split leather welding aprons & heat-resistant protective gear
-            </p>
-            <div className="mt-3 inline-flex items-center text-xs font-bold text-brand-600 group-hover:underline">
-              <span>From $2.50 / piece</span>
-              <ArrowRight className="w-3.5 h-3.5 ml-1" />
-            </div>
-          </Link>
-
-          <Link
-            href="/products?category=Raw%20Hides"
-            className="group relative rounded-3xl p-6 bg-gradient-to-br from-amber-500/10 via-brand-500/10 to-stone-50 backdrop-blur-xl border-2 border-brand-500/40 shadow-glass-hover hover:-translate-y-2 transition-all duration-300 text-center ring-4 ring-brand-500/15"
-          >
-            <span className="absolute top-4 right-4 px-3 py-1 rounded-full bg-gradient-to-r from-brand-600 to-amber-600 text-white text-[10px] font-black uppercase tracking-wider shadow-sm flex items-center gap-1">
-              <Sparkles className="w-3 h-3" /> Exclusive Bestseller
-            </span>
-            <div className="relative w-44 h-44 mx-auto mb-4 rounded-2xl overflow-hidden bg-stone-100 shadow-md group-hover:scale-105 transition-transform duration-300 border border-stone-200">
-              <Image
                 src="/static/images/rawhides/parchment-sheet-1.jpeg"
-                alt="Exclusive Bleached Raw Hides & Parchment"
+                alt="Bleached Raw Hides & Parchment"
                 fill
                 className="object-cover"
               />
@@ -124,11 +100,38 @@ export const HeroSection = () => {
             <h4 className="font-serif font-bold text-xl text-stone-900 group-hover:text-brand-600 transition-colors">
               Raw Hides & Parchment
             </h4>
-            <p className="text-xs text-stone-600 mt-1 line-clamp-2">
-              Direct Kanpur tannery: bleached goat & buff calfskin (0.7–1.0mm, 6+ sq.ft) for drum heads & bookbinding
+            <p className="text-xs text-stone-500 mt-1 line-clamp-2">
+              Direct Kanpur tannery: bleached goat & buff calfskin (0.7–1.0mm, 6+ sq.ft)
             </p>
             <div className="mt-3 inline-flex items-center text-xs font-bold text-brand-600 group-hover:underline">
-              <span>From $16.50 / hide (Export Grade)</span>
+              <span>From $16.50 / hide</span>
+              <ArrowRight className="w-3.5 h-3.5 ml-1" />
+            </div>
+          </Link>
+
+          <Link
+            href="/products?category=Aprons"
+            className="group relative rounded-3xl p-6 bg-gradient-to-br from-white via-rose-50/30 to-amber-50/20 backdrop-blur-xl border border-brand-200/60 shadow-glass-hover hover:-translate-y-2 transition-all duration-300 text-center ring-2 ring-brand-500/20"
+          >
+            <span className="absolute top-4 right-4 px-2.5 py-0.5 rounded-full bg-brand-500 text-white text-[10px] font-bold uppercase tracking-wider">
+              Bestseller
+            </span>
+            <div className="relative w-44 h-44 mx-auto mb-4 rounded-2xl overflow-hidden bg-stone-100 shadow-sm group-hover:scale-105 transition-transform duration-300">
+              <Image
+                src="/static/images/Aprons/Apron image 1.jpg"
+                alt="Leather Welding & Safety Aprons"
+                fill
+                className="object-contain p-2"
+              />
+            </div>
+            <h4 className="font-serif font-bold text-xl text-stone-900 group-hover:text-brand-600 transition-colors">
+              Welding & Safety Aprons
+            </h4>
+            <p className="text-xs text-stone-500 mt-1">
+              Heavy split leather welding aprons & heat-resistant protective suits
+            </p>
+            <div className="mt-3 inline-flex items-center text-xs font-bold text-brand-600 group-hover:underline">
+              <span>From $2.50 / piece</span>
               <ArrowRight className="w-3.5 h-3.5 ml-1" />
             </div>
           </Link>
@@ -139,17 +142,17 @@ export const HeroSection = () => {
           >
             <div className="relative w-44 h-44 mx-auto mb-4 rounded-2xl overflow-hidden bg-stone-100 shadow-sm group-hover:scale-105 transition-transform duration-300">
               <Image
-                src="/static/images/1-cat.jpg"
-                alt="Safety Gloves"
+                src="/static/images/Gloves Images/branded gloves 4.jpeg"
+                alt="Lari CE Certified Safety Gloves"
                 fill
-                className="object-cover"
+                className="object-contain p-1"
               />
             </div>
             <h4 className="font-serif font-bold text-xl text-stone-900 group-hover:text-brand-600 transition-colors">
               Safety Gloves Series
             </h4>
             <p className="text-xs text-stone-500 mt-1">
-              Canadian drill, Kevlar cut-resistant, driver & welder gauntlets
+              Certified EN388:2016 split leather, Kevlar cut-resistant & driver gloves
             </p>
             <div className="mt-3 inline-flex items-center text-xs font-bold text-brand-600 group-hover:underline">
               <span>From $0.25 / pair</span>

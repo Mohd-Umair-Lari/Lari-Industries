@@ -7,6 +7,14 @@ import { ArrowRight } from 'lucide-react';
 
 const CATEGORY_ITEMS = [
   {
+    title: 'Welding & Work Aprons',
+    category: 'Aprons',
+    priceInfo: 'From $2.50 / piece',
+    count: '8 Products',
+    image: '/static/images/Aprons/Apron image 1.jpg',
+    description: 'Split leather, dangri coveralls, and cotton lab coats.',
+  },
+  {
     title: 'Raw Hides & Parchment',
     category: 'Raw Hides',
     priceInfo: 'From $16.50 / hide',
@@ -15,20 +23,12 @@ const CATEGORY_ITEMS = [
     description: 'Direct Kanpur tannery: bleached goat & buff calf parchment (0.7-1.0mm, 6+ sq.ft).',
   },
   {
-    title: 'Welding & Work Aprons',
-    category: 'Aprons',
-    priceInfo: 'From $2.50 / piece',
-    count: '8 Products',
-    image: '/static/images/Aprons/Leather Welding Apron.jpeg',
-    description: 'Split leather, dangri coveralls, and cotton lab coats.',
-  },
-  {
     title: 'Export Gloves',
     category: 'Export Gloves',
     priceInfo: 'From $1.25 / pair',
     count: '6 Products',
-    image: '/static/images/Export gloves images/Drill Canadian.jpg',
-    description: 'Canadian drill, drivers, split leather, and lined gloves.',
+    image: '/static/images/Gloves Images/branded gloves 4.jpeg',
+    description: 'Certified EN388:2016 split leather, Canadian drill, and drivers.',
   },
   {
     title: 'Kevlar® Para-Aramid',
