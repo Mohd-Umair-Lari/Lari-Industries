@@ -1256,142 +1256,40 @@ export const products: Product[] = [
   },
   {
     id: 'lari-raw-01',
-    slug: 'bleached-goat-skin-parchment',
-    name: 'Bleached Goat Skin Parchment (0.7 - 1.00 mm)',
+    slug: 'raw-hides-bleached-parchment',
+    name: 'Bleached Raw Hides & Skin Parchment (0.7–1.00 mm)',
     category: 'Raw Hides',
     subCategory: 'Export Division Exclusive',
-    price: 18.50,
-    originalPrice: 24.00,
-    priceUnit: '/ full hide',
+    price: 27.50,
+    originalPrice: 35.00,
+    priceUnit: '/ skin (hide)',
     image: '/static/images/rawhides/parchment-sheet-1.jpeg',
     additionalImages: [
       '/static/images/rawhides/parchment-sheet-2.jpeg'
     ],
-    description: 'Direct from our Kanpur tanning facility: pure bleached goat skin parchment (0.70mm - 1.00mm thickness, average 6+ sq. ft.). Exported to German & continental European master craft workshops for over 10 years. Premium full hides for book binding, stationery vellum, fine lace making, and musical drum heads.',
+    description: 'Direct Kanpur tannery export: bleached goat and buff calfskin parchment hides (0.70 mm – 1.00 mm thickness, average size 6+ sq. ft.). Full hides processed from raw skins to bleached finish for musical drum heads, bookbinding, archival vellum, luxury stationery, and craft lacing. Over 10 years of consistent supply to German and continental European markets.',
     features: [
       'Processed in-house at our Kanpur tannery from raw skins to pure bleached level',
-      'Calibrated thickness: 0.70 mm to 1.00 mm with uniform grain tension',
-      'Average size: 6+ sq. ft. per full hide / skin',
-      'Ideal for luxury bookbinding, calligraphy, stationery & lace crafting',
-      'Proven 10+ year export track record across Germany and continental Europe'
+      '0.70 mm – 1.00 mm calibrated thickness with average size 6+ sq. ft. per whole skin',
+      'Pure bleached goat and buff calfskin whole hides',
+      'Multi-purpose: acoustic drum heads, bookbinding, parchment stationery, lace making',
+      'Over 10 years established export track record across Germany & Continental Europe',
+      'Strict export quality grading with zero weak points or scarring'
     ],
     specs: {
-      material: 'Bleached Goat Skin Rawhide Parchment',
-      thickness: '0.70 mm - 1.00 mm',
-      grade: 'Export Grade A+ Whole Hide',
-      certification: 'Direct Tannery Certified Origin',
-      origin: 'Kanpur Tannery Facility, India',
-      application: 'Bookbinding, Luxury Stationery, Lace Making, Musical Drumheads, Fine Crafts'
+      material: 'Bleached Goat & Buff Calf Skin Rawhide (Avg 6+ sq. ft. whole hides)',
+      thickness: '0.70 mm - 1.00 mm Calibrated',
+      grade: 'European Export Grade A+',
+      certification: 'Direct Tannery Certificate of Analysis',
+      origin: 'Kanpur Tannery Facility, Uttar Pradesh, India',
+      application: 'Acoustic Musical Drum Heads, Bookbinding & Vellum, Stationery, Saddlery Lace Making'
     },
     inStock: true,
     rating: 5.0,
     reviewCount: 94,
     isBestseller: true,
-    isFeatured: true
-  },
-  {
-    id: 'lari-raw-02',
-    slug: 'buff-calf-rawhide-parchment',
-    name: 'Buff Calf Rawhide Parchment (0.8 - 1.00 mm)',
-    category: 'Raw Hides',
-    subCategory: 'Export Division Exclusive',
-    price: 22.00,
-    originalPrice: 28.50,
-    priceUnit: '/ full hide',
-    image: '/static/images/rawhides/parchment-sheet-2.jpeg',
-    additionalImages: [
-      '/static/images/rawhides/parchment-sheet-1.jpeg'
-    ],
-    description: 'Heavyweight bleached buffalo calfskin rawhide parchment processed in Kanpur. Resilient acoustic elasticity and high structural tensile strength for heavy-duty lace making, traditional banjo and bodhrán drum heads, and historic book restoration.',
-    features: [
-      'Genuine buffalo calf tanning bleached to translucent white tone',
-      'Calibrated thickness: 0.80 mm to 1.00 mm with high tensile resilience',
-      'Generous whole hides averaging 6+ sq. ft. of clean usable surface',
-      'Acoustic sound transmission for percussion instruments & banjo heads',
-      'Exported to European musical instrument makers and restorers for 10+ years'
-    ],
-    specs: {
-      material: 'Bleached Buff Calfskin Rawhide',
-      thickness: '0.80 mm - 1.00 mm',
-      grade: 'Concert & Industrial Parchment',
-      certification: 'Export Quality Standard CE/ISO',
-      origin: 'Kanpur Tannery Facility, India',
-      application: 'Percussion Drum Heads, Heavy Lace Making, Bookbinding, Archival Work'
-    },
-    inStock: true,
-    rating: 4.9,
-    reviewCount: 78,
-    isBestseller: true,
-    isFeatured: true
-  },
-  {
-    id: 'lari-raw-03',
-    slug: 'acoustic-drum-head-rawhides',
-    name: 'Acoustic Musical Drumhead Rawhide Skins (Goat / Calf)',
-    category: 'Raw Hides',
-    subCategory: 'Musical Percussion Division',
-    price: 16.50,
-    originalPrice: 21.00,
-    priceUnit: '/ skin',
-    image: '/static/images/rawhides/parchment-sheet-1.jpeg',
-    additionalImages: [
-      '/static/images/rawhides/parchment-sheet-2.jpeg'
-    ],
-    description: 'Tannery-selected musical grade bleached goat and buff calf skins engineered for resonant acoustic drum heads. Used across Europe for bongos, congas, djembes, bodhráns, and marching snare heads with rich acoustic projection.',
-    features: [
-      'Even acoustic density and balanced vibration across the entire skin',
-      'Bleached Kanpur tannery finish with zero surface scars or weak spots',
-      '0.70 mm - 0.90 mm resonance gauge (6+ sq. ft. whole hides)',
-      'Preferred by European instrument builders and luthiers for over a decade'
-    ],
-    specs: {
-      material: 'Musical-Grade Bleached Goat & Calf Rawhide',
-      thickness: '0.70 mm - 0.90 mm Acoustic Calibrated',
-      grade: 'Professional Orchestra & Percussion Grade',
-      certification: 'Direct Tannery Certified',
-      origin: 'Kanpur Tannery Facility, India',
-      application: 'Bongos, Congas, Djembes, Bodhráns, Banjo Heads, Orchestral Drums'
-    },
-    inStock: true,
-    rating: 5.0,
-    reviewCount: 62,
-    isBestseller: true,
-    isFeatured: true
-  }
-,
-  {
-    id: 'lari-raw-04',
-    slug: 'archival-bookbinding-calligraphy-parchment',
-    name: 'Archival Bookbinding & Calligraphy Parchment Vellum',
-    category: 'Raw Hides',
-    subCategory: 'Archival & Artisan Division',
-    price: 24.00,
-    originalPrice: 32.00,
-    priceUnit: '/ hide',
-    image: '/static/images/rawhides/parchment-sheet-2.jpeg',
-    additionalImages: [
-      '/static/images/rawhides/parchment-sheet-1.jpeg'
-    ],
-    description: 'Museum-grade bleached parchment vellum crafted for historical bookbinders, calligraphers, illumination artists, and fine document restorers across Germany and Europe.',
-    features: [
-      'Ultra-smooth tactile surface accepting ink, gouache, and gold leaf gilding',
-      'Naturally bleached with historic craftsmanship in Kanpur, India',
-      '0.70 mm - 1.00 mm parchment grade with natural vellum character',
-      'Supplied to German and European archival workshops for 10+ years'
-    ],
-    specs: {
-      material: 'Bleached Goat Vellum Parchment',
-      thickness: '0.70 mm - 1.00 mm Archival Grade',
-      grade: 'Museum & Fine Art Restorer Grade',
-      certification: 'Export Grade Performa',
-      origin: 'Kanpur Tannery Facility, India',
-      application: 'Historical Bookbinding, Diplomas, Calligraphy, Restoration, Premium Stationers'
-    },
-    inStock: true,
-    rating: 4.9,
-    reviewCount: 44,
-    isBestseller: true,
-    isFeatured: true
+    isFeatured: true,
+    bulkDiscount: { minQty: 25, discountPercent: 15 }
   }
 ];
 

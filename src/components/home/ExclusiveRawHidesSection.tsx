@@ -418,7 +418,7 @@ export const ExclusiveRawHidesSection = () => {
           </div>
         </div>
 
-        {/* Featured Export Products Showcase */}
+        {/* Single Flagship Export Product Showcase */}
         <div>
           <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-4 mb-8">
             <div>
@@ -426,160 +426,128 @@ export const ExclusiveRawHidesSection = () => {
                 Direct Tannery Catalog
               </span>
               <h3 className="text-2xl sm:text-4xl font-serif font-black text-white">
-                Available Whole Hides & Parchment Cuts
+                Bleached Raw Hides & Parchment Whole Skins
               </h3>
             </div>
             <Link
-              href="/products?category=Raw%20Hides"
+              href="/products/raw-hides-bleached-parchment"
               className="inline-flex items-center gap-1.5 text-xs sm:text-sm font-bold text-amber-400 hover:text-amber-300 hover:underline"
             >
-              <span>View All Raw Hide Products in USD</span>
+              <span>View Product Specifications</span>
               <ArrowRight className="w-4 h-4" />
             </Link>
           </div>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-            
-            {/* Product 1 */}
-            <div className="rounded-3xl bg-stone-900 border border-amber-500/40 hover:border-amber-400 p-5 flex flex-col justify-between hover:shadow-2xl hover:shadow-amber-500/10 transition-all duration-300">
-              <div>
-                <div className="relative aspect-square w-full rounded-2xl overflow-hidden bg-stone-950 mb-4 border border-stone-800">
+          <div className="rounded-3xl bg-stone-900 border border-amber-500/40 p-6 sm:p-8 lg:p-10 shadow-2xl hover:border-amber-400 transition-all duration-300">
+            <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+              
+              {/* Product Visual Gallery */}
+              <div className="lg:col-span-5 space-y-4">
+                <div className="relative aspect-[4/3] w-full rounded-2xl overflow-hidden bg-stone-950 border border-stone-800 shadow-inner group">
                   <Image 
                     src="/static/images/rawhides/parchment-sheet-1.jpeg" 
-                    alt="Bleached Goat Skin Parchment"
+                    alt="Bleached Raw Hides & Parchment Whole Skins"
                     fill 
-                    className="object-cover hover:scale-105 transition-transform duration-500" 
+                    className="object-cover group-hover:scale-105 transition-transform duration-500" 
                   />
-                  <span className="absolute top-2.5 left-2.5 px-2.5 py-0.5 rounded-full bg-amber-500 text-stone-950 text-[10px] font-black uppercase tracking-wider">
-                    Export Grade
+                  <span className="absolute top-3 left-3 px-3 py-1 rounded-full bg-amber-500 text-stone-950 text-xs font-black uppercase tracking-wider shadow-md">
+                    Kanpur Tannery Direct
+                  </span>
+                  <span className="absolute bottom-3 right-3 px-2.5 py-1 rounded-full bg-stone-950/80 backdrop-blur-md text-amber-300 border border-amber-400/30 text-[10px] font-bold">
+                    6+ sq. ft. Average Yield
                   </span>
                 </div>
-                <h4 className="font-serif font-bold text-base text-white hover:text-amber-300 transition-colors">
-                  Bleached Goat Skin Parchment
-                </h4>
-                <p className="text-xs text-stone-400 mt-1 line-clamp-2">
-                  0.70 &ndash; 1.00 mm thickness, avg size 6+ sq.ft. Pristine bleached whole skins.
-                </p>
-                <div className="mt-3 flex items-baseline gap-2">
-                  <span className="text-xl font-bold font-serif text-amber-400">$18.50</span>
-                  <span className="text-xs text-stone-400">/ full hide</span>
-                  <span className="text-xs text-stone-500 line-through">$24.00</span>
-                </div>
-              </div>
-              <div className="mt-4 pt-3 border-t border-stone-800">
-                <Link href="/products/bleached-goat-skin-parchment" className="block w-full">
-                  <Button className="w-full bg-amber-500 hover:bg-amber-400 text-stone-950 text-xs font-bold">
-                    <span>Order Hide (USD)</span>
-                  </Button>
-                </Link>
-              </div>
-            </div>
 
-            {/* Product 2 */}
-            <div className="rounded-3xl bg-stone-900 border border-stone-800 hover:border-amber-400/60 p-5 flex flex-col justify-between hover:shadow-2xl transition-all duration-300">
-              <div>
-                <div className="relative aspect-square w-full rounded-2xl overflow-hidden bg-stone-950 mb-4 border border-stone-800">
-                  <Image 
-                    src="/static/images/rawhides/parchment-sheet-2.jpeg" 
-                    alt="Buff Calf Rawhide Parchment"
-                    fill 
-                    className="object-cover hover:scale-105 transition-transform duration-500" 
-                  />
-                  <span className="absolute top-2.5 left-2.5 px-2.5 py-0.5 rounded-full bg-stone-800 text-amber-300 text-[10px] font-black uppercase tracking-wider border border-amber-400/30">
-                    Heavy Grade
-                  </span>
-                </div>
-                <h4 className="font-serif font-bold text-base text-white hover:text-amber-300 transition-colors">
-                  Buff Calf Rawhide Parchment
-                </h4>
-                <p className="text-xs text-stone-400 mt-1 line-clamp-2">
-                  0.80 &ndash; 1.00 mm calibrated rawhide for drum heads, saddlery lacing & crafts.
-                </p>
-                <div className="mt-3 flex items-baseline gap-2">
-                  <span className="text-xl font-bold font-serif text-amber-400">$22.00</span>
-                  <span className="text-xs text-stone-400">/ full hide</span>
-                  <span className="text-xs text-stone-500 line-through">$28.50</span>
+                <div className="grid grid-cols-2 gap-3">
+                  <div className="relative aspect-[16/10] rounded-xl overflow-hidden bg-stone-950 border border-stone-800">
+                    <Image
+                      src="/static/images/rawhides/parchment-sheet-2.jpeg"
+                      alt="Buff calf and goat rawhide drying"
+                      fill
+                      className="object-cover"
+                    />
+                    <span className="absolute bottom-1.5 left-2 text-[10px] font-medium text-stone-300 bg-stone-900/80 px-2 py-0.5 rounded">
+                      Translucent Bleach
+                    </span>
+                  </div>
+                  <div className="relative aspect-[16/10] rounded-xl overflow-hidden bg-stone-950 border border-stone-800">
+                    <Image
+                      src="/static/images/rawhides/parchment-sheet-1.jpeg"
+                      alt="Parchment hides ready for export"
+                      fill
+                      className="object-cover"
+                    />
+                    <span className="absolute bottom-1.5 left-2 text-[10px] font-medium text-stone-300 bg-stone-900/80 px-2 py-0.5 rounded">
+                      Calibrated 0.7–1.0mm
+                    </span>
+                  </div>
                 </div>
               </div>
-              <div className="mt-4 pt-3 border-t border-stone-800">
-                <Link href="/products/buff-calf-rawhide-parchment" className="block w-full">
-                  <Button variant="outline" className="w-full border-stone-700 text-stone-200 hover:bg-stone-800 text-xs font-bold">
-                    <span>Order Hide (USD)</span>
-                  </Button>
-                </Link>
-              </div>
-            </div>
 
-            {/* Product 3 */}
-            <div className="rounded-3xl bg-stone-900 border border-stone-800 hover:border-amber-400/60 p-5 flex flex-col justify-between hover:shadow-2xl transition-all duration-300">
-              <div>
-                <div className="relative aspect-square w-full rounded-2xl overflow-hidden bg-stone-950 mb-4 border border-stone-800">
-                  <Image 
-                    src="/static/images/rawhides/parchment-sheet-1.jpeg" 
-                    alt="Acoustic Drum Head Skins"
-                    fill 
-                    className="object-cover hover:scale-105 transition-transform duration-500" 
-                  />
-                  <span className="absolute top-2.5 left-2.5 px-2.5 py-0.5 rounded-full bg-stone-800 text-amber-300 text-[10px] font-black uppercase tracking-wider border border-amber-400/30">
-                    Musical Grade
-                  </span>
-                </div>
-                <h4 className="font-serif font-bold text-base text-white hover:text-amber-300 transition-colors">
-                  Acoustic Musical Drumhead Skins
-                </h4>
-                <p className="text-xs text-stone-400 mt-1 line-clamp-2">
-                  Acoustically tuned bleached skins for bongos, congas, djembes & banjos.
-                </p>
-                <div className="mt-3 flex items-baseline gap-2">
-                  <span className="text-xl font-bold font-serif text-amber-400">$16.50</span>
-                  <span className="text-xs text-stone-400">/ skin</span>
-                  <span className="text-xs text-stone-500 line-through">$21.00</span>
-                </div>
-              </div>
-              <div className="mt-4 pt-3 border-t border-stone-800">
-                <Link href="/products/acoustic-drum-head-rawhides" className="block w-full">
-                  <Button variant="outline" className="w-full border-stone-700 text-stone-200 hover:bg-stone-800 text-xs font-bold">
-                    <span>Order Skin (USD)</span>
-                  </Button>
-                </Link>
-              </div>
-            </div>
+              {/* Product Information & Order Box */}
+              <div className="lg:col-span-7 flex flex-col justify-between space-y-6">
+                <div>
+                  <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-amber-500/10 border border-amber-400/30 text-amber-300 text-xs font-bold mb-3">
+                    <span>Export Division Exclusive Listing</span>
+                    <span>•</span>
+                    <span>10+ Years European Market Supply</span>
+                  </div>
+                  <h4 className="text-2xl sm:text-3xl font-serif font-bold text-white tracking-tight">
+                    Bleached Raw Hides & Skin Parchment (0.7–1.00 mm)
+                  </h4>
+                  <p className="text-sm text-stone-300 mt-3 leading-relaxed">
+                    Direct from our own tannery facility in Kanpur, India. Processed from raw hides / skins to pure bleached level for goat and buff calf tanning. Calibrated 0.7–1.00 mm thickness, average size 6+ sq. ft. Available as full hides/skins for all types of craft making, bookbinding, archival vellum, luxury stationery, lace making, and acoustic musical drum heads.
+                  </p>
 
-            {/* Product 4 */}
-            <div className="rounded-3xl bg-stone-900 border border-stone-800 hover:border-amber-400/60 p-5 flex flex-col justify-between hover:shadow-2xl transition-all duration-300">
-              <div>
-                <div className="relative aspect-square w-full rounded-2xl overflow-hidden bg-stone-950 mb-4 border border-stone-800">
-                  <Image 
-                    src="/static/images/rawhides/parchment-sheet-2.jpeg" 
-                    alt="Archival Bookbinding Vellum"
-                    fill 
-                    className="object-cover hover:scale-105 transition-transform duration-500" 
-                  />
-                  <span className="absolute top-2.5 left-2.5 px-2.5 py-0.5 rounded-full bg-stone-800 text-amber-300 text-[10px] font-black uppercase tracking-wider border border-amber-400/30">
-                    Archival Vellum
-                  </span>
+                  <div className="mt-5 grid grid-cols-2 sm:grid-cols-4 gap-2.5">
+                    <div className="p-3 rounded-xl bg-stone-950/60 border border-stone-800">
+                      <p className="text-[10px] text-stone-500 font-bold uppercase tracking-wider">Thickness</p>
+                      <p className="text-xs font-bold text-white mt-0.5">0.70 &ndash; 1.00 mm</p>
+                    </div>
+                    <div className="p-3 rounded-xl bg-stone-950/60 border border-stone-800">
+                      <p className="text-[10px] text-stone-500 font-bold uppercase tracking-wider">Average Area</p>
+                      <p className="text-xs font-bold text-white mt-0.5">6+ sq. ft. / hide</p>
+                    </div>
+                    <div className="p-3 rounded-xl bg-stone-950/60 border border-stone-800">
+                      <p className="text-[10px] text-stone-500 font-bold uppercase tracking-wider">Material</p>
+                      <p className="text-xs font-bold text-white mt-0.5">Goat & Buff Calf</p>
+                    </div>
+                    <div className="p-3 rounded-xl bg-stone-950/60 border border-stone-800">
+                      <p className="text-[10px] text-stone-500 font-bold uppercase tracking-wider">Export Market</p>
+                      <p className="text-xs font-bold text-white mt-0.5">Germany & Europe</p>
+                    </div>
+                  </div>
                 </div>
-                <h4 className="font-serif font-bold text-base text-white hover:text-amber-300 transition-colors">
-                  Archival Bookbinding Vellum
-                </h4>
-                <p className="text-xs text-stone-400 mt-1 line-clamp-2">
-                  Acid-neutral velvety parchment for fine manuscript restoration & luxury stationery.
-                </p>
-                <div className="mt-3 flex items-baseline gap-2">
-                  <span className="text-xl font-bold font-serif text-amber-400">$24.00</span>
-                  <span className="text-xs text-stone-400">/ full hide</span>
-                  <span className="text-xs text-stone-500 line-through">$31.00</span>
-                </div>
-              </div>
-              <div className="mt-4 pt-3 border-t border-stone-800">
-                <Link href="/products/archival-bookbinding-vellum-parchment" className="block w-full">
-                  <Button variant="outline" className="w-full border-stone-700 text-stone-200 hover:bg-stone-800 text-xs font-bold">
-                    <span>Order Vellum (USD)</span>
-                  </Button>
-                </Link>
-              </div>
-            </div>
 
+                <div className="pt-6 border-t border-stone-800 flex flex-col sm:flex-row sm:items-center justify-between gap-6">
+                  <div>
+                    <span className="text-xs text-stone-400 block font-medium">Export Wholesale Price</span>
+                    <div className="flex items-baseline gap-2.5 mt-1">
+                      <span className="text-3xl sm:text-4xl font-serif font-black text-amber-400">$27.50</span>
+                      <span className="text-sm font-semibold text-stone-300">USD / skin (hide)</span>
+                      <span className="text-sm text-stone-500 line-through">$35.00</span>
+                    </div>
+                    <p className="text-[11px] text-stone-400 mt-1">
+                      Full hide whole skins &bull; Worldwide air courier & container freight
+                    </p>
+                  </div>
+
+                  <div className="flex flex-col sm:flex-row gap-3">
+                    <Link href="/products/raw-hides-bleached-parchment">
+                      <Button className="w-full sm:w-auto bg-amber-500 hover:bg-amber-400 text-stone-950 font-bold px-6 py-3 text-sm shadow-lg shadow-amber-500/20">
+                        <span>Order Hide ($27.50 USD)</span>
+                      </Button>
+                    </Link>
+                    <a href="#sample-inquiry">
+                      <Button variant="outline" className="w-full sm:w-auto border-stone-700 text-stone-200 hover:bg-stone-800 font-bold px-5 py-3 text-sm">
+                        <span>Inquire Bulk / Samples</span>
+                      </Button>
+                    </a>
+                  </div>
+                </div>
+              </div>
+
+            </div>
           </div>
         </div>
 

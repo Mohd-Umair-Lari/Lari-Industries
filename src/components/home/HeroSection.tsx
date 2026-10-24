@@ -131,7 +131,7 @@ export const HeroSection = () => {
               </p>
             </div>
             <div className="mt-4 pt-3 border-t border-stone-100 inline-flex items-center justify-center text-xs font-bold text-brand-600 group-hover:text-brand-700">
-              <span>From $16.50 / hide</span>
+              <span>$27.50 / skin (hide)</span>
               <ArrowRight className="w-3.5 h-3.5 ml-1.5 transition-transform duration-200 group-hover:translate-x-1" />
             </div>
           </Link>

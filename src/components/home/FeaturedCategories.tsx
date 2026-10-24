@@ -17,8 +17,8 @@ const CATEGORY_ITEMS = [
   {
     title: 'Raw Hides & Parchment',
     category: 'Raw Hides',
-    priceInfo: 'From $16.50 / hide',
-    count: '4 Products',
+    priceInfo: '$27.50 / skin (hide)',
+    count: '1 Product',
     image: '/static/images/rawhides/parchment-sheet-1.jpeg',
     description: 'Direct Kanpur tannery: bleached goat & buff calf parchment (0.7-1.0mm, 6+ sq.ft).',
   },
