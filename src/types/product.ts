@@ -17,6 +17,7 @@ export interface Product {
     thickness?: string;
     grade?: string;
     certification?: string;
+    averageSize?: string;
     origin: string;
     application: string;
   };
