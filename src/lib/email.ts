@@ -82,6 +82,42 @@ export async function sendContactInquiryToSeller(inquiry: ContactInquiryEmailDat
   }
 }
 
+export async function sendContactAcknowledgementToCustomer(
+  inquiry: ContactInquiryEmailData
+): Promise<boolean> {
+  if (!resend) {
+    console.error('[Resend] Customer acknowledgement not sent: RESEND_API_KEY is not configured');
+    return false;
+  }
+
+  const name = escapeHtml(inquiry.name);
+  const subject = escapeHtml(inquiry.subject?.trim() || 'your inquiry');
+
+  try {
+    const result = await resend.emails.send({
+      from: FROM_EMAIL,
+      to: inquiry.email,
+      replyTo: SELLER_EMAIL,
+      subject: 'We received your inquiry — Lari Industries',
+      html: `
+        <div style="font-family: Arial, sans-serif; max-width: 640px; color: #1f2937; line-height: 1.6;">
+          <h2 style="color: #e74c3c;">Thank you for contacting Lari Industries, ${name}!</h2>
+          <p>We have received your inquiry regarding <strong>${subject}</strong>.</p>
+          <p>Our sales team in Kanpur will review your request and contact you within 24 hours.</p>
+          <p>If you need to add anything, simply reply to this email and our team will receive it.</p>
+          <p>Warm regards,<br /><strong>Lari Industries</strong><br />Kanpur, India</p>
+        </div>
+      `,
+    });
+
+    console.log('[Resend] Customer acknowledgement sent:', result.data?.id);
+    return true;
+  } catch (error) {
+    console.error('[Resend] Failed to send customer acknowledgement:', error);
+    return false;
+  }
+}
+
 export async function sendWelcomeEmail(user: { name?: string | null; email: string }): Promise<boolean> {
   if (!resend) {
     console.error('[Resend] Welcome email not sent: RESEND_API_KEY is not configured');
