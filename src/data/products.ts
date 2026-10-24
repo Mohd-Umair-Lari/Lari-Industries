@@ -10,6 +10,9 @@ export const products: Product[] = [
     originalPrice: 8.50,
     priceUnit: '/ piece',
     image: '/static/images/Aprons/Leather Welding Apron.jpeg',
+    additionalImages: [
+      '/static/images/Aprons/Leather Welding Apron 2.jpeg',
+    ],
     description: 'Heavy-duty split cowhide leather welding apron designed for maximum thermal and spark protection during high-temperature arc and MIG/TIG welding operations.',
     features: [
       'Grade-A heavy split cowhide leather',
@@ -42,6 +45,14 @@ export const products: Product[] = [
     originalPrice: 7.50,
     priceUnit: '/ piece',
     image: '/static/images/Aprons/Apron 1.jpg',
+    additionalImages: [
+      '/static/images/Aprons/apron 2.jpg',
+      '/static/images/Aprons/Apron 3.jpg',
+      '/static/images/Aprons/Apron image 1.jpg',
+      '/static/images/Aprons/apron image 2.jpg',
+      '/static/images/Aprons/apron image 3.jpg',
+      '/static/images/Aprons/APRON IMAGE.jpg',
+    ],
     description: 'Rugged workshop and fabrication apron providing comprehensive torso and upper leg protection against abrasion, flying slag, and molten metal splashes.',
     features: [
       'Flexible chrome-tanned leather',
@@ -70,6 +81,9 @@ export const products: Product[] = [
     originalPrice: 9.00,
     priceUnit: '/ piece',
     image: '/static/images/Aprons/Leather Welding Apron 2.jpeg',
+    additionalImages: [
+      '/static/images/Aprons/Leather Welding Apron.jpeg',
+    ],
     description: 'Extended coverage premium welder apron with reinforced abdominal patch and quick-release buckle harness designed for heavy industrial fabricators.',
     features: [
       'Extra-thick premium buffalo split leather',
@@ -99,6 +113,16 @@ export const products: Product[] = [
     originalPrice: 3.50,
     priceUnit: '/ piece',
     image: '/static/images/Aprons/cotton apron 1.jpg',
+    additionalImages: [
+      '/static/images/Aprons/cotton apron 1 JPG.jpg',
+      '/static/images/Aprons/cotton apron 2 JPG.jpg',
+      '/static/images/Aprons/cotton apron 2.jpg',
+      '/static/images/Aprons/cotton apron 3.jpg',
+      '/static/images/Aprons/cotton apron 4.jpg',
+      '/static/images/Aprons/cotton apron 5.jpg',
+      '/static/images/Aprons/cotton apron 6 JPG.jpg',
+      '/static/images/Aprons/cotton apron 6.jpg',
+    ],
     description: 'Lightweight breathable heavy-drill cotton safety apron ideal for assembly lines, packaging plants, light workshop handling, and warehousing.',
     features: [
       '100% heavy drill cotton fabric (300 GSM)',
@@ -156,6 +180,10 @@ export const products: Product[] = [
     originalPrice: 4.80,
     priceUnit: '/ piece',
     image: '/static/images/Aprons/LabCoat 01.jpg',
+    additionalImages: [
+      '/static/images/Aprons/LabCoat 02.jpg',
+      '/static/images/Aprons/LabCoat 03.jpg',
+    ],
     description: 'Classic professional white lab coat crafted from high-density sanitized cotton featuring notched lapel collar and deep front pockets.',
     features: [
       '100% fine carded cotton',
@@ -184,6 +212,10 @@ export const products: Product[] = [
     originalPrice: 4.50,
     priceUnit: '/ pair',
     image: '/static/images/Asbestos Gloves/ASbestos Gloves 1.jpg',
+    additionalImages: [
+      '/static/images/Asbestos Gloves/ASbestos Gloves 2.jpg',
+      '/static/images/Asbestos Gloves/ASbestos Gloves 3.jpg',
+    ],
     description: 'High thermal insulating safety gloves engineered for foundry furnace tending, glass blowing, and extreme heat material handling.',
     features: [
       'High thermal threshold resistance up to 350°C',
@@ -212,6 +244,10 @@ export const products: Product[] = [
     originalPrice: 5.20,
     priceUnit: '/ pair',
     image: '/static/images/Asbestos Gloves/ASbestos Gloves 2.jpg',
+    additionalImages: [
+      '/static/images/Asbestos Gloves/ASbestos Gloves 1.jpg',
+      '/static/images/Asbestos Gloves/ASbestos Gloves 3.jpg',
+    ],
     description: 'Heavy duty mitten-pattern thermal gloves offering prolonged contact heat resistance for forging operations and crucible holding.',
     features: [
       'Continuous contact rating up to 400°C',
@@ -268,6 +304,13 @@ export const products: Product[] = [
     originalPrice: 2.30,
     priceUnit: '/ pair',
     image: '/static/images/Gloves Images/branded gloves 4.jpeg',
+    additionalImages: [
+      '/static/images/Gloves Images/branded gloves 1.jpeg',
+      '/static/images/Gloves Images/branded gloves 2.jpeg',
+      '/static/images/Gloves Images/branded gloves 3.jpeg',
+      '/static/images/Gloves Images/branded gloves 5.jpeg',
+      '/static/images/Gloves Images/branded gloves 6.jpeg',
+    ],
     description: 'Official factory-branded Lari D662 full-grain white leather utility and driver gloves with certified CE EN388:2016 marking. Ergonomic keystone thumb and shirred elastic back for superior dexterity.',
     features: [
       'Genuine factory-branded Lari D662 with official CE EN388:2016 stamp',
@@ -298,6 +341,9 @@ export const products: Product[] = [
     originalPrice: 1.75,
     priceUnit: '/ pair',
     image: '/static/images/Export gloves images/Drill split leather gloves.jpg',
+    additionalImages: [
+      '/static/images/Export gloves images/Drill split leather gloves 2.jpg',
+    ],
     description: 'Reinforced split leather palm with double-stitched cotton drill back, designed for rigorous export markets requiring extended lifespan.',
     features: [
       'Selected cow split leather palm',
@@ -325,6 +371,9 @@ export const products: Product[] = [
     originalPrice: 3.00,
     priceUnit: '/ pair',
     image: '/static/images/Export gloves images/Driving with linning.jpg',
+    additionalImages: [
+      '/static/images/Export gloves images/Driving with linning 2.jpg',
+    ],
     description: 'Thermal insulated winter driving glove lined with micro-fleece, providing extreme cold weather protection alongside leather durability.',
     features: [
       'Soft cowhide leather outer shell',
@@ -354,6 +403,10 @@ export const products: Product[] = [
     originalPrice: 3.20,
     priceUnit: '/ pair',
     image: '/static/images/Gloves Images/Leather Welding Gloves.jpg',
+    additionalImages: [
+      '/static/images/Gloves Images/Leather Welding  Gloves.jpg',
+      '/static/images/Gloves Images/Leather Welding Gloves 2.jpg',
+    ],
     description: 'Signature Lari Industries welding gauntlet made of premium heat-resistant split leather with full cotton liner and welted seams.',
     features: [
       '14-inch extended forearm gauntlet',
@@ -383,6 +436,10 @@ export const products: Product[] = [
     originalPrice: 0.80,
     priceUnit: '/ pair',
     image: '/static/images/Gloves Images/Cut Rsistance 1.jpg',
+    additionalImages: [
+      '/static/images/Gloves Images/Cut Rsistance 2.jpg',
+      '/static/images/Gloves Images/Cut Rsistance 3.jpg',
+    ],
     description: 'Level 5 cut-resistant engineering gloves combining HPPE and fiberglass yarn with polyurethane palm coating for micro-grip precision.',
     features: [
       'ANSI Cut Level A4 / EN 388 Cut Level 5',
@@ -573,6 +630,9 @@ export const products: Product[] = [
     originalPrice: 0.90,
     priceUnit: '/ pair',
     image: '/static/images/Gloves Images/LEATHER COTTON GLOVES 1.jpg',
+    additionalImages: [
+      '/static/images/Gloves Images/leather cotton gloves.jpg',
+    ],
     description: 'Hybrid safety glove uniting top-grade leather palms with flexible cotton backs for maximum coolness during long industrial shifts.',
     features: [
       'Goat grain palm with cotton back',
@@ -600,6 +660,9 @@ export const products: Product[] = [
     originalPrice: 3.10,
     priceUnit: '/ pair',
     image: '/static/images/Gloves Images/welder gloves 1.jpg',
+    additionalImages: [
+      '/static/images/Gloves Images/welder gloves 3.jpg',
+    ],
     description: 'Heavy 16-inch split leather gauntlet designed to shield hands, wrists, and lower forearms from weld spatters and high radiant heat.',
     features: [
       '16-inch extended full arm protection',
@@ -628,6 +691,10 @@ export const products: Product[] = [
     originalPrice: 2.00,
     priceUnit: '/ pair',
     image: '/static/images/Gloves Images/Ropeman Grain Leather Gloves 2.jpg',
+    additionalImages: [
+      '/static/images/Gloves Images/Ropeman Grain Leather Gloves 2 (2).jpg',
+      '/static/images/Gloves Images/Ropeman Grain Leather gloves.png',
+    ],
     description: 'Specialized rope handling and abseiling glove featuring double reinforced friction palms, heat-dissipating vents, and carabiner eyelets.',
     features: [
       'Double leather layer across friction zones',
@@ -683,6 +750,9 @@ export const products: Product[] = [
     originalPrice: 3.80,
     priceUnit: '/ pair',
     image: '/static/images/Gloves Images/leather spats 2.jpg',
+    additionalImages: [
+      '/static/images/Gloves Images/LEATHER SPATS 3.jpg',
+    ],
     description: 'Protective heavy split-leather leg and ankle spats shielding lower limbs against welding sparks, torch slag, and molten metal splashes.',
     features: [
       'Quick-release heavy Velcro rear closure',
@@ -710,6 +780,9 @@ export const products: Product[] = [
     originalPrice: 30.00,
     priceUnit: '/ kg',
     image: '/static/images/Harness leather thick/6 mm Thick leather 1.jpg',
+    additionalImages: [
+      '/static/images/Harness leather thick/6 mm Thick leather 3.jpeg',
+    ],
     description: 'Extra thick vegetable tanned full-grain harness leather sheet cured with natural oils and tallow for unrivaled tensile strength and weather resistance.',
     features: [
       'Solid 6mm full-thickness cut',
@@ -767,6 +840,9 @@ export const products: Product[] = [
     originalPrice: 0.38,
     priceUnit: '/ pair',
     image: '/static/images/Hosery Gloves/Hosery Gloves 2.jpg',
+    additionalImages: [
+      '/static/images/Hosery Gloves/Hosery Gloves 3.jpg',
+    ],
     description: 'Medium weight cotton hosiery gloves with inset thumb construction for comfortable prolonged work in light packaging and assembly.',
     features: [
       'Breathable sweat absorbing cotton weave',
@@ -960,6 +1036,10 @@ export const products: Product[] = [
     originalPrice: 22.00,
     priceUnit: '/ kg',
     image: '/static/images/LEATHER/Brown Leather.jpg',
+    additionalImages: [
+      '/static/images/LEATHER/Brown leather 1.jpg',
+      '/static/images/LEATHER/Brown leather 2.jpg',
+    ],
     description: 'Artisanal vegetable-tanned brown cowhide leather sheet from Kanpur tanneries, offering rich oil pull-up character and tight grain structure.',
     features: [
       'Full vegetable tanned with natural tree bark extracts',
@@ -988,6 +1068,10 @@ export const products: Product[] = [
     originalPrice: 22.00,
     priceUnit: '/ kg',
     image: '/static/images/LEATHER/Black leather 2.jpg',
+    additionalImages: [
+      '/static/images/LEATHER/Black Leather 1.jpg',
+      '/static/images/LEATHER/Black leather.jpg',
+    ],
     description: 'Deep aniline dyed black leather hide with smooth satin luster and water-resistant wax finish for luxury craft and high-end upholstery.',
     features: [
       'Deep drum-dyed through-and-through black pigment',
@@ -1015,6 +1099,13 @@ export const products: Product[] = [
     originalPrice: 0.35,
     priceUnit: '/ piece',
     image: '/static/images/Leather Washer/Leather washer 1 a.jpg',
+    additionalImages: [
+      '/static/images/Leather Washer/Leather washer 2 a.jpg',
+      '/static/images/Leather Washer/Leather washer 3 a.jpg',
+      '/static/images/Leather Washer/Leather washer 4 a.jpg',
+      '/static/images/Leather Washer/Leather washer 5 a.jpg',
+      '/static/images/Leather Washer/Leather washer 6 a.jpg',
+    ],
     description: 'Precision die-cut vegetable leather sealing washers engineered for plumbing joints, hydraulic couplings, and pneumatic seals.',
     features: [
       'Swells slightly in water and oil to create an airtight seal',
@@ -1043,6 +1134,13 @@ export const products: Product[] = [
     originalPrice: 2.10,
     priceUnit: '/ piece',
     image: '/static/images/Leather Washer/Leather washer 2 a.jpg',
+    additionalImages: [
+      '/static/images/Leather Washer/Leather washer 1 a.jpg',
+      '/static/images/Leather Washer/Leather washer 3 a.jpg',
+      '/static/images/Leather Washer/Leather washer 4 a.jpg',
+      '/static/images/Leather Washer/Leather washer 5 a.jpg',
+      '/static/images/Leather Washer/Leather washer 6 a.jpg',
+    ],
     description: 'Extra thick reinforced leather washer designed for high-pressure pump valves and vibration isolation mounts.',
     features: [
       'Reinforced fiber density for extreme pressure',
@@ -1152,6 +1250,10 @@ export const products: Product[] = [
     priceUnit: 'As per custom choice',
     isCustomQuote: true,
     image: '/static/images/Leather strip/Leather Strap 2.jpg',
+    additionalImages: [
+      '/static/images/Leather strip/Leather Strap 1.jpg',
+      '/static/images/Leather strip/Leather Strap 3.jpg',
+    ],
     description: 'Drum-dyed chestnut brown leather strapping crafted to your requested length, width, and thickness specifications.',
     features: [
       'Custom sizing on demand',
@@ -1179,6 +1281,13 @@ export const products: Product[] = [
     originalPrice: 68.00,
     priceUnit: '/ sheet',
     image: '/static/images/Tarpoline/Tarpoline image 01.jpg',
+    additionalImages: [
+      '/static/images/Tarpoline/Tarpoline image 02.jpg',
+      '/static/images/Tarpoline/Tarpoline image 03.jpeg',
+      '/static/images/Tarpoline/Tarpoline image 04.jpg',
+      '/static/images/Tarpoline/Tarpoline image 05.jpeg',
+      '/static/images/Tarpoline/Tarpoline image 06.jpeg',
+    ],
     description: 'Heavy duty high-density polyethylene (HDPE) laminated waterproof tarpaulin with ultrasonic welded hems and rustproof aluminum eyelets.',
     features: [
       '100% waterproof and UV stabilized for outdoor longevity',
@@ -1208,6 +1317,13 @@ export const products: Product[] = [
     originalPrice: 56.00,
     priceUnit: '/ sheet',
     image: '/static/images/Tarpoline/Tarpoline image 02.jpg',
+    additionalImages: [
+      '/static/images/Tarpoline/Tarpoline image 01.jpg',
+      '/static/images/Tarpoline/Tarpoline image 03.jpeg',
+      '/static/images/Tarpoline/Tarpoline image 04.jpg',
+      '/static/images/Tarpoline/Tarpoline image 05.jpeg',
+      '/static/images/Tarpoline/Tarpoline image 06.jpeg',
+    ],
     description: 'Extreme weather multi-layer ripstop tarpaulin offering unmatched hydrostatic head resistance and tear protection for transport fleets.',
     features: [
       'Super strong 250 GSM laminated fabric',
@@ -1236,6 +1352,13 @@ export const products: Product[] = [
     originalPrice: 50.00,
     priceUnit: '/ sheet',
     image: '/static/images/Tarpoline/Tarpoline image 04.jpg',
+    additionalImages: [
+      '/static/images/Tarpoline/Tarpoline image 01.jpg',
+      '/static/images/Tarpoline/Tarpoline image 02.jpg',
+      '/static/images/Tarpoline/Tarpoline image 03.jpeg',
+      '/static/images/Tarpoline/Tarpoline image 05.jpeg',
+      '/static/images/Tarpoline/Tarpoline image 06.jpeg',
+    ],
     description: 'Rugged industrial cover tarpaulin designed for machinery weatherproofing, building scaffolding covers, and outdoor construction sites.',
     features: [
       'Mildew resistant and flexible down to sub-zero temperatures',
