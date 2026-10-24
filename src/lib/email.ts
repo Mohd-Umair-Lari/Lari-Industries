@@ -10,7 +10,7 @@ if (!RESEND_API_KEY) {
 const resend = RESEND_API_KEY ? new Resend(RESEND_API_KEY) : null;
 
 const SELLER_EMAIL = 'lariindustries@gmail.com';
-const FROM_EMAIL = process.env.RESEND_FROM_EMAIL || 'Lari Industries <orders@lariindustries.com>';
+const FROM_EMAIL = process.env.RESEND_FROM_EMAIL || 'Lari Industries <noreply@lariindustries.live>';
 
 interface ContactInquiryEmailData {
   name: string;
@@ -78,6 +78,37 @@ export async function sendContactInquiryToSeller(inquiry: ContactInquiryEmailDat
     return true;
   } catch (error) {
     console.error('[Resend] Failed to send contact inquiry:', error);
+    return false;
+  }
+}
+
+export async function sendWelcomeEmail(user: { name?: string | null; email: string }): Promise<boolean> {
+  if (!resend) {
+    console.error('[Resend] Welcome email not sent: RESEND_API_KEY is not configured');
+    return false;
+  }
+
+  const name = escapeHtml(user.name?.trim() || 'there');
+
+  try {
+    const result = await resend.emails.send({
+      from: FROM_EMAIL,
+      to: user.email,
+      subject: 'Welcome to Lari Industries',
+      html: `
+        <div style="font-family: Arial, sans-serif; max-width: 640px; color: #1f2937; line-height: 1.6;">
+          <h2 style="color: #e74c3c;">Welcome to Lari Industries, ${name}!</h2>
+          <p>Thank you for creating an account with us. Your account is ready, and you can now enjoy a smoother checkout experience and keep track of your orders.</p>
+          <p>If you need a product quotation, custom specification, or export assistance, our Kanpur team will be happy to help.</p>
+          <p>Warm regards,<br /><strong>Lari Industries</strong><br />Kanpur, India</p>
+        </div>
+      `,
+    });
+
+    console.log('[Resend] Welcome email sent:', result.data?.id);
+    return true;
+  } catch (error) {
+    console.error('[Resend] Failed to send welcome email:', error);
     return false;
   }
 }

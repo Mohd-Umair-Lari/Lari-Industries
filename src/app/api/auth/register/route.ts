@@ -2,6 +2,7 @@ import { NextRequest, NextResponse } from 'next/server';
 import connectDB from '@/lib/mongodb';
 import User from '@/models/User';
 import bcrypt from 'bcryptjs';
+import { sendWelcomeEmail } from '@/lib/email';
 
 export async function POST(req: NextRequest) {
   try {
@@ -36,6 +37,9 @@ export async function POST(req: NextRequest) {
       role: 'customer',
       addresses: [],
     });
+
+    // Registration should succeed even if email delivery is temporarily unavailable.
+    await sendWelcomeEmail({ name: user.name, email: user.email });
 
     return NextResponse.json(
       {
