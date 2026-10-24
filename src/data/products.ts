@@ -1265,7 +1265,9 @@ export const products: Product[] = [
     priceUnit: '/ skin (hide)',
     image: '/static/images/rawhides/parchment-sheet-1.jpeg',
     additionalImages: [
-      '/static/images/rawhides/parchment-sheet-2.jpeg'
+      '/static/images/rawhides/parchment-sheet-2.jpeg',
+      '/static/images/rawhides/2.jpeg',
+      '/static/images/rawhides/WhatsApp Image 2026-10-24 at 5.16.52 PM.jpeg',
     ],
     description: 'Direct Kanpur tannery export: bleached goat and buff calfskin parchment hides (0.70 mm – 1.00 mm thickness, average size 6+ sq. ft.). Full hides processed from raw skins to bleached finish for musical drum heads, bookbinding, archival vellum, luxury stationery, and craft lacing. Over 10 years of consistent supply to German and continental European markets.',
     features: [

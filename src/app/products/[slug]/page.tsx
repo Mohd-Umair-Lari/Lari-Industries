@@ -46,6 +46,8 @@ export default function ProductDetailPage({
   }
 
   const isFavorited = isInWishlist(product.id);
+  const galleryImages = [product.image, ...(product.additionalImages || [])];
+  const [activeImage, setActiveImage] = useState(product.image);
   const relatedProducts = products
     .filter((p) => p.category === product.category && p.id !== product.id)
     .slice(0, 4);
@@ -96,7 +98,7 @@ export default function ProductDetailPage({
             <div className="space-y-4">
               <div className="relative aspect-square w-full rounded-2xl overflow-hidden bg-stone-100 border border-stone-200 shadow-inner group">
                 <Image
-                  src={product.image}
+                  src={activeImage}
                   alt={product.name}
                   fill
                   className="object-cover object-center group-hover:scale-105 transition-transform duration-500"
@@ -115,6 +117,25 @@ export default function ProductDetailPage({
                   </span>
                 )}
               </div>
+
+              {galleryImages.length > 1 && (
+                <div className="grid grid-cols-4 gap-3" aria-label="Product images">
+                  {galleryImages.map((image, index) => (
+                    <button
+                      key={image}
+                      type="button"
+                      onClick={() => setActiveImage(image)}
+                      aria-label={`View product image ${index + 1}`}
+                      aria-pressed={activeImage === image}
+                      className={`relative aspect-square overflow-hidden rounded-xl border-2 bg-stone-100 transition-colors ${
+                        activeImage === image ? 'border-brand-500' : 'border-stone-200 hover:border-stone-400'
+                      }`}
+                    >
+                      <Image src={image} alt={`${product.name} image ${index + 1}`} fill className="object-cover" />
+                    </button>
+                  ))}
+                </div>
+              )}
 
               <div className="grid grid-cols-3 gap-3 text-center text-xs font-semibold text-stone-600">
                 <div className="p-3 rounded-xl bg-stone-50 border border-stone-200 flex flex-col items-center gap-1">
