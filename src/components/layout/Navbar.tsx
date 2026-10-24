@@ -45,7 +45,7 @@ export const Navbar = () => {
 
   const navLinks = [
     { label: 'HOME', href: '/' },
-    { label: 'RAW HIDES (EXPORT)', href: '/#raw-hides-showcase', isSpecial: true },
+    { label: 'RAW HIDES', href: '/#raw-hides-showcase', isSpecial: true },
     { label: 'PRODUCTS', href: '/products' },
     { label: 'ABOUT', href: '/about' },
     { label: 'NEWS', href: '/news' },
@@ -54,12 +54,12 @@ export const Navbar = () => {
 
   const searchResults = searchQuery.trim()
     ? products
-        .filter(
-          (p) =>
-            p.name.toLowerCase().includes(searchQuery.toLowerCase()) ||
-            p.category.toLowerCase().includes(searchQuery.toLowerCase())
-        )
-        .slice(0, 5)
+      .filter(
+        (p) =>
+          p.name.toLowerCase().includes(searchQuery.toLowerCase()) ||
+          p.category.toLowerCase().includes(searchQuery.toLowerCase())
+      )
+      .slice(0, 5)
     : [];
 
   return (
@@ -93,11 +93,10 @@ export const Navbar = () => {
       </div>
 
       <header
-        className={`sticky top-0 z-40 transition-all duration-300 ${
-          isScrolled
-            ? 'bg-white/90 backdrop-blur-xl shadow-md border-b border-stone-200/80 py-3'
-            : 'bg-white/80 backdrop-blur-lg border-b border-stone-200/60 py-4'
-        }`}
+        className={`sticky top-0 z-40 transition-all duration-300 ${isScrolled
+          ? 'bg-white/90 backdrop-blur-xl shadow-md border-b border-stone-200/80 py-3'
+          : 'bg-white/80 backdrop-blur-lg border-b border-stone-200/60 py-4'
+          }`}
       >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex items-center justify-between">
@@ -140,11 +139,10 @@ export const Navbar = () => {
                   <Link
                     key={link.href}
                     href={link.href}
-                    className={`relative text-xs tracking-[0.15em] font-bold transition-colors py-1 ${
-                      isActive
-                        ? 'text-brand-600'
-                        : 'text-stone-700 hover:text-stone-950'
-                    }`}
+                    className={`relative text-xs tracking-[0.15em] font-bold transition-colors py-1 ${isActive
+                      ? 'text-brand-600'
+                      : 'text-stone-700 hover:text-stone-950'
+                      }`}
                   >
                     {link.label}
                     {isActive && (
@@ -337,90 +335,89 @@ export const Navbar = () => {
         )}
 
         {mobileMenuOpen && (
-                  <div className="lg:hidden bg-white/95 backdrop-blur-2xl border-b border-stone-200 px-6 py-6 space-y-4 shadow-xl">
-                    {navLinks.map((link) => (
-                      <Link
-                        key={link.href}
-                        href={link.href}
-                        onClick={() => setMobileMenuOpen(false)}
-                        className={`block text-base font-bold py-2 tracking-wider ${
-                          link.isSpecial
-                            ? 'text-amber-600 flex items-center justify-between'
-                            : pathname === link.href
-                            ? 'text-brand-600'
-                            : 'text-stone-800'
-                        }`}
-                      >
-                        <span>{link.label}</span>
-                        {link.isSpecial && (
-                          <span className="text-[10px] uppercase font-black px-2 py-0.5 rounded-full bg-amber-100 text-amber-700 border border-amber-300">
-                            Exclusive
-                          </span>
-                        )}
-                      </Link>
-                    ))}
-                    {session?.user ? (
-                      <div className="pt-4 border-t border-stone-100 space-y-2">
-                        <Link
-                          href="/account"
-                          onClick={() => setMobileMenuOpen(false)}
-                          className="flex items-center gap-2 text-sm font-semibold text-stone-700 py-2"
-                        >
-                          <User className="w-4 h-4" />
-                          My Account
-                        </Link>
-                        <Link
-                          href="/orders"
-                          onClick={() => setMobileMenuOpen(false)}
-                          className="flex items-center gap-2 text-sm font-semibold text-stone-700 py-2"
-                        >
-                          <ShieldCheck className="w-4 h-4" />
-                          My Orders
-                        </Link>
-                        <button
-                          onClick={() => signOut({ callbackUrl: '/' })}
-                          className="flex items-center gap-2 w-full text-left text-sm font-semibold text-red-600 py-2"
-                        >
-                          <LogOut className="w-4 h-4" />
-                          Sign Out
-                        </button>
-                      </div>
-                    ) : (
-                      <div className="pt-4 border-t border-stone-100 flex flex-col gap-2">
-                        <Link
-                          href="/wishlist"
-                          onClick={() => setMobileMenuOpen(false)}
-                          className="flex items-center justify-between text-sm font-semibold text-stone-700 py-2"
-                        >
-                          <span>My Wishlist</span>
-                          <span className="w-5 h-5 rounded-full bg-rose-500 text-white text-xs flex items-center justify-center">
-                            {totalWishlistItems}
-                          </span>
-                        </Link>
-                        <div className="py-2 text-xs text-stone-500">
-                          Call Us: <a href="tel:+919****5648" className="text-stone-900 font-bold">+91 99566 75648</a>
-                        </div>
-                        <div className="flex flex-col gap-2 pt-2">
-                          <Link
-                            href="/auth/signin"
-                            onClick={() => setMobileMenuOpen(false)}
-                            className="px-4 py-2 rounded-xl border border-stone-300 text-stone-700 font-semibold text-center"
-                          >
-                            Sign In
-                          </Link>
-                          <Link
-                            href="/auth/signup"
-                            onClick={() => setMobileMenuOpen(false)}
-                            className="px-4 py-2 rounded-xl bg-brand-500 text-white font-semibold text-center"
-                          >
-                            Get Started
-                          </Link>
-                        </div>
-                      </div>
-                    )}
-                  </div>
+          <div className="lg:hidden bg-white/95 backdrop-blur-2xl border-b border-stone-200 px-6 py-6 space-y-4 shadow-xl">
+            {navLinks.map((link) => (
+              <Link
+                key={link.href}
+                href={link.href}
+                onClick={() => setMobileMenuOpen(false)}
+                className={`block text-base font-bold py-2 tracking-wider ${link.isSpecial
+                  ? 'text-amber-600 flex items-center justify-between'
+                  : pathname === link.href
+                    ? 'text-brand-600'
+                    : 'text-stone-800'
+                  }`}
+              >
+                <span>{link.label}</span>
+                {link.isSpecial && (
+                  <span className="text-[10px] uppercase font-black px-2 py-0.5 rounded-full bg-amber-100 text-amber-700 border border-amber-300">
+                    Exclusive
+                  </span>
                 )}
-              </header>
-            </>
-          );
-        };
+              </Link>
+            ))}
+            {session?.user ? (
+              <div className="pt-4 border-t border-stone-100 space-y-2">
+                <Link
+                  href="/account"
+                  onClick={() => setMobileMenuOpen(false)}
+                  className="flex items-center gap-2 text-sm font-semibold text-stone-700 py-2"
+                >
+                  <User className="w-4 h-4" />
+                  My Account
+                </Link>
+                <Link
+                  href="/orders"
+                  onClick={() => setMobileMenuOpen(false)}
+                  className="flex items-center gap-2 text-sm font-semibold text-stone-700 py-2"
+                >
+                  <ShieldCheck className="w-4 h-4" />
+                  My Orders
+                </Link>
+                <button
+                  onClick={() => signOut({ callbackUrl: '/' })}
+                  className="flex items-center gap-2 w-full text-left text-sm font-semibold text-red-600 py-2"
+                >
+                  <LogOut className="w-4 h-4" />
+                  Sign Out
+                </button>
+              </div>
+            ) : (
+              <div className="pt-4 border-t border-stone-100 flex flex-col gap-2">
+                <Link
+                  href="/wishlist"
+                  onClick={() => setMobileMenuOpen(false)}
+                  className="flex items-center justify-between text-sm font-semibold text-stone-700 py-2"
+                >
+                  <span>My Wishlist</span>
+                  <span className="w-5 h-5 rounded-full bg-rose-500 text-white text-xs flex items-center justify-center">
+                    {totalWishlistItems}
+                  </span>
+                </Link>
+                <div className="py-2 text-xs text-stone-500">
+                  Call Us: <a href="tel:+919****5648" className="text-stone-900 font-bold">+91 99566 75648</a>
+                </div>
+                <div className="flex flex-col gap-2 pt-2">
+                  <Link
+                    href="/auth/signin"
+                    onClick={() => setMobileMenuOpen(false)}
+                    className="px-4 py-2 rounded-xl border border-stone-300 text-stone-700 font-semibold text-center"
+                  >
+                    Sign In
+                  </Link>
+                  <Link
+                    href="/auth/signup"
+                    onClick={() => setMobileMenuOpen(false)}
+                    className="px-4 py-2 rounded-xl bg-brand-500 text-white font-semibold text-center"
+                  >
+                    Get Started
+                  </Link>
+                </div>
+              </div>
+            )}
+          </div>
+        )}
+      </header>
+    </>
+  );
+};
