@@ -31,8 +31,15 @@ export const metadata: Metadata = {
     'tarpaulins',
     'Lari Industries'
   ],
+  manifest: '/manifest.json',
   icons: {
     icon: '/static/images/logo.jpg',
+    apple: '/static/images/logo.jpg',
+  },
+  appleWebApp: {
+    capable: true,
+    statusBarStyle: 'black-translucent',
+    title: 'Lari Industries',
   },
 };
 

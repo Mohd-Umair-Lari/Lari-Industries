@@ -81,7 +81,7 @@ export const HeroSection = () => {
           </div>
         </div>
 
-        <div className="mt-16 grid grid-cols-1 md:grid-cols-3 gap-8 max-w-5xl mx-auto">
+        <div className="mt-14 grid grid-cols-1 md:grid-cols-3 gap-6 max-w-5xl mx-auto">
           {/* Card 1: Welding & Safety Aprons */}
           <Link
             href="/products?category=Aprons"
@@ -99,13 +99,10 @@ export const HeroSection = () => {
               <h4 className="font-serif font-bold text-xl text-stone-900 group-hover:text-brand-600 transition-colors">
                 Welding & Safety Aprons
               </h4>
-              <p className="text-xs text-stone-500 mt-1.5 line-clamp-2">
-                Heavy split leather welding aprons & heat-resistant protective suits
-              </p>
             </div>
-            <div className="mt-4 pt-3 border-t border-stone-100 inline-flex items-center justify-center text-xs font-bold text-brand-600 group-hover:text-brand-700">
+            <div className="mt-4 pt-3 border-t border-stone-100 inline-flex items-center justify-center text-sm font-bold text-brand-600 group-hover:text-brand-700">
               <span>From $2.50 / piece</span>
-              <ArrowRight className="w-3.5 h-3.5 ml-1.5 transition-transform duration-200 group-hover:translate-x-1" />
+              <ArrowRight className="w-4 h-4 ml-1.5 transition-transform duration-200 group-hover:translate-x-1" />
             </div>
           </Link>
 
@@ -126,13 +123,10 @@ export const HeroSection = () => {
               <h4 className="font-serif font-bold text-xl text-stone-900 group-hover:text-brand-600 transition-colors">
                 Raw Hides & Parchment
               </h4>
-              <p className="text-xs text-stone-500 mt-1.5 line-clamp-2">
-                Direct Kanpur tannery: bleached goat & buff calfskin (0.7–1.0mm, 6+ sq.ft)
-              </p>
             </div>
-            <div className="mt-4 pt-3 border-t border-stone-100 inline-flex items-center justify-center text-xs font-bold text-brand-600 group-hover:text-brand-700">
+            <div className="mt-4 pt-3 border-t border-stone-100 inline-flex items-center justify-center text-sm font-bold text-brand-600 group-hover:text-brand-700">
               <span>$27.50 / skin (hide)</span>
-              <ArrowRight className="w-3.5 h-3.5 ml-1.5 transition-transform duration-200 group-hover:translate-x-1" />
+              <ArrowRight className="w-4 h-4 ml-1.5 transition-transform duration-200 group-hover:translate-x-1" />
             </div>
           </Link>
 
@@ -153,13 +147,10 @@ export const HeroSection = () => {
               <h4 className="font-serif font-bold text-xl text-stone-900 group-hover:text-brand-600 transition-colors">
                 Safety Gloves Series
               </h4>
-              <p className="text-xs text-stone-500 mt-1.5 line-clamp-2">
-                Certified EN388:2016 split leather, Kevlar cut-resistant & driver gloves
-              </p>
             </div>
-            <div className="mt-4 pt-3 border-t border-stone-100 inline-flex items-center justify-center text-xs font-bold text-brand-600 group-hover:text-brand-700">
+            <div className="mt-4 pt-3 border-t border-stone-100 inline-flex items-center justify-center text-sm font-bold text-brand-600 group-hover:text-brand-700">
               <span>From $0.25 / pair</span>
-              <ArrowRight className="w-3.5 h-3.5 ml-1.5 transition-transform duration-200 group-hover:translate-x-1" />
+              <ArrowRight className="w-4 h-4 ml-1.5 transition-transform duration-200 group-hover:translate-x-1" />
             </div>
           </Link>
         </div>

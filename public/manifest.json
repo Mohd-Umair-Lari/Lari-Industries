@@ -1,0 +1,24 @@
+{
+  "name": "Lari Industries - Safety & Leather",
+  "short_name": "Lari Industries",
+  "description": "Premier manufacturer and exporter of certified industrial leather safety articles, welding aprons, and export rawhides.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#0c0a09",
+  "theme_color": "#ea580c",
+  "orientation": "portrait-primary",
+  "icons": [
+    {
+      "src": "/static/images/logo.jpg",
+      "sizes": "192x192",
+      "type": "image/jpeg",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "/static/images/logo.jpg",
+      "sizes": "512x512",
+      "type": "image/jpeg",
+      "purpose": "any maskable"
+    }
+  ]
+}

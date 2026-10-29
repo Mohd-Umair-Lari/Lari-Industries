@@ -3,12 +3,12 @@
 import React from 'react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
-import { 
-  Home, 
-  ShoppingBag, 
-  Grid, 
-  Heart, 
-  PhoneCall 
+import {
+  Home,
+  ShoppingBag,
+  Grid,
+  Heart,
+  PhoneCall
 } from 'lucide-react';
 import { useCart } from '@/context/CartContext';
 import { useWishlist } from '@/context/WishlistContext';
@@ -58,9 +58,8 @@ export const MobileBottomNav = () => {
             <Link
               key={item.label}
               href={item.href}
-              className={`flex flex-col items-center justify-center h-full transition-colors select-none ${
-                item.isActive ? 'text-brand-600 font-bold' : 'text-stone-500 hover:text-stone-900'
-              }`}
+              className={`flex flex-col items-center justify-center h-full transition-colors select-none ${item.isActive ? 'text-brand-600 font-bold' : 'text-stone-500 hover:text-stone-900'
+                }`}
             >
               <Icon className="w-5 h-5 mb-1 stroke-[2.2]" />
               <span className="text-[10px] tracking-tight">{item.label}</span>
@@ -92,9 +91,8 @@ export const MobileBottomNav = () => {
             <Link
               key={item.label}
               href={item.href}
-              className={`relative flex flex-col items-center justify-center h-full transition-colors select-none ${
-                item.isActive ? 'text-brand-600 font-bold' : 'text-stone-500 hover:text-stone-900'
-              }`}
+              className={`relative flex flex-col items-center justify-center h-full transition-colors select-none ${item.isActive ? 'text-brand-600 font-bold' : 'text-stone-500 hover:text-stone-900'
+                }`}
             >
               <div className="relative">
                 <Icon className="w-5 h-5 mb-1 stroke-[2.2]" />

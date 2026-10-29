@@ -107,51 +107,41 @@ export const ProductCard: React.FC<ProductCardProps> = ({ product, className }) 
           </button>
         </Link>
 
-        <div className="flex-1 p-3 sm:p-5 flex flex-col justify-between">
+        <div className="flex-1 p-3.5 sm:p-5 flex flex-col justify-between">
           <div>
-            <div className="flex items-center justify-between mb-1 text-[10px] sm:text-xs text-stone-500">
-              <span className="font-medium uppercase tracking-wider truncate max-w-[65%]">{product.category}</span>
-              <div className="flex items-center gap-0.5 sm:gap-1 text-amber-500 flex-shrink-0">
-                <Star className="w-3 h-3 sm:w-3.5 sm:h-3.5 fill-current" />
-                <span className="font-bold text-stone-700">{product.rating.toFixed(1)}</span>
-                <span className="text-stone-400 hidden sm:inline">({product.reviewCount})</span>
+            <div className="flex items-center justify-between mb-1.5 text-xs text-stone-500">
+              <span className="font-semibold uppercase tracking-wider truncate max-w-[70%]">{product.category}</span>
+              <div className="flex items-center gap-1 text-amber-500 flex-shrink-0 font-bold">
+                <Star className="w-3.5 h-3.5 fill-current" />
+                <span className="text-stone-700">{product.rating.toFixed(1)}</span>
               </div>
             </div>
 
             <Link href={`/products/${product.slug}`}>
-              <h3 className="font-serif font-bold text-xs sm:text-base text-stone-900 group-hover:text-brand-600 transition-colors line-clamp-1 mb-1">
+              <h3 className="font-serif font-bold text-sm sm:text-base text-stone-900 group-hover:text-brand-600 transition-colors line-clamp-1 mb-2">
                 {product.name}
               </h3>
             </Link>
-
-            <p className="hidden sm:block text-xs text-stone-500 line-clamp-2 mb-3">
-              {product.description}
-            </p>
           </div>
 
-          <div className="pt-2 sm:pt-3 border-t border-stone-100 flex items-center justify-between gap-1.5 sm:gap-2">
+          <div className="pt-2.5 sm:pt-3 border-t border-stone-100 flex items-center justify-between gap-2">
             <div>
               {product.isCustomQuote ? (
-                <div>
-                  <span className="text-[10px] sm:text-xs font-bold text-brand-600 uppercase tracking-wider block">
-                    Custom
-                  </span>
-                  <div className="text-[9px] sm:text-[10px] text-stone-400 leading-tight">Bespoke Quote</div>
-                </div>
+                <span className="text-xs sm:text-sm font-bold text-brand-600">
+                  Custom Quote
+                </span>
               ) : (
-                <div>
-                  <div className="flex items-baseline gap-1">
-                    <span className="text-sm sm:text-lg font-black text-stone-900">
-                      {formatUSD(product.price)}
+                <div className="flex items-baseline gap-1.5 flex-wrap">
+                  <span className="text-base sm:text-lg font-black text-stone-900">
+                    {formatUSD(product.price)}
+                  </span>
+                  {product.originalPrice && (
+                    <span className="text-xs text-stone-400 line-through">
+                      {formatUSD(product.originalPrice)}
                     </span>
-                    {product.originalPrice && (
-                      <span className="text-[10px] sm:text-xs text-stone-400 line-through">
-                        {formatUSD(product.originalPrice)}
-                      </span>
-                    )}
-                  </div>
+                  )}
                   {product.priceUnit && (
-                    <span className="text-[9px] sm:text-[10px] text-stone-500 block leading-tight">
+                    <span className="text-xs text-stone-500 font-medium">
                       {product.priceUnit}
                     </span>
                   )}
@@ -162,9 +152,9 @@ export const ProductCard: React.FC<ProductCardProps> = ({ product, className }) 
             {product.isCustomQuote ? (
               <Link
                 href={`/contact?product=${encodeURIComponent(product.name)}`}
-                className="inline-flex items-center gap-1 px-2.5 sm:px-3 py-1.5 sm:py-2 rounded-lg sm:rounded-xl bg-stone-900 hover:bg-brand-600 text-white text-[11px] sm:text-xs font-bold transition-all shadow-sm active:scale-95"
+                className="inline-flex items-center gap-1.5 px-3.5 py-2 rounded-xl bg-stone-900 hover:bg-brand-600 text-white text-xs font-bold transition-all shadow-sm active:scale-95"
               >
-                <MessageSquare className="w-3 h-3 sm:w-3.5 sm:h-3.5" />
+                <MessageSquare className="w-3.5 h-3.5" />
                 <span>Quote</span>
               </Link>
             ) : (
@@ -172,7 +162,7 @@ export const ProductCard: React.FC<ProductCardProps> = ({ product, className }) 
                 onClick={handleAddToCart}
                 disabled={!product.inStock}
                 aria-label={`Add ${product.name} to cart`}
-                className={`inline-flex items-center gap-1 px-2.5 sm:px-3.5 py-1.5 sm:py-2 rounded-lg sm:rounded-xl font-bold text-[11px] sm:text-xs transition-all duration-300 shadow-sm active:scale-95 ${
+                className={`inline-flex items-center gap-1.5 px-3.5 sm:px-4 py-2 sm:py-2.5 rounded-xl font-bold text-xs transition-all duration-200 shadow-sm active:scale-95 ${
                   addedAnimation
                     ? 'bg-emerald-600 text-white'
                     : 'bg-brand-500 hover:bg-brand-600 text-white hover:shadow-brand-500/25'
@@ -180,12 +170,12 @@ export const ProductCard: React.FC<ProductCardProps> = ({ product, className }) 
               >
                 {addedAnimation ? (
                   <>
-                    <Check className="w-3 h-3 sm:w-3.5 sm:h-3.5" />
+                    <Check className="w-3.5 h-3.5" />
                     <span>Added</span>
                   </>
                 ) : (
                   <>
-                    <ShoppingBag className="w-3 h-3 sm:w-3.5 sm:h-3.5" />
+                    <ShoppingBag className="w-3.5 h-3.5" />
                     <span>Add</span>
                   </>
                 )}

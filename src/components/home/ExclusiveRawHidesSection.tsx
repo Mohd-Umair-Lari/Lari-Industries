@@ -3,21 +3,21 @@
 import React, { useState, useRef } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
-import { 
-  Sparkles, 
-  Award, 
-  Globe2, 
-  CheckCircle2, 
-  Play, 
-  Pause, 
-  Volume2, 
-  VolumeX, 
-  ArrowRight, 
-  Building2, 
-  Layers, 
-  Music, 
-  BookOpen, 
-  Scissors, 
+import {
+  Sparkles,
+  Award,
+  Globe2,
+  CheckCircle2,
+  Play,
+  Pause,
+  Volume2,
+  VolumeX,
+  ArrowRight,
+  Building2,
+  Layers,
+  Music,
+  BookOpen,
+  Scissors,
   ShieldCheck,
   Maximize2
 } from 'lucide-react';
@@ -135,7 +135,7 @@ export const ExclusiveRawHidesSection = () => {
       videoRef.current.pause();
       setIsPlaying(false);
     } else {
-      videoRef.current.play().then(() => setIsPlaying(true)).catch(() => {});
+      videoRef.current.play().then(() => setIsPlaying(true)).catch(() => { });
     }
   };
 
@@ -152,7 +152,7 @@ export const ExclusiveRawHidesSection = () => {
       <div className="absolute bottom-10 right-10 w-96 h-96 bg-brand-600/10 blur-[120px] pointer-events-none rounded-full" />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-        
+
         {/* Section Header */}
         <div className="text-center max-w-4xl mx-auto mb-16 space-y-4">
           <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-gradient-to-r from-amber-500/20 via-brand-500/20 to-amber-500/20 border border-amber-400/30 text-amber-300 text-xs font-bold uppercase tracking-widest backdrop-blur-md shadow-lg shadow-amber-950/40">
@@ -172,7 +172,7 @@ export const ExclusiveRawHidesSection = () => {
         {/* Tannery Executive Performa Card */}
         <div className="mb-16 rounded-3xl bg-gradient-to-br from-stone-800/90 via-stone-900/90 to-stone-950/90 border border-amber-500/30 p-8 sm:p-12 shadow-2xl backdrop-blur-xl relative overflow-hidden">
           <div className="absolute top-0 right-0 w-80 h-80 bg-gradient-to-br from-amber-500/10 to-transparent rounded-full blur-2xl pointer-events-none" />
-          
+
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center relative z-10">
             <div className="lg:col-span-8 space-y-6">
               <div className="flex flex-wrap items-center gap-3">
@@ -258,7 +258,7 @@ export const ExclusiveRawHidesSection = () => {
           </div>
 
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
-            
+
             {/* Primary Media Display */}
             <div className="lg:col-span-8 rounded-3xl overflow-hidden bg-stone-900 border border-stone-800 shadow-2xl relative">
               <div className="relative aspect-video w-full bg-black flex items-center justify-center overflow-hidden">
@@ -305,7 +305,7 @@ export const ExclusiveRawHidesSection = () => {
                     </div>
 
                     {!isPlaying && (
-                      <div 
+                      <div
                         onClick={togglePlay}
                         className="absolute inset-0 flex flex-col items-center justify-center bg-black/40 hover:bg-black/20 cursor-pointer transition-colors z-10"
                       >
@@ -348,11 +348,10 @@ export const ExclusiveRawHidesSection = () => {
                     <button
                       key={item.id}
                       onClick={() => handleSelectMedia(index)}
-                      className={`w-full text-left p-3 rounded-2xl border transition-all flex items-center gap-3.5 ${
-                        isSelected 
-                          ? 'bg-amber-500/20 border-amber-400/60 shadow-md ring-1 ring-amber-400/30' 
+                      className={`w-full text-left p-3 rounded-2xl border transition-all flex items-center gap-3.5 ${isSelected
+                          ? 'bg-amber-500/20 border-amber-400/60 shadow-md ring-1 ring-amber-400/30'
                           : 'bg-stone-900/80 border-stone-800 hover:border-stone-700 hover:bg-stone-850'
-                      }`}
+                        }`}
                     >
                       <div className="relative w-16 h-12 rounded-xl overflow-hidden bg-stone-950 flex-shrink-0 border border-stone-700/60">
                         {item.type === 'video' ? (
@@ -369,9 +368,8 @@ export const ExclusiveRawHidesSection = () => {
 
                       <div className="flex-1 min-w-0">
                         <div className="flex items-center gap-1.5">
-                          <span className={`text-[10px] font-bold uppercase tracking-wider px-1.5 py-0.5 rounded ${
-                            item.type === 'video' ? 'bg-amber-500/20 text-amber-300' : 'bg-blue-500/20 text-blue-300'
-                          }`}>
+                          <span className={`text-[10px] font-bold uppercase tracking-wider px-1.5 py-0.5 rounded ${item.type === 'video' ? 'bg-amber-500/20 text-amber-300' : 'bg-blue-500/20 text-blue-300'
+                            }`}>
                             {item.type}
                           </span>
                           <p className="text-xs font-bold text-white truncate">{item.title}</p>
@@ -399,7 +397,7 @@ export const ExclusiveRawHidesSection = () => {
 
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
             {USE_CASES.map((uc, i) => (
-              <div 
+              <div
                 key={i}
                 className="p-6 rounded-3xl bg-stone-900/70 border border-stone-800/80 hover:border-amber-500/40 hover:-translate-y-1 transition-all duration-300 flex flex-col justify-between"
               >
@@ -440,15 +438,15 @@ export const ExclusiveRawHidesSection = () => {
 
           <div className="rounded-3xl bg-stone-900 border border-amber-500/40 p-6 sm:p-8 lg:p-10 shadow-2xl hover:border-amber-400 transition-all duration-300">
             <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
-              
+
               {/* Product Visual Gallery */}
               <div className="lg:col-span-5 space-y-4">
                 <div className="relative aspect-[4/3] w-full rounded-2xl overflow-hidden bg-stone-950 border border-stone-800 shadow-inner group">
-                  <Image 
-                    src="/static/images/rawhides/parchment-sheet-1.jpeg" 
+                  <Image
+                    src="/static/images/rawhides/parchment-sheet-1.jpeg"
                     alt="Bleached Raw Hides & Parchment Whole Skins"
-                    fill 
-                    className="object-cover group-hover:scale-105 transition-transform duration-500" 
+                    fill
+                    className="object-cover group-hover:scale-105 transition-transform duration-500"
                   />
                   <span className="absolute top-3 left-3 px-3 py-1 rounded-full bg-amber-500 text-stone-950 text-xs font-black uppercase tracking-wider shadow-md">
                     Kanpur Tannery Direct

@@ -54,51 +54,51 @@ export const QuickViewModal: React.FC<QuickViewModalProps> = ({
   };
 
   return (
-    <div className="fixed inset-0 z-50 overflow-y-auto flex items-center justify-center p-4 sm:p-6">
+    <div className="fixed inset-0 z-50 overflow-y-auto flex items-end sm:items-center justify-center p-0 sm:p-4">
       <div
         onClick={onClose}
         className="fixed inset-0 bg-stone-950/70 backdrop-blur-sm transition-opacity"
       />
 
-      <div className="relative w-full max-w-3xl max-h-[92vh] overflow-y-auto bg-white/95 backdrop-blur-2xl rounded-3xl shadow-2xl border border-white/60 z-10">
+      <div className="relative w-full max-w-2xl max-h-[90vh] overflow-y-auto bg-white rounded-t-3xl sm:rounded-3xl shadow-2xl border border-stone-200/80 z-10 overscroll-contain">
         <button
           onClick={onClose}
-          className="absolute top-4 right-4 z-20 p-2.5 rounded-full bg-white/80 hover:bg-white text-stone-600 hover:text-stone-900 shadow-sm transition-colors"
+          aria-label="Close"
+          className="absolute top-4 right-4 z-20 p-3 rounded-full bg-stone-100 hover:bg-stone-200 text-stone-700 transition-colors"
         >
           <X className="w-5 h-5" />
         </button>
 
         <div className="grid grid-cols-1 md:grid-cols-2">
-          <div className="relative aspect-square md:aspect-auto h-72 md:h-full bg-stone-100">
+          <div className="relative aspect-square md:aspect-auto h-64 md:h-full bg-stone-100">
             <Image
               src={product.image}
               alt={product.name}
               fill
-              className="object-cover"
+              className="object-contain p-4"
             />
           </div>
 
-          <div className="p-6 md:p-8 flex flex-col justify-between space-y-4">
+          <div className="p-6 sm:p-7 flex flex-col justify-between space-y-4">
             <div>
-              <div className="flex items-center justify-between text-xs text-stone-500 mb-2">
-                <span className="font-bold uppercase tracking-wider text-brand-600">
+              <div className="flex items-center justify-between text-sm mb-2">
+                <span className="font-bold text-brand-600">
                   {product.category}
                 </span>
-                <div className="flex items-center gap-1 text-amber-500">
+                <div className="flex items-center gap-1 text-amber-500 font-bold">
                   <Star className="w-4 h-4 fill-current" />
-                  <span className="font-bold text-stone-800">{product.rating.toFixed(1)}</span>
-                  <span className="text-stone-400">({product.reviewCount} reviews)</span>
+                  <span>{product.rating.toFixed(1)}</span>
                 </div>
               </div>
 
-              <h2 className="font-serif font-black text-2xl text-stone-900 mb-2">
+              <h2 className="font-serif font-black text-xl sm:text-2xl text-stone-900 mb-2">
                 {product.name}
               </h2>
 
-              <div className="flex items-baseline gap-2 mb-4">
+              <div className="flex items-baseline gap-2 mb-3">
                 {product.isCustomQuote ? (
                   <span className="text-xl font-bold text-brand-600">
-                    As Per Custom Choice
+                    Bespoke Export Order
                   </span>
                 ) : (
                   <>
@@ -111,7 +111,7 @@ export const QuickViewModal: React.FC<QuickViewModalProps> = ({
                       </span>
                     )}
                     {product.priceUnit && (
-                      <span className="text-xs text-stone-500 font-medium">
+                      <span className="text-sm text-stone-500 font-medium">
                         {product.priceUnit}
                       </span>
                     )}
@@ -119,88 +119,72 @@ export const QuickViewModal: React.FC<QuickViewModalProps> = ({
                 )}
               </div>
 
-              <p className="text-xs sm:text-sm text-stone-600 leading-relaxed mb-4">
+              <p className="text-sm text-stone-600 leading-relaxed mb-4">
                 {product.description}
               </p>
-
-              <div className="bg-stone-50 rounded-xl p-3 text-xs space-y-1.5 border border-stone-200/60 mb-4">
-                <div className="flex justify-between">
-                  <span className="text-stone-500">Material:</span>
-                  <span className="font-semibold text-stone-800">{product.specs.material}</span>
-                </div>
-                {product.specs.thickness && (
-                  <div className="flex justify-between">
-                    <span className="text-stone-500">Thickness:</span>
-                    <span className="font-semibold text-stone-800">{product.specs.thickness}</span>
-                  </div>
-                )}
-                <div className="flex justify-between">
-                  <span className="text-stone-500">Origin:</span>
-                  <span className="font-semibold text-stone-800">{product.specs.origin}</span>
-                </div>
-              </div>
             </div>
 
-            <div className="space-y-3 pt-2 border-t border-stone-200">
+            <div className="space-y-4 pt-3 border-t border-stone-100">
               {!product.isCustomQuote && (
-                <div className="flex items-center gap-4">
-                  <span className="text-xs font-semibold text-stone-600">Quantity:</span>
-                  <div className="flex items-center border border-stone-300 rounded-xl bg-white shadow-sm">
+                <div className="flex items-center justify-between">
+                  <div className="flex items-center border border-stone-200 rounded-xl bg-stone-50">
                     <button
                       onClick={() => setQuantity(Math.max(1, quantity - 1))}
-                      className="p-2 hover:bg-stone-100 text-stone-600 rounded-l-xl transition-colors"
+                      aria-label="Decrease quantity"
+                      className="p-3 hover:bg-stone-200/60 text-stone-700 rounded-l-xl transition-colors active:scale-95"
                     >
-                      <Minus className="w-3.5 h-3.5" />
+                      <Minus className="w-4 h-4" />
                     </button>
-                    <span className="px-4 text-xs font-bold text-stone-900">{quantity}</span>
+                    <span className="px-4 text-sm font-bold text-stone-900">{quantity}</span>
                     <button
                       onClick={() => setQuantity(quantity + 1)}
-                      className="p-2 hover:bg-stone-100 text-stone-600 rounded-r-xl transition-colors"
+                      aria-label="Increase quantity"
+                      className="p-3 hover:bg-stone-200/60 text-stone-700 rounded-r-xl transition-colors active:scale-95"
                     >
-                      <Plus className="w-3.5 h-3.5" />
+                      <Plus className="w-4 h-4" />
                     </button>
                   </div>
+
                   <button
                     onClick={() => toggleWishlist(product)}
-                    className={`p-2.5 rounded-xl border transition-colors ${
+                    aria-label={isFavorited ? 'Remove from wishlist' : 'Add to wishlist'}
+                    className={`p-3 rounded-xl border transition-colors active:scale-95 ${
                       isFavorited
                         ? 'border-rose-500 text-rose-500 bg-rose-50'
                         : 'border-stone-200 text-stone-500 hover:text-stone-900'
                     }`}
                   >
-                    <Heart className={`w-4 h-4 ${isFavorited ? 'fill-current' : ''}`} />
+                    <Heart className={`w-5 h-5 ${isFavorited ? 'fill-current' : ''}`} />
                   </button>
                 </div>
               )}
 
-              <div className="flex gap-2">
-                <Button
-                  onClick={handleAdd}
-                  className="flex-1 py-3 text-sm"
-                  variant={added ? 'secondary' : 'primary'}
-                >
-                  {added ? (
-                    <>
-                      <Check className="w-4 h-4 mr-2 text-emerald-400" />
-                      Added to Cart!
-                    </>
-                  ) : product.isCustomQuote ? (
-                    'Request Custom Choice Quote'
-                  ) : (
-                    <>
-                      <ShoppingBag className="w-4 h-4 mr-2" />
-                      Add {quantity} to Cart ({formatUSD(product.price * quantity)})
-                    </>
-                  )}
-                </Button>
-              </div>
+              <Button
+                onClick={handleAdd}
+                className="w-full py-3.5 text-sm font-bold shadow-md"
+                variant={added ? 'secondary' : 'primary'}
+              >
+                {added ? (
+                  <>
+                    <Check className="w-4 h-4 mr-2 text-emerald-400" />
+                    Added to Cart
+                  </>
+                ) : product.isCustomQuote ? (
+                  'Request Custom Quote'
+                ) : (
+                  <>
+                    <ShoppingBag className="w-4 h-4 mr-2" />
+                    Add {quantity} to Cart ({formatUSD(product.price * quantity)})
+                  </>
+                )}
+              </Button>
 
               <Link
                 href={`/products/${product.slug}`}
                 onClick={onClose}
-                className="block text-center text-xs font-bold text-brand-600 hover:text-brand-700 hover:underline pt-1"
+                className="block text-center text-sm font-bold text-stone-600 hover:text-brand-600 py-1"
               >
-                View Full Technical Specifications <ArrowRight className="inline w-3 h-3 ml-1" />
+                View Full Details <ArrowRight className="inline w-4 h-4 ml-1" />
               </Link>
             </div>
           </div>
